@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="chat.css" />
-    <title>Chat</title>
-  </head>
-  <body>
-    <main class="main">
+{{#> layouts/main title="Chat" }}
+    <main class="chat-main">
       <section class="sidebar">
         <ul class="chat-list">
      {{#each chats}}
@@ -16,10 +8,9 @@
         </ul>
       </section>
       <section class="dialogs">
-        {{#each chats}}
+      {{#each chats}}
         {{>chat-dialog/chat-dialog src=img_src text=text }}
-    {{/each}}   
+      {{/each}}   
       </section>
     </main>
-  </body>
-</html>
+{{/ layouts/main}}
