@@ -8,9 +8,17 @@
         </ul>
       </section>
       <section class="dialogs">
-      {{#each dialogs}}
-        {{> chat-dialog/chat-dialog color=color name=username class=class src=img_src text=text }}
-      {{/each}}   
+        <div class="dialogs__item">
+          {{#each dialogs}}
+          {{> chat-dialog/chat-dialog color=color name=username class=class src=img_src text=text }}
+        {{/each}}   
+        </div>
+    
+      <div class="dialogs__send">
+        <input type="text-area" name="username" placeholder="username"/>
+        <button>Send ></button>
+      </div>
+
       </section>
     </main>
 {{/ layouts/main}}

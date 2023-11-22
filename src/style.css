@@ -4,12 +4,10 @@
 @import './pages/profile/profile.css';
 @import './pages/404/404.css';
 @import './pages/500/500.css';
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  
   font-weight: 400;
-
-
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
@@ -17,6 +15,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+input {
+  border-radius: 30px;
 }
 li {
   list-style: none;
@@ -115,4 +116,5 @@ button:focus-visible {
 .page-link {
   text-align: center;
 }
+
 

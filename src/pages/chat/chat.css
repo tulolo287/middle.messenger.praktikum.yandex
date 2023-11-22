@@ -9,12 +9,14 @@ body {
 
 }
 .dialogs {
-  overflow: scroll;
   width: 70%;
-  height: 100vh;
-  display: grid;
+ 
   padding: 20px;
-  grid-gap: 0.6rem;
+}
+.dialogs__item {
+  height: calc(100vh - 200px);
+  display: grid;
+  overflow: scroll;
 }
 .sidebar {
   width: 30%;
@@ -38,11 +40,15 @@ body {
   height: 50px;
   border-radius: 50%;
 }
+.chat-list {
+  height: 100%;
+  overflow-y: auto;
+}
 .chat-item {
   display: flex;
   justify-content: space-around;
   height: 70px;
-  border: 2px solid rebeccapurple;
+  border: 2px solid #343546;
   border-radius: 50px;
   margin-top: 20px;
   list-style: none;
@@ -50,8 +56,8 @@ body {
   translate: 3s ease-in-out;
 }
 .chat-item:hover {
-  background-color: white;
-  width: 500px;
+  border: 3px solid #fff;
+  cursor: pointer;
 }
 .chat-item__active {
   background-color: white;
@@ -99,4 +105,16 @@ body {
   align-content: right;
   color: black;
   background-color: #ffffff;
+}
+.dialogs__send {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+}
+.dialogs__send input {
+  width: 70%;
+  margin-right: 20px;
+  border: 6px solid #343546;
+  border-radius: 18px;
 }
