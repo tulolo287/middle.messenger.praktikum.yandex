@@ -8,8 +8,8 @@
         </ul>
       </section>
       <section class="dialogs">
-      {{#each chats}}
-        {{>chat-dialog/chat-dialog src=img_src text=text }}
+      {{#each dialogs}}
+        {{> chat-dialog/chat-dialog color=color name=username class=class src=img_src text=text }}
       {{/each}}   
       </section>
     </main>

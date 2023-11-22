@@ -15,7 +15,11 @@ export default defineConfig({
     outDir: resolve(__dirname, 'dist'),
     rollupOptions: {
       input: {
-
+        index: resolve(__dirname, './src/index.html'),
+        404: resolve(__dirname, './src/pages/404/404.html'),
+        500: resolve(__dirname, './src/pages/500/500.html'),
+        login: resolve(__dirname, './src/pages/login/login.html'),
+        register: resolve(__dirname, './src/pages/register/register.html'),
         profile: resolve(__dirname, './src/pages/profile/profile.html'),
         chat: resolve(__dirname, './src/pages/chat/chat.html'),
       },
@@ -68,21 +72,53 @@ export default defineConfig({
       },
       chats: [
         {
-          username: 'MMK',
+          id: 1,
+          username: 'Alex',
+          active: true,
+          color: '#0a2472',
           text: "LKJLJLlkjlii jljlkj",
           img_src: "https://f.hubspotusercontent30.net/hubfs/2235233/blog-import/2020/20-08-Aug/sm-icons-facebook-logo.png"
         },
         {
-          username: 'dsf',
+          id: 2,
+          username: 'Carol',
+          color: 'red',
+          class: 'received',
           text: "dfsd dfdf d f",
           img_src: "https://f.hubspotusercontent30.net/hubfs/2235233/blog-import/2020/20-08-Aug/sm-icons-facebook-logo.png"
         },
         {
-          username: 'dfsa##',
+          id: 3,
+          username: 'Olga',
+          color: 'green',
           text: "dfs jljlkj",
           img_src: "https://f.hubspotusercontent30.net/hubfs/2235233/blog-import/2020/20-08-Aug/sm-icons-facebook-logo.png"
         },
-      ]
+      ],
+      dialogs: [
+        {
+          id: 1,
+          username: 'Alex',
+          color: '#0a2472',
+          class: 'received',
+          text: "LKJLJLlkjlii jljlkj",
+          img_src: "https://f.hubspotusercontent30.net/hubfs/2235233/blog-import/2020/20-08-Aug/sm-icons-facebook-logo.png"
+        },
+        {
+          id: 1,
+          username: 'Alex',
+          color: '#0a2472',
+          class: 'received',
+          text: "dfsd dfdf d f",
+          img_src: "https://f.hubspotusercontent30.net/hubfs/2235233/blog-import/2020/20-08-Aug/sm-icons-facebook-logo.png"
+        },
+        {
+          username: 'Me',
+          class: 'sent',
+          text: "dfs jljlkj",
+          img_src: "https://f.hubspotusercontent30.net/hubfs/2235233/blog-import/2020/20-08-Aug/sm-icons-facebook-logo.png"
+        },
+      ],
     }
   })]
 })

@@ -3,14 +3,13 @@
 
 
  
- <chat-dialog>
- <div class="chat-dialog">
+ <chat-dialog class={{class}} style="background-color: {{color}};">
+ <div >
   <div class="chat-dialog__header"> 
-            <img src={{src}} class="chat-dialog__img" />
-
-    
-            
-
+          <div class="chat-dialog__logo">
+             <img src={{src}} class="chat-dialog__img" />
+             <h3>{{name}}</h3>
+          </div> 
             <div class="menu">
               <span class="dot"></span>
               <span class="dot"></span>

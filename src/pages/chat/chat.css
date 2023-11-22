@@ -9,9 +9,12 @@ body {
 
 }
 .dialogs {
+  overflow: scroll;
   width: 70%;
   height: 100vh;
-  
+  display: grid;
+  padding: 20px;
+  grid-gap: 0.6rem;
 }
 .sidebar {
   width: 30%;
@@ -42,8 +45,8 @@ body {
   border: 2px solid rebeccapurple;
   border-radius: 50px;
   margin-top: 20px;
-  width: 300px;
   list-style: none;
+  padding: 10px;
   translate: 3s ease-in-out;
 }
 .chat-item:hover {
@@ -53,10 +56,6 @@ body {
 .chat-item__active {
   background-color: white;
   width: 500px;
-}
-.dialogs {
-  height: 100vh;
-  overflow: scroll;
 }
 .chat-dialog {
   height: 400px;
@@ -68,8 +67,36 @@ body {
 }
 .chat-dialog__header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
 }
 .chat-dialog__img {
   height: 70px;
+}
+.chat-dialog__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chat-dialog__logo h3 {
+  margin-left: 15px;
+}
+.sent,
+.received {
+  width: 500px;
+  background-color: white;
+  border-radius: 60px;
+  margin: 30px;
+  padding: 30px;
+  min-width: 20rem;
+}
+.received {
+  justify-self: left;
+  color: white;
+}
+.sent {
+  justify-self: right;
+  align-content: right;
+  color: black;
+  background-color: #ffffff;
 }
