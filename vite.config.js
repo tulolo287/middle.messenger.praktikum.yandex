@@ -1,8 +1,8 @@
+import cssnanoPlugin from 'cssnano';
 import { resolve } from 'path';
+import postcssImort from 'postcss-import';
 import { defineConfig } from 'vite';
 import handlebars from 'vite-plugin-handlebars';
-import cssnanoPlugin from 'cssnano';
-import postcssImort from 'postcss-import'
 
 
 
@@ -70,14 +70,14 @@ export default defineConfig({
         nic: 'Иван',
         phone: '+7 (909) 967 30 30',
       },
-      chats: [
+      profiles: [
         {
           id: 1,
           username: 'Alex',
           active: true,
           color: '#0a2472',
-          text: "LKJLJLlkjlii jljlkj",
-          img_src: "https://f.hubspotusercontent30.net/hubfs/2235233/blog-import/2020/20-08-Aug/sm-icons-facebook-logo.png"
+          text: "Круто!",
+          img_src: "https://cdn-icons-png.flaticon.com/512/3541/3541871.png"
         },
         {
           id: 2,
@@ -85,14 +85,14 @@ export default defineConfig({
           color: 'red',
           class: 'received',
           text: "dfsd dfdf d f",
-          img_src: "https://f.hubspotusercontent30.net/hubfs/2235233/blog-import/2020/20-08-Aug/sm-icons-facebook-logo.png"
+          img_src: "https://cdn-icons-png.flaticon.com/512/3541/3541871.png"
         },
         {
           id: 3,
           username: 'Olga',
           color: 'green',
           text: "dfs jljlkj",
-          img_src: "https://f.hubspotusercontent30.net/hubfs/2235233/blog-import/2020/20-08-Aug/sm-icons-facebook-logo.png"
+          img_src: "https://cdn-icons-png.flaticon.com/512/3541/3541871.png"
         },
       ],
       dialogs: [
@@ -101,22 +101,22 @@ export default defineConfig({
           username: 'Alex',
           color: '#0a2472',
           class: 'received',
-          text: "LKJLJLlkjlii jljlkj",
-          img_src: "https://f.hubspotusercontent30.net/hubfs/2235233/blog-import/2020/20-08-Aug/sm-icons-facebook-logo.png"
+          text: "Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой.",
+          img_src: "https://cdn-icons-png.flaticon.com/512/3541/3541871.png"
         },
         {
           id: 1,
           username: 'Alex',
           color: '#0a2472',
           class: 'received',
-          text: "dfsd dfdf d f",
-          img_src: "https://f.hubspotusercontent30.net/hubfs/2235233/blog-import/2020/20-08-Aug/sm-icons-facebook-logo.png"
+          text: "Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.",
+          img_src: "https://cdn-icons-png.flaticon.com/512/3541/3541871.png"
         },
         {
           username: 'Me',
           class: 'sent',
-          text: "dfs jljlkj",
-          img_src: "https://f.hubspotusercontent30.net/hubfs/2235233/blog-import/2020/20-08-Aug/sm-icons-facebook-logo.png"
+          text: "Круто!",
+          img_src: "https://cdn-icons-png.flaticon.com/512/3541/3541871.png"
         },
       ],
     }

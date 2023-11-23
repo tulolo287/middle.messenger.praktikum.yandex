@@ -2,16 +2,27 @@ body {
   margin: 0;
 }
 .chat-main {
-  display: flex;
-  justify-content: space-around;
+ 
+
   width: 100vw;
   height: 100vh;
+}
+.chat-main__profile {
+  width: 100vw;
+  height: 100px;
+  text-align: right;
+}
+.chat-main__profile img {
+  max-width: 100%;
+  max-height: 100%;
 
+}
+.container {
+  display: flex;
+  justify-content: space-around;
 }
 .dialogs {
   width: 70%;
- 
-  padding: 20px;
 }
 .dialogs__item {
   height: calc(100vh - 200px);
@@ -28,6 +39,9 @@ body {
   flex-direction: column;
   height: 50px;
 }
+.bage {
+  text-align: center;
+}
 .dot {
   height: 10px;
   width: 10px;
@@ -41,16 +55,17 @@ body {
   border-radius: 50%;
 }
 .chat-list {
-  height: 100%;
+  height: calc(100vh - 200px);
   overflow-y: auto;
 }
 .chat-item {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
   height: 70px;
   border: 2px solid #343546;
   border-radius: 50px;
-  margin-top: 20px;
+  margin-top: 30px;
   list-style: none;
   padding: 10px;
   translate: 3s ease-in-out;
@@ -62,6 +77,27 @@ body {
 .chat-item__active {
   background-color: white;
   width: 500px;
+}
+.chat-item__info {
+  height: 70px;
+  display: flex;
+  width: 70%;
+}
+.chat-item__info__img {
+  height: 100%;
+}
+.chat-item__info__name {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  justify-content: space-around;
+}
+.chat-item__info__time {
+  margin-right: 10px;
+  justify-content: space-around;
+}
+.chat-item p, h3 {
+  margin: 0;
 }
 .chat-dialog {
   height: 400px;
@@ -76,6 +112,9 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.chat-dialog__header__time svg {
+  margin-left: 5px;
+} 
 .chat-dialog__img {
   height: 70px;
 }
@@ -98,23 +137,32 @@ body {
 }
 .received {
   justify-self: left;
-  color: white;
+  color: rgb(0, 0, 0);
+  background-color: #7275af;
+  border: 3px solid white;
 }
 .sent {
   justify-self: right;
   align-content: right;
   color: black;
-  background-color: #ffffff;
+  background-color: #7275af;
+  border: 3px solid #343546;
 }
-.dialogs__send {
+.dialogs__control {
+  display: flex;
+
+}
+.dialogs__control__send {
   width: 100%;
   display: flex;
   justify-content: space-between;
   margin: 30px;
 }
-.dialogs__send input {
+.dialogs__control__send input {
   width: 70%;
   margin-right: 20px;
-  border: 6px solid #343546;
+  color: white;
+  height: 50px;
+  background-color: #343546;
   border-radius: 18px;
 }

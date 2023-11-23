@@ -10,11 +10,6 @@
   flex-wrap: nowrap;
   gap: 15px;
 }
-.register-form input {
-  height: 40px;
-
-  border-radius: 30px;
-}
 .register-form label {
   color: #343546;
 }

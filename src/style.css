@@ -17,7 +17,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 input {
+  height: 30px;
   border-radius: 30px;
+  border-radius: 30px;
+  padding-left: 10px;
 }
 li {
   list-style: none;
@@ -28,6 +31,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
+  cursor: pointer;
   color: #ffffff;
 }
 
@@ -43,6 +47,13 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #app {

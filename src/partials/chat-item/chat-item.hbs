@@ -1,13 +1,15 @@
-
-
-
-
- 
- <chat-item>
- <li class="chat-item" {{#if active}}style="background-color: {{color}}; border: 3px solid white;"{{/if}} >
-            <img src={{src}} class="chat-item__img" />
-            
-            {{text}}
+<chat-item>
+ <li class="chat-item" {{#if active}}style="border: 3px solid white;"{{/if}} >
+ <div class="chat-item__info">
+            <img src={{src}} class="chat-item__info__img" />
+                   <div class="chat-item__info__name">
+        
+             <h3>{{name}}</h3>
+                <p>{{text}}</p>
+          </div> 
+         </div>
+         <div class="chat-item__info__time">
+          12:00
             <div class="bage">
               <svg
                 width="20"
@@ -19,11 +21,7 @@
                 <circle cx="10" cy="10" r="10" fill="#3369F3" />
               </svg>
             </div>
-
-            <div class="menu">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
             </div>
+
           </li>
           </chat-item>

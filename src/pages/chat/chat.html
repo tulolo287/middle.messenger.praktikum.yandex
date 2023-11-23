@@ -1,24 +1,32 @@
 {{#> layouts/main title="Chat" }}
     <main class="chat-main">
+     
+      
       <section class="sidebar">
+        <div class="dialogs__control__search">
+          <input type="search" name="username" placeholder="username"/>
+        </div>
         <ul class="chat-list">
-     {{#each chats}}
-         {{>chat-item/chat-item src=img_src text=text }}
+     {{#each profiles}}
+         {{>chat-item/chat-item name=username src=img_src text=text }}
      {{/each}}    
         </ul>
+  
       </section>
       <section class="dialogs">
+        <div class="chat-main__profile"><img src="https://cdn-icons-png.flaticon.com/512/3541/3541871.png"/></div>
         <div class="dialogs__item">
           {{#each dialogs}}
           {{> chat-dialog/chat-dialog color=color name=username class=class src=img_src text=text }}
         {{/each}}   
         </div>
     
-      <div class="dialogs__send">
-        <input type="text-area" name="username" placeholder="username"/>
-        <button>Send ></button>
-      </div>
-
+    
+        <div class="dialogs__control__send">
+          <input type="text-area" name="username" placeholder="message"/>
+          <button>Send ></button>
+        </div>
       </section>
+   
     </main>
 {{/ layouts/main}}
