@@ -1,15 +1,13 @@
-
-
 export const plugins = [
-   [
-      'postcss-preset-env',
-      {
-         // Options
-         features: {
-            'nesting-rules': {
-               noIsPseudoSelector: false,
-            },
-         },
+  [
+    'postcss-preset-env',
+    {
+      // Options
+      features: {
+        'nesting-rules': {
+          noIsPseudoSelector: false,
+        },
       },
-   ],
+    },
+  ],
 ];

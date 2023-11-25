@@ -15,7 +15,6 @@ body {
 .chat-main__profile img {
   max-width: 100%;
   max-height: 100%;
-
 }
 .dialogs {
   width: 70%;
@@ -84,7 +83,7 @@ body {
   list-style: none;
   padding: 10px;
   translate: 3s ease-in-out;
-  color: #000;
+  color: #343546;
   overflow-y: scroll;
 }
 .chat-item:hover {
@@ -117,7 +116,8 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.chat-item p, h3 {
+.chat-item p,
+h3 {
   margin: 0;
 }
 .chat-dialog {
@@ -126,7 +126,6 @@ body {
   background-color: white;
   border-radius: 30px;
   margin: 30px;
-  
 }
 .chat-dialog__header {
   display: flex;
@@ -135,7 +134,7 @@ body {
 }
 .chat-dialog__header__time svg {
   margin-left: 5px;
-} 
+}
 .chat-dialog__img {
   height: 70px;
 }
@@ -158,21 +157,19 @@ body {
 }
 .received {
   justify-self: left;
-  color: rgb(0, 0, 0);
+  color: #343546;
   background-color: #7275af;
   border: 3px solid white;
 }
 .sent {
   justify-self: right;
   align-content: right;
-  color: black;
+  color: #343546;
   background-color: #7275af;
   border: 3px solid #343546;
 }
 .dialogs__control {
   display: flex;
-
-
 }
 .dialogs__control__send {
   display: flex;

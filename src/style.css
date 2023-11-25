@@ -47,7 +47,7 @@ body {
   min-height: 100vh;
   background-color: #7275af;
 }
- .container {
+.container {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -137,5 +137,3 @@ button:focus-visible {
 .page-link {
   text-align: center;
 }
-
-
