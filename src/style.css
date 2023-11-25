@@ -23,6 +23,9 @@ input {
   padding-left: 10px;
   border: none;
 }
+ul {
+  padding: 0;
+}
 li {
   list-style: none;
 }
@@ -43,6 +46,12 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: #7275af;
+}
+ .container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
