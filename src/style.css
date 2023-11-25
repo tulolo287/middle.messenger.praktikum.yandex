@@ -137,3 +137,24 @@ button:focus-visible {
 .page-link {
   text-align: center;
 }
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #7275af; 
+  border-radius: 20px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #213547; 
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #fff; 
+}

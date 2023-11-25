@@ -84,7 +84,7 @@ body {
   padding: 10px;
   translate: 3s ease-in-out;
   color: #343546;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 .chat-item:hover {
   border: 3px solid #fff;
