@@ -84,14 +84,14 @@ export default defineConfig({
           username: 'Carol',
           color: 'red',
           class: 'received',
-          text: "dfsd dfdf d f",
+          text: "Можно или сегодня или завтра вечером.",
           img_src: "https://cdn-icons-png.flaticon.com/512/3541/3541871.png"
         },
         {
           id: 3,
           username: 'Olga',
           color: 'green',
-          text: "dfs jljlkj",
+          text: "Друзья, у меня для вас...",
           img_src: "https://cdn-icons-png.flaticon.com/512/3541/3541871.png"
         },
       ],
