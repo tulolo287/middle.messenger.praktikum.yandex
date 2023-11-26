@@ -19,8 +19,14 @@ export default defineConfig({
         login: resolve(__dirname, './src/pages/login/login.html'),
         register: resolve(__dirname, './src/pages/register/register.html'),
         profile: resolve(__dirname, './src/pages/profile/profile.html'),
-        changeProfile: resolve(__dirname, './src/pages/change-profile/change-profile.html'),
-        changePassword: resolve(__dirname, './src/pages/change-password/change-password.html'),
+        changeProfile: resolve(
+          __dirname,
+          './src/pages/change-profile/change-profile.html',
+        ),
+        changePassword: resolve(
+          __dirname,
+          './src/pages/change-password/change-password.html',
+        ),
         chat: resolve(__dirname, './src/pages/chat/chat.html'),
       },
     },

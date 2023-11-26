@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -10,9 +10,12 @@
   <body>
     <main>
       <section class="main">
-        <ul class="page-list">
-          {{#each pages}} {{> page-link/page-link url=url text=name}} {{/each}}
-        </ul>
+        <nav>
+          <ul class="page-list">
+            {{#each pages}} {{> page-link/page-link url=url text=name}}
+            {{/each}}
+          </ul>
+        </nav>
       </section>
     </main>
   </body>

@@ -1,7 +1,7 @@
 <chat-item>
- <li class="chat-item" {{#if active}}style="border: 3px solid white;"{{/if}} >
+ <li class="chat-item" {{#if active}}style="border: 3px solid var(--selectColor);"{{/if}} >
  <div class="chat-item__info">
-      <img src={{src}} class="chat-item__info__img" />
+      <img src={{src}} alt={{name}} class="chat-item__info__img" />
     <div class="chat-item__info__name">    
       <h3>{{name}}</h3>
       <p>{{text}}</p>

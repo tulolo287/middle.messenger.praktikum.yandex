@@ -44,12 +44,12 @@ body {
   height: 50px;
 }
 .menu circle:hover {
-  color: #fff;
+  color: var(--selectColor);
 }
 .bage {
   text-align: center;
-  background-color: #343546;
-  color: #fff;
+  background-color: var(--foregroundColor);
+  color: var(--selectColor);
   width: 30px;
   height: 30px;
   border-radius: 30%;
@@ -77,21 +77,21 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  border: 3px solid #343546;
+  border: 3px solid var(--foregroundColor);
   border-radius: 50px;
   margin-bottom: 30px;
   list-style: none;
   padding: 10px;
   translate: 3s ease-in-out;
-  color: #343546;
+  color: var(--foregroundColor);
   overflow: hidden;
 }
 .chat-item:hover {
-  border: 3px solid #fff;
+  border: 3px solid var(--selectColor);
   cursor: pointer;
 }
 .chat-item__active {
-  background-color: white;
+  background-color: var(--selectColor);
   width: 500px;
 }
 .chat-item__info {
@@ -123,7 +123,7 @@ h3 {
 .chat-dialog {
   height: 400px;
   width: 500px;
-  background-color: white;
+  background-color: var(--selectColor);
   border-radius: 30px;
   margin: 30px;
 }
@@ -149,7 +149,7 @@ h3 {
 .sent,
 .received {
   width: 500px;
-  background-color: white;
+  background-color: var(--selectColor);
   border-radius: 60px;
   margin-bottom: 40px;
   padding: 30px;
@@ -157,16 +157,16 @@ h3 {
 }
 .received {
   justify-self: left;
-  color: #343546;
-  background-color: #7275af;
-  border: 3px solid white;
+  color: var(--foregroundColor);
+  background-color: var(--backgroundColor);
+  border: 3px solid var(--selectColor);
 }
 .sent {
   justify-self: right;
   align-content: right;
-  color: #343546;
-  background-color: #7275af;
-  border: 3px solid #343546;
+  color: var(--foregroundColor);
+  background-color: var(--backgroundColor);
+  border: 3px solid var(--foregroundColor);
 }
 .dialogs__control {
   display: flex;
@@ -179,8 +179,8 @@ h3 {
 .dialogs__control__send input {
   width: 70%;
   margin-right: 20px;
-  color: white;
+  color: var(--selectColor);
   height: 50px;
-  background-color: #343546;
+  background-color: var(--foregroundColor);
   border-radius: 18px;
 }

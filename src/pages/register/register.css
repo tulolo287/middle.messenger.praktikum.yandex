@@ -11,7 +11,7 @@
   gap: 15px;
 }
 .register-form label {
-  color: #343546;
+  color: var(--foregroundColor);
 }
 .register-form button {
   width: 300px;

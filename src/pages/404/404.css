@@ -1,6 +1,11 @@
 .header404 {
   margin: 0px;
+  font-size: 5.2em;
 }
-.center a {
+.section404 a {
   margin-top: 70px;
+  font-size: 1.1em;
+}
+.section404 p {
+  font-size: 1.5em;
 }
