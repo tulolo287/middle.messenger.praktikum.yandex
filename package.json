@@ -1,16 +1,33 @@
 {
-  "name": "nodejs",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "vite-messenger",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "start": "vite build && nodemon ./server.js",
+    "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "engines": {
+    "node": ">=12"
+  },
+  "devDependencies": {
+    "cssnano": "^6.0.1",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "postcss-load-config": "^4.0.2",
+    "postcss-loader": "^7.3.3",
+    "postcss-preset-env": "^9.3.0",
+    "vite": "^5.0.0"
+  },
   "dependencies": {
-    "@types/node": "^18.0.6",
-    "node-fetch": "^3.2.6"
+    "cors": "^2.8.5",
+    "handlebars": "^4.7.8",
+    "reload": "^3.2.1",
+    "vite-plugin-handlebars": "^1.6.0"
   }
 }

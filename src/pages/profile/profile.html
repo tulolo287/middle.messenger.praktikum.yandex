@@ -1,0 +1,50 @@
+{{#> layouts/main title="Chat" }}
+<main class="main">
+  <section class="profile">
+    <svg
+      width="130"
+      height="130"
+      viewBox="0 0 130 130"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="65" cy="65" r="65" fill="#EFEFEF" />
+    </svg>
+    <h1 class="profile-name">{{profile.name}}</h1>
+
+    <table class="profile-info">
+      <tbody>
+        <tr>
+          <td>Почта</td>
+          <td class="t-end">{{profile.email}}</td>
+        </tr>
+        <tr>
+          <td>Логин</td>
+          <td class="t-end">{{profile.login}}</td>
+        </tr>
+        <tr>
+          <td>Имя</td>
+          <td class="t-end">{{profile.name}}</td>
+        </tr>
+        <tr>
+          <td>Фамилия</td>
+          <td class="t-end">{{profile.surname}}</td>
+        </tr>
+        <tr>
+          <td>Имя в чате</td>
+          <td class="t-end">{{profile.nic}}</td>
+        </tr>
+        <tr>
+          <td>Телефон</td>
+          <td class="t-end">{{profile.phone}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="change-profile">
+      <a href="/pages/change-profile/change-profile.html">Изменить данные</a>
+      <a href="/pages/change-password/change-password.html">Сменить пароль</a>
+      <a class="exit" href="/index.html">Выйти</a>
+    </div>
+  </section>
+</main>
+{{/ layouts/main}}

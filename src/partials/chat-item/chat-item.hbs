@@ -1,0 +1,15 @@
+<chat-item>
+ <li class="chat-item" {{#if active}}style="border: 3px solid var(--selectColor);"{{/if}} >
+ <div class="chat-item__info">
+      <img src={{src}} alt={{name}} class="chat-item__info__img" />
+    <div class="chat-item__info__name">    
+      <h3>{{name}}</h3>
+      <p>{{text}}</p>
+    </div> 
+    </div>
+  <div class="chat-item__info__time">
+      <span class="bage">2</span>
+      <span>12:00</span>
+  </div>
+  </li>
+</chat-item>

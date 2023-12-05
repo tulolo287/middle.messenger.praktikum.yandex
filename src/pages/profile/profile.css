@@ -1,0 +1,30 @@
+.profile {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+.profile svg {
+  margin: auto;
+}
+.profile-name {
+  text-align: center;
+}
+.profile-info {
+  width: 100%;
+  gap: 30px;
+}
+.profile-info button {
+  width: 300px;
+}
+.t-end {
+  text-align: end;
+}
+.exit {
+  color: red;
+}
+.change-profile {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
