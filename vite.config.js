@@ -3,7 +3,7 @@ import { resolve } from 'path';
 import postcssImort from 'postcss-import';
 import { defineConfig } from 'vite';
 import handlebars from 'vite-plugin-handlebars';
-import vitePluginHandlebarsPrecompile from './vite-plugin-handelbars-precompile';
+import vitePluginHandlebarsPrecompile from './vite-plugin-handelbars-precompile.ts';
 
 export default defineConfig({
   server: {
