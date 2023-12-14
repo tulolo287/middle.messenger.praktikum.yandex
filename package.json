@@ -13,7 +13,11 @@
     "node": ">=12"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
     "cssnano": "^6.0.1",
+    "eslint": "^8.55.0",
+    "eslint-config-airbnb": "^19.0.4",
     "express": "^4.18.2",
     "nodemon": "^3.0.1",
     "postcss": "^8.4.31",
@@ -22,6 +26,7 @@
     "postcss-load-config": "^4.0.2",
     "postcss-loader": "^7.3.3",
     "postcss-preset-env": "^9.3.0",
+    "stylelint": "^16.0.2",
     "typescript": "^5.3.3",
     "vite": "^5.0.0"
   },

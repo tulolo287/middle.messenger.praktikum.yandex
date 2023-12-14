@@ -1,6 +1,5 @@
 import { PageLinks } from '../../components/PageLinks';
 import data from '../../data';
-import { IPage } from '../../typings/data';
 import Block from '../../utils/Block';
 import template from './home.hbs';
 
@@ -10,7 +9,7 @@ interface HomePageProps {
 
 export class HomePage extends Block<HomePageProps> {
   constructor(props: HomePageProps) {
-    super('main', props);
+    super(props);
   }
 
   init() {

@@ -1,37 +1,46 @@
+import { IInputLabel } from '../../typings/data';
 import Block from '../../utils/Block';
+import { checkValidation } from '../../utils/validation';
 import { Button } from '../Button';
-import { Input } from '../Input';
+import { InputLabel } from '../InputLabel';
+import { Link } from '../Link';
 import template from './login.hbs';
 
+interface ILoginProps {
+  loginInputs: IInputLabel[];
+}
+
 export class Login extends Block {
-  constructor(props) {
-    super('div', props);
+  constructor(props: ILoginProps) {
+    super(props);
   }
 
   init() {
-    this.props.inputs = [
-      {
-        label: { for: 'login', text: 'Логин' },
-        type: 'text',
-        name: 'login',
-        required: true,
-        placeholder: 'login',
-      },
-      {
-        label: { for: 'password', text: 'Пароль' },
-        type: 'password',
-        name: 'password',
-        required: true,
-        placeholder: 'password',
-      },
-    ];
-    this.children.Inputs = this.props.inputs.map(
-      (input) => new Input({ ...input })
+    this.children.Link = new Link({
+      class: 'homeLink',
+      text: 'Нет аккаунта?',
+      url: 'register',
+    });
+    this.children.Inputs = this.props.loginInputs.map(
+      (input: IInputLabel) => new InputLabel({ ...input })
     );
     this.children.Button = new Button({
       type: 'submit',
       text: 'Авторизоваться',
- 
+      events: {
+        click: (e: Event) => {
+          e.preventDefault();
+          const form = document.querySelector('form');
+          if (form) {
+            let data = checkValidation(form);
+            if (data) {
+              console.log(data);
+            } else {
+              alert('Invalid form');
+            }
+          }
+        },
+      },
     });
   }
 

@@ -1,67 +1,27 @@
+import { IInputLabel } from '../../typings/data';
 import Block from '../../utils/Block';
+import { checkValidation } from '../../utils/validation';
 import { Button } from '../Button';
-import { Input } from '../Input';
+import { InputLabel } from '../InputLabel';
+import { Link } from '../Link';
 import template from './register.hbs';
 
+interface IRegister {
+  registerInputs: IInputLabel[];
+}
 export class Register extends Block {
-  constructor(props) {
-    super('div', props);
+  constructor(props: IRegister) {
+    super(props);
   }
- 
+
   init() {
-    this.props.inputs = [
-      {
-        label: { for: 'email', text: 'Почта' },
-        type: 'text',
-        name: 'email',
-        required: true,
-        placeholder: 'email',
-      },
-      {
-        label: { for: 'login', text: 'Логин' },
-        type: 'text',
-        name: 'login',
-        required: true,
-        placeholder: 'login',
-      },
-      {
-        label: { for: 'first_name', text: 'Имя' },
-        type: 'text',
-        name: 'first_name',
-        required: true,
-        placeholder: 'name',
-      },
-      {
-        label: { for: 'second_name', text: 'Фамилия' },
-        type: 'text',
-        name: 'second_name',
-        required: true,
-        placeholder: 'surname',
-      },
-      {
-        label: { for: 'phone', text: 'Телефон' },
-        type: 'tel',
-        name: 'phone',
-        required: true,
-        placeholder: 'phone',
-      },
-      {
-        label: { for: 'password', text: 'Пароль' },
-        type: 'password',
-        name: 'password',
-        required: true,
-        placeholder: 'password',
-      },
-      {
-        label: { for: 'password', text: 'Пароль (ещё раз)' },
-        type: 'password',
-        name: 'password',
-        required: true,
-        placeholder: 'password',
-      },
-    ];
-    this.children.Inputs = this.props.inputs.map(
-      (input) => new Input({ ...input })
+    this.children.Link = new Link({
+      class: 'homeLink',
+      text: 'Войти',
+      url: 'login',
+    });
+    this.children.Inputs = this.props.registerInputs.map(
+      (input: IInputLabel) => new InputLabel({ ...input })
     );
     this.children.Button = new Button({
       type: 'submit',
@@ -69,7 +29,15 @@ export class Register extends Block {
       events: {
         click: (e) => {
           e.preventDefault();
-          console.log(e);
+          const form = document.querySelector('form');
+          if (form) {
+            let data = checkValidation(form);
+            if (data && data.password === data.second_password) {
+              console.log(data);
+            } else {
+              alert('Invalid form');
+            }
+          }
         },
       },
     });

@@ -1,17 +1,22 @@
 import data from '../../data';
+import { TDialog } from '../../typings/data';
 import Block from '../../utils/Block';
-import { Dialog } from '../Dialog';
+import { DialogItem } from '../DialogItem';
 import template from './dialogs.hbs';
 
+interface IDialogsProps {
+  dialogs: TDialog[];
+}
 export class Dialogs extends Block {
-  constructor(props) {
-    super('div', props);
+  constructor(props: IDialogsProps) {
+    super(props);
   }
 
   init() {
-    this.children.Dialog = new Dialog({
-      dialogs: data.dialogs,
-    });
+    this.props.dialogs = data.dialogs;
+    this.children.Dialogs = this.props.dialogs.map(
+      (dialog: TDialog) => new DialogItem({ ...dialog })
+    );
   }
 
   render() {

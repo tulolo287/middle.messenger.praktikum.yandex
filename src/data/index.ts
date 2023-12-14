@@ -2,28 +2,34 @@ export default {
   username: 'ME',
   pages: [
     {
-      name: '404 page',
+      text: '404 page',
       url: '404',
+      class: 'pageLink',
     },
     {
-      name: '500 page',
+      text: '500 page',
       url: '500',
+      class: 'pageLink',
     },
     {
-      name: 'Chat page',
+      text: 'Chat page',
       url: 'chat',
+      class: 'pageLink',
     },
     {
-      name: 'Login page',
+      text: 'Login page',
       url: 'login',
+      class: 'pageLink',
     },
     {
-      name: 'Register page',
+      text: 'Register page',
       url: 'register',
+      class: 'pageLink',
     },
     {
-      name: 'Profile page',
+      text: 'Profile page',
       url: 'profile',
+      class: 'pageLink',
     },
   ],
   profile: {
@@ -46,14 +52,15 @@ export default {
     {
       id: 2,
       username: 'Carol',
+      active: false,
       color: 'red',
-      class: 'received',
       text: 'Можно или сегодня или завтра вечером.',
       img_src: 'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
     },
     {
       id: 3,
       username: 'Olga',
+      active: false,
       color: 'green',
       text: 'Друзья, у меня для вас...',
       img_src: 'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
@@ -77,7 +84,9 @@ export default {
       img_src: 'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
     },
     {
+      id: 5,
       username: 'Me',
+      color: '#0a2472',
       class: 'sent',
       text: 'Круто!',
       img_src: 'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
