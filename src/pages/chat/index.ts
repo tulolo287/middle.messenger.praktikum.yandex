@@ -20,10 +20,10 @@ export class ChatPage extends Block {
   }
 
   init() {
-    this.children.Avatar = new Avatar({alt: "фото профиля", url: "profile", src: "https://cdn-icons-png.flaticon.com/512/3541/3541871.png"})
+    this.children.Avatar = new Avatar({ alt: 'фото профиля', url: 'profile', src: 'https://cdn-icons-png.flaticon.com/512/3541/3541871.png' });
     this.props.messageInputs = messageInputs;
     this.children.MessageInput = this.props.messageInputs.map(
-      (input: IInputLabel) => new InputLabel({ ...input })
+      (input: IInputLabel) => new InputLabel({ ...input }),
     );
     this.children.Chats = new Chats({});
     this.children.Dialogs = new Dialogs({ dialogs: data.dialogs });
@@ -35,10 +35,10 @@ export class ChatPage extends Block {
           e.preventDefault();
           const form = document.querySelector('form');
           if (form) {
-            let data = checkValidation(form);
-            console.log(data);
-            if (data) {
-              console.log(data);
+            const formData = checkValidation(form);
+            console.log(formData);
+            if (formData) {
+              console.log(formData);
             } else {
               alert('Invalid form');
             }

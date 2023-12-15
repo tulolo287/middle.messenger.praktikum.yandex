@@ -10,10 +10,15 @@ class Block<P extends Record<string, any> = any> {
   } as const;
 
   public id = nanoid(6);
+
   protected props: P;
+
   public children: Record<string, Block>;
+
   private eventBus: () => EventBus;
+
   private _element: HTMLElement | null = null;
+
   private _meta: { tagName: string; props: P; className?: string };
 
   /** JSDoc
@@ -41,24 +46,22 @@ class Block<P extends Record<string, any> = any> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-
-  _getChildrenAndProps (childrenAndProps: P): { props: P, children: Record<string, Block | Block[]> } {
-    const props: Record<string, unknown> = {}
-    const children: Record<string, Block | Block[]> = {}
+  _getChildrenAndProps(childrenAndProps: P): { props: P, children: Record<string, Block | Block[]> } {
+    const props: Record<string, unknown> = {};
+    const children: Record<string, Block | Block[]> = {};
 
     Object.entries(childrenAndProps).forEach(([key, value]) => {
-      if (Array.isArray(value) && value.every(v => v instanceof Block)) {
-        children[key] = value
+      if (Array.isArray(value) && value.every((v) => v instanceof Block)) {
+        children[key] = value;
       } else if (value instanceof Block) {
-        children[key] = value
+        children[key] = value;
       } else {
-        props[key] = value
+        props[key] = value;
       }
-    })
+    });
 
-    return { props: props as P, children }
+    return { props: props as P, children };
   }
-
 
   _addEvents() {
     const { events = {} } = this.props as P & {
@@ -101,14 +104,13 @@ class Block<P extends Record<string, any> = any> {
   public dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
 
-    Object.values(this.children).forEach(child => {
+    Object.values(this.children).forEach((child) => {
       if (Array.isArray(child)) {
-        child.forEach(ch => { ch.dispatchComponentDidMount() })
+        child.forEach((ch) => { ch.dispatchComponentDidMount(); });
       } else {
-        child.dispatchComponentDidMount()
+        child.dispatchComponentDidMount();
       }
-    })
-
+    });
   }
 
   private _componentDidUpdate(oldProps: P, newProps: P) {
@@ -152,11 +154,11 @@ class Block<P extends Record<string, any> = any> {
 
     Object.entries(this.children).forEach(([name, component]) => {
       if (Array.isArray(component)) {
-        contextAndStubs[name] = component.map(child => `<div data-id="${child.id}"></div>`)
+        contextAndStubs[name] = component.map((child) => `<div data-id="${child.id}"></div>`);
       } else {
-        contextAndStubs[name] = `<div data-id="${component.id}"></div>`
+        contextAndStubs[name] = `<div data-id="${component.id}"></div>`;
       }
-    })
+    });
 
     const html = template(contextAndStubs);
 
@@ -164,27 +166,25 @@ class Block<P extends Record<string, any> = any> {
 
     temp.innerHTML = html;
 
-
     const replaceStub = (component: Block): void => {
-      const stub = temp.content.querySelector(`[data-id="${component.id}"]`)
+      const stub = temp.content.querySelector(`[data-id="${component.id}"]`);
 
       if (!stub) {
-        return
+        return;
       }
 
-      component.getContent()?.append(...Array.from(stub.childNodes))
+      component.getContent()?.append(...Array.from(stub.childNodes));
 
-      stub.replaceWith(component.getContent()!)
-    }
-
+      stub.replaceWith(component.getContent()!);
+    };
 
     Object.entries(this.children).forEach(([_, component]) => {
       if (Array.isArray(component)) {
-        component.forEach(replaceStub)
+        component.forEach(replaceStub);
       } else {
-        replaceStub(component)
+        replaceStub(component);
       }
-    })
+    });
 
     return temp.content;
   }
@@ -209,7 +209,7 @@ class Block<P extends Record<string, any> = any> {
         const oldTarget = { ...target };
 
         target[prop as keyof P] = value;
-        
+
         self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
         return true;
       },
@@ -220,8 +220,7 @@ class Block<P extends Record<string, any> = any> {
   }
 
   _createDocumentElement(tagName: string, className: string | undefined) {
-    let element;
-    element = document.createElement(tagName);
+    const element = document.createElement(tagName);
     if (className) {
       element.classList.add(className);
     }

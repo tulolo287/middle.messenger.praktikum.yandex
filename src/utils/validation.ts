@@ -4,19 +4,19 @@ export const validate = (type: string, text: string) => {
       return String(text)
         .toLowerCase()
         .match(
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
         );
-    case 'password': 
-    case 'second_password': 
+    case 'password':
+    case 'second_password':
     case 'newPassword':
     case 'oldPassword':
       return String(text).match(
-        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,40}$/
+        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,40}$/,
       );
 
     case 'login':
       return String(text).match(
-        /^(?=.*[A-Za-z0-9]$)[A-Za-z][A-Za-z\d.-]{2,20}$/
+        /^(?=.*[A-Za-z0-9]$)[A-Za-z][A-Za-z\d.-]{2,20}$/,
       );
 
     case 'first_name':
@@ -30,6 +30,7 @@ export const validate = (type: string, text: string) => {
 
     case 'message':
       return String(text).length !== 0;
+    default: return null;
   }
 };
 
@@ -41,9 +42,11 @@ export const checkValidation = (form: HTMLFormElement) => {
       validation = false;
       return;
     }
-    validate(item[0], item[1].toString())
-      ? (validation = true)
-      : (validation = false);
+    if (validate(item[0], item[1].toString())) {
+      validation = true;
+    } else {
+      validation = false;
+    }
   });
   return validation ? data : null;
 };

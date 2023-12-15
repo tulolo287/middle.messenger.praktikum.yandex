@@ -19,7 +19,7 @@ export class ChangeProfilePage extends Block {
   init() {
     this.props.changeProfileInputs = changeProfileInputs;
     this.children.changeProfileInputs = this.props.changeProfileInputs.map(
-      (input: IInputLabel) => new InputLabel({ ...input })
+      (input: IInputLabel) => new InputLabel({ ...input }),
     );
     this.children.Link = new Link({
       class: 'homeLink',
@@ -34,7 +34,7 @@ export class ChangeProfilePage extends Block {
           e.preventDefault();
           const form = document.querySelector('form');
           if (form) {
-            let data = checkValidation(form);
+            const data = checkValidation(form);
             if (data && data.password === data.second_password) {
               console.log(data);
             } else {

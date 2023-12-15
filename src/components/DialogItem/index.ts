@@ -11,6 +11,7 @@ export class DialogItem extends Block {
   init() {
     this.children.Menu = new Menu({});
   }
+
   render() {
     return this.compile(template, this.props);
   }

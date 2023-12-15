@@ -11,7 +11,7 @@ export class Input extends Block {
     this.props.events = {
       blur: (e: Event) => {
         if (e.target) {
-          let el = e.target as HTMLInputElement;
+          const el = e.target as HTMLInputElement;
           let sibling = el.nextElementSibling as HTMLInputElement;
           if (sibling) {
             sibling.style.display = validate(el.name, el.value)
@@ -22,36 +22,40 @@ export class Input extends Block {
                 document.getElementsByName('password')[0] as HTMLInputElement
               ).value;
               const secondPassword = document.getElementsByName(
-                'second_password'
+                'second_password',
               )[0] as HTMLInputElement;
 
               const secondPasswordValue = secondPassword.value;
               if (
-                passwordValue.length !== 0 &&
-                secondPasswordValue.length !== 0 &&
-                secondPassword.nextElementSibling
+                passwordValue.length !== 0
+                && secondPasswordValue.length !== 0
+                && secondPassword.nextElementSibling
               ) {
                 sibling = secondPassword.nextElementSibling as HTMLInputElement;
-                secondPasswordValue === passwordValue
-                  ? (sibling.style.display = 'none')
-                  : (sibling.style.display = 'block');
+                if (secondPasswordValue === passwordValue) {
+                  sibling.style.display = 'none';
+                } else {
+                  sibling.style.display = 'block';
+                }
               }
             }
             if (el.name === 'newPassword') {
               const newPassword1 = document.getElementsByName(
-                'newPassword'
+                'newPassword',
               )[0] as HTMLInputElement;
               const newPassword2 = document.getElementsByName(
-                'newPassword'
+                'newPassword',
               )[1] as HTMLInputElement;
               if (
-                newPassword1.value.length !== 0 &&
-                newPassword2.value.length !== 0
+                newPassword1.value.length !== 0
+                && newPassword2.value.length !== 0
               ) {
                 sibling = newPassword2.nextElementSibling as HTMLInputElement;
-                newPassword1.value === newPassword2.value
-                  ? (sibling.style.display = 'none')
-                  : (sibling.style.display = 'block');
+                if (newPassword1.value === newPassword2.value) {
+                  sibling.style.display = 'none';
+                } else {
+                  sibling.style.display = 'block';
+                }
               }
             }
           }
@@ -59,6 +63,7 @@ export class Input extends Block {
       },
     };
   }
+
   render() {
     return this.compile(template, this.props);
   }

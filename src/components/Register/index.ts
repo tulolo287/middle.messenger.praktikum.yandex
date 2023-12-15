@@ -21,7 +21,7 @@ export class Register extends Block {
       url: 'login',
     });
     this.children.Inputs = this.props.registerInputs.map(
-      (input: IInputLabel) => new InputLabel({ ...input })
+      (input: IInputLabel) => new InputLabel({ ...input }),
     );
     this.children.Button = new Button({
       type: 'submit',
@@ -31,7 +31,7 @@ export class Register extends Block {
           e.preventDefault();
           const form = document.querySelector('form');
           if (form) {
-            let data = checkValidation(form);
+            const data = checkValidation(form);
             if (data && data.password === data.second_password) {
               console.log(data);
             } else {

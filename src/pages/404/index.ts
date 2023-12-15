@@ -12,8 +12,9 @@ export class Page404 extends Block {
   }
 
   protected init(): void {
-    this.children.Link = new Link({class: 'homeLink', text: "\u2190 Назад к чатам", url: 'home'});
+    this.children.Link = new Link({ class: 'homeLink', text: '\u2190 Назад к чатам', url: 'home' });
   }
+
   render() {
     return this.compile(template, this.props);
   }

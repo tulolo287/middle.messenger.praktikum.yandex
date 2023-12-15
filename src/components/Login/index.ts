@@ -22,7 +22,7 @@ export class Login extends Block {
       url: 'register',
     });
     this.children.Inputs = this.props.loginInputs.map(
-      (input: IInputLabel) => new InputLabel({ ...input })
+      (input: IInputLabel) => new InputLabel({ ...input }),
     );
     this.children.Button = new Button({
       type: 'submit',
@@ -32,7 +32,7 @@ export class Login extends Block {
           e.preventDefault();
           const form = document.querySelector('form');
           if (form) {
-            let data = checkValidation(form);
+            const data = checkValidation(form);
             if (data) {
               console.log(data);
             } else {

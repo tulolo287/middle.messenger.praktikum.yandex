@@ -15,7 +15,7 @@ export class Dialogs extends Block {
   init() {
     this.props.dialogs = data.dialogs;
     this.children.Dialogs = this.props.dialogs.map(
-      (dialog: TDialog) => new DialogItem({ ...dialog })
+      (dialog: TDialog) => new DialogItem({ ...dialog }),
     );
   }
 

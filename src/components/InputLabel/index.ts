@@ -11,6 +11,7 @@ export class InputLabel extends Block {
   init() {
     this.children.Input = new Input({ ...this.props });
   }
+
   render() {
     return this.compile(template, this.props);
   }

@@ -7,34 +7,29 @@ const METHODS = {
 };
 
 class HTTPTransport {
-  get = (url, options = {}) => {
-    return this.request(
-      url,
-      { ...options, method: METHODS.GET },
-      options.timeout
-    );
-  };
-  put = (url, options = {}) => {
-    return this.request(
-      url,
-      { ...options, method: METHODS.PUT },
-      options.timeout
-    );
-  };
-  post = (url, options = {}) => {
-    return this.request(
-      url,
-      { ...options, method: METHODS.POST },
-      options.timeout
-    );
-  };
-  delete = (url, options = {}) => {
-    return this.request(
-      url,
-      { ...options, method: METHODS.DELETE },
-      options.timeout
-    );
-  };
+  get = (url, options = {}) => this.request(
+    url,
+    { ...options, method: METHODS.GET },
+    options.timeout,
+  );
+
+  put = (url, options = {}) => this.request(
+    url,
+    { ...options, method: METHODS.PUT },
+    options.timeout,
+  );
+
+  post = (url, options = {}) => this.request(
+    url,
+    { ...options, method: METHODS.POST },
+    options.timeout,
+  );
+
+  delete = (url, options = {}) => this.request(
+    url,
+    { ...options, method: METHODS.DELETE },
+    options.timeout,
+  );
   // PUT, POST, DELETE
 
   // options:
@@ -48,7 +43,7 @@ class HTTPTransport {
 
       xhr.open(method, url);
 
-      xhr.onload = function () {
+      xhr.onload = () => {
         resolve(xhr);
       };
 

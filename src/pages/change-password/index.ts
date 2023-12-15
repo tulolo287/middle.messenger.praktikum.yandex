@@ -19,7 +19,7 @@ export class ChangePasswordPage extends Block {
   init() {
     this.props.changePasswordInputs = changePasswordInputs;
     this.children.changePasswordInputs = this.props.changePasswordInputs.map(
-      (input: IInputLabel) => new InputLabel({ ...input })
+      (input: IInputLabel) => new InputLabel({ ...input }),
     );
     this.children.Link = new Link({
       class: 'homeLink',
@@ -34,7 +34,7 @@ export class ChangePasswordPage extends Block {
           e.preventDefault();
           const form = document.querySelector('form');
           if (form) {
-            let data = checkValidation(form);
+            const data = checkValidation(form);
             if (data && data.password === data.second_password) {
               console.log(data);
             } else {

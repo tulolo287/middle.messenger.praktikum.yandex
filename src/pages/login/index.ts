@@ -13,7 +13,7 @@ export class LoginPage extends Block<LoginPageProps> {
   }
 
   init() {
-    this.children.Login = new Login({loginInputs});
+    this.children.Login = new Login({ loginInputs });
   }
 
   render() {

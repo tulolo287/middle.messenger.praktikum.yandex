@@ -15,13 +15,13 @@ export class Avatar extends Block {
   }
 
   protected init(): void {
-   this.props.events = {
-     click: (e: Event) => {
-       e.preventDefault();
-       render(this.props.url);
-     },
-   };
- }
+    this.props.events = {
+      click: (e: Event) => {
+        e.preventDefault();
+        render(this.props.url);
+      },
+    };
+  }
 
   render() {
     return this.compile(template, this.props);
