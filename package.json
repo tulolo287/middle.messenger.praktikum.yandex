@@ -8,7 +8,7 @@
     "build": "vite build",
     "start": "vite build && nodemon ./server.js",
     "preview": "vite preview",
-    "lintcss": "stylelint **/*.{css,sass,scss} --fix"
+    "lintcss": "stylelint '**/*.{css,sass,scss}' --fix"
   },
   "engines": {
     "node": ">=12"

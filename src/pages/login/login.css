@@ -1,18 +1,21 @@
 .login {
   width: 500px;
 }
+
 .login-header {
   text-align: center;
 }
+
 .login-form {
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-flow: column nowrap;
   gap: 20px;
 }
+
 .login-form label {
   color: var(--foregroundColor);
 }
+
 .login-form button {
   width: 300px;
   margin-left: 100px;
