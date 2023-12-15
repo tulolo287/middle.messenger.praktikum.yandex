@@ -25,7 +25,7 @@ export function render(name: keyof typeof ROUTES, title: string = 'No title') {
   root.innerHTML = '';
 
   const Page = ROUTES[name];
-  const page = new Page({title})
+  const page = new Page({ title });
   root.append(page.getContent()!);
 
   page.dispatchComponentDidMount();

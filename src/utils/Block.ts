@@ -19,8 +19,6 @@ class Block<P extends Record<string, any> = any> {
 
   private _element: HTMLElement | null = null;
 
-  
-
   /** JSDoc
    * @param {string} tagName
    * @param {Object} props
@@ -31,7 +29,6 @@ class Block<P extends Record<string, any> = any> {
     const eventBus = new EventBus();
 
     const { props, children } = this._getChildrenAndProps(propsWithChildren);
-
 
     this.children = children;
     this.props = this._makePropsProxy(props);
@@ -116,7 +113,7 @@ class Block<P extends Record<string, any> = any> {
   }
 
   protected componentDidUpdate(oldProps: P, newProps: P) {
-    if(oldProps === newProps) {
+    if (oldProps === newProps) {
       return false;
     }
     return true;
