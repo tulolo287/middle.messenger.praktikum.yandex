@@ -1,46 +1,51 @@
-@import './pages/chat/chat.css';
-@import './pages/login/login.css';
-@import './pages/register/register.css';
-@import './pages/profile/profile.css';
-@import './pages/404/404.css';
-@import './pages/500/500.css';
+@import url('./pages/chat/chat.css');
+@import url('./pages/login/login.css');
+@import url('./pages/register/register.css');
+@import url('./pages/profile/profile.css');
+@import url('./pages/404/404.css');
+@import url('./pages/500/500.css');
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgb(255 255 255 / 87%);
   background-color: #7275af;
   box-sizing: border-box;
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
   --backgroundColor: #7275af;
   --foregroundColor: #343546;
   --selectColor: #fff;
 }
+
 input {
   height: 30px;
-  border-radius: 30px;
   border-radius: 30px;
   padding-left: 10px;
   border: none;
   width: 100%;
 }
+
 ul {
   padding: 0;
 }
+
 li {
   list-style: none;
 }
+
 a {
   font-weight: 500;
   color: var(--foregroundColor);
   text-decoration: inherit;
 }
+
 a:hover {
   cursor: pointer;
-  color: #ffffff;
+  color: #fff;
 }
 
 body {
@@ -82,9 +87,11 @@ main {
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vanilla:hover {
   filter: drop-shadow(0 0 2em #f7df1eaa);
 }
@@ -109,9 +116,11 @@ button {
   color: var(--selectColor);
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -122,13 +131,16 @@ button:focus-visible {
     color: #213547;
     background-color: var(--selectColor);
   }
+
   a:hover {
     color: var(--selectColor);
   }
+
   button {
     background-color: #f9f9f9;
   }
 }
+
 .main {
   width: 100vw;
   height: 100vh;
@@ -137,9 +149,11 @@ button:focus-visible {
   justify-content: center;
   align-items: center;
 }
-.page-link {
+
+.page-list__item {
   text-align: center;
 }
+
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
@@ -162,7 +176,7 @@ button:focus-visible {
   background: var(--selectColor);
 }
 
-.pageLink {
+.page-link {
   font-size: 1.5em;
   font-weight: 700;
   line-height: 2em;
@@ -176,10 +190,11 @@ button:focus-visible {
   margin-top: 5px;
 }
 
-.inputLabel {
+.input-label {
   position: relative;
   width: 100%;
 }
+
 .error {
   display: none;
   color: white;

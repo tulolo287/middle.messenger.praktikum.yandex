@@ -1,8 +1,7 @@
 {
   "extends": "stylelint-config-standard",
-  "customSyntax": "postcss-lit",
   "rules": {
     "color-hex-case": "lower"
   },
-  "ignoreFiles": ["build/*, node_modules/*"]
+  "ignoreFiles": ["build/*, **/*.js"]
 }

@@ -4,32 +4,32 @@ export default {
     {
       text: '404 page',
       url: '404',
-      class: 'pageLink',
+      class: 'page-link',
     },
     {
       text: '500 page',
       url: '500',
-      class: 'pageLink',
+      class: 'page-link',
     },
     {
       text: 'Chat page',
       url: 'chat',
-      class: 'pageLink',
+      class: 'page-link',
     },
     {
       text: 'Login page',
       url: 'login',
-      class: 'pageLink',
+      class: 'page-link',
     },
     {
       text: 'Register page',
       url: 'register',
-      class: 'pageLink',
+      class: 'page-link',
     },
     {
       text: 'Profile page',
       url: 'profile',
-      class: 'pageLink',
+      class: 'page-link',
     },
   ],
   profile: {
