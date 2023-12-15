@@ -6,6 +6,10 @@ const METHODS = {
   DELETE: 'DELETE',
 };
 
+interface IHTTPTransport {
+url: string;
+options: any;
+}
 class HTTPTransport {
   get = (url, options = {}) => this.request(
     url,
@@ -13,13 +17,13 @@ class HTTPTransport {
     options.timeout,
   );
 
-  put = (url, options = {}) => this.request(
+  put = (url: string, options = {}) => this.request(
     url,
     { ...options, method: METHODS.PUT },
     options.timeout,
   );
 
-  post = (url, options = {}) => this.request(
+  post = (url: string, options = {}) => this.request(
     url,
     { ...options, method: METHODS.POST },
     options.timeout,
