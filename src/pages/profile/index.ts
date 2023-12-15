@@ -7,7 +7,7 @@ import template from './profile.hbs';
 
 interface ProfilePageProps {
   title: string;
-  profile: IProfile
+  profile?: IProfile
 }
 
 export class ProfilePage extends Block<ProfilePageProps> {

@@ -48,9 +48,9 @@ export const registerInputs = [
     errorText: 'Введите корректный пароль',
   },
   {
-    label: { for: 'second_password', text: 'Пароль (ещё раз)' },
+    label: { for: 'password', text: 'Пароль (ещё раз)' },
     type: 'password',
-    name: 'second_password',
+    name: 'password',
     required: true,
     placeholder: 'password',
     errorText: 'Введите корректный пароль',

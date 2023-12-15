@@ -19,7 +19,7 @@ class Block<P extends Record<string, any> = any> {
 
   private _element: HTMLElement | null = null;
 
-  private _meta: { props: P};
+  
 
   /** JSDoc
    * @param {string} tagName
@@ -32,9 +32,6 @@ class Block<P extends Record<string, any> = any> {
 
     const { props, children } = this._getChildrenAndProps(propsWithChildren);
 
-    this._meta = {
-      props: props as P,
-    };
 
     this.children = children;
     this.props = this._makePropsProxy(props);
@@ -119,7 +116,9 @@ class Block<P extends Record<string, any> = any> {
   }
 
   protected componentDidUpdate(oldProps: P, newProps: P) {
-    console.log(oldProps, newProps);
+    if(oldProps === newProps) {
+      return false;
+    }
     return true;
   }
 

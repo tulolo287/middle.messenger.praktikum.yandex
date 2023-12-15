@@ -20,12 +20,13 @@ const ROUTES = {
   changeProfile: ChangeProfilePage,
 };
 
-export function render(name: string, title: string = 'No title') {
+export function render(name: keyof typeof ROUTES, title: string = 'No title') {
   const root = document.querySelector('#app')!;
   root.innerHTML = '';
 
-  const Page = new ROUTES[name](title);
-  root.append(Page.getContent()!);
+  const Page = ROUTES[name];
+  const page = new Page({title})
+  root.append(page.getContent()!);
 
-  Page.dispatchComponentDidMount();
+  page.dispatchComponentDidMount();
 }

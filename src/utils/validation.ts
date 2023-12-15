@@ -35,7 +35,7 @@ export const validate = (type: string, text: string) => {
 };
 
 export const checkValidation = (form: HTMLFormElement) => {
-  const data = Object.fromEntries(new FormData(form).entries());
+  const data = Object.fromEntries(Array(new FormData(form)).entries());
   let validation = false;
   Object.entries(data).every((item) => {
     if (item[1].toString().length === 0) {
