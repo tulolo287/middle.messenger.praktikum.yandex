@@ -9,7 +9,7 @@ interface IPageLinks {
 }
 
 export class PageLinks extends Block {
-  constructor(props: IPageLinks) {
+  constructor(props: {}) {
     super(props);
   }
 

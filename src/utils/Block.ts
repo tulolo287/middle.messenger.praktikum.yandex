@@ -13,13 +13,13 @@ class Block<P extends Record<string, any> = any> {
 
   protected props: P;
 
-  public children: Record<string, Block>;
+  public children: Record<string, Block | Block[]>;
 
   private eventBus: () => EventBus;
 
   private _element: HTMLElement | null = null;
 
-  private _meta: { tagName: string; props: P; className?: string };
+  private _meta: { props: P};
 
   /** JSDoc
    * @param {string} tagName
@@ -81,8 +81,7 @@ class Block<P extends Record<string, any> = any> {
   }
 
   _createResources() {
-    const { tagName, className } = this._meta;
-    this._element = this._createDocumentElement(tagName, className);
+
   }
 
   private _init() {
@@ -120,6 +119,7 @@ class Block<P extends Record<string, any> = any> {
   }
 
   protected componentDidUpdate(oldProps: P, newProps: P) {
+    console.log(oldProps, newProps);
     return true;
   }
 
@@ -217,14 +217,6 @@ class Block<P extends Record<string, any> = any> {
         throw new Error('Нет доступа');
       },
     });
-  }
-
-  _createDocumentElement(tagName: string, className: string | undefined) {
-    const element = document.createElement(tagName);
-    if (className) {
-      element.classList.add(className);
-    }
-    return element;
   }
 
   show() {

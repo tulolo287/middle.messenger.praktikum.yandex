@@ -1,5 +1,4 @@
 import { PageLinks } from '../../components/PageLinks';
-import data from '../../data';
 import Block from '../../utils/Block';
 import template from './home.hbs';
 
@@ -13,7 +12,7 @@ export class HomePage extends Block<HomePageProps> {
   }
 
   init() {
-    this.children.pageLinks = new PageLinks({ pages: data.pages });
+    this.children.pageLinks = new PageLinks({});
   }
 
   render() {

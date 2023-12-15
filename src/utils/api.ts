@@ -6,40 +6,32 @@ const METHODS = {
   DELETE: 'DELETE',
 };
 
-interface IHTTPTransport {
-url: string;
-options: any;
-}
 class HTTPTransport {
-  get = (url, options = {}) => this.request(
+  get = (url: string, options: Record<string, any> = {}) => this.request(
     url,
     { ...options, method: METHODS.GET },
     options.timeout,
   );
 
-  put = (url: string, options = {}) => this.request(
+  put = (url: string, options: Record<string, any> = {}) => this.request(
     url,
     { ...options, method: METHODS.PUT },
     options.timeout,
   );
 
-  post = (url: string, options = {}) => this.request(
+  post = (url: string, options: Record<string, any> = {}) => this.request(
     url,
     { ...options, method: METHODS.POST },
     options.timeout,
   );
 
-  delete = (url, options = {}) => this.request(
+  delete = (url: string, options: Record<string, any> = {}) => this.request(
     url,
     { ...options, method: METHODS.DELETE },
     options.timeout,
   );
-  // PUT, POST, DELETE
 
-  // options:
-  // headers — obj
-  // data — obj
-  request = (url, options, timeout = 5000) => {
+  request = (url: string, options: Record<string, any>, timeout = 5000) => {
     const { method, data } = options;
 
     return new Promise((resolve, reject) => {
