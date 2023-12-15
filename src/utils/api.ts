@@ -45,6 +45,7 @@ class HTTPTransport {
 
       xhr.onabort = reject;
       xhr.onerror = reject;
+      xhr.timeout = timeout;
       xhr.ontimeout = reject;
 
       if (method === METHODS.GET || !data) {
