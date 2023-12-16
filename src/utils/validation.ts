@@ -17,7 +17,7 @@ export const validate = (type: string, text: string) => {
 
     case 'login':
       return String(text).match(
-        /^(?=.*[A-Za-z0-9-_-]$)[A-Za-z][A-Za-z\d.-_-]{3,20}$/,
+        /^(?=.*[A-Za-z0-9-_-]$)[A-Za-z][A-Za-z\d.-_-]{2,20}$/,
       );
 
     case 'first_name':
@@ -26,7 +26,7 @@ export const validate = (type: string, text: string) => {
       return String(text).match(/^\b[A-ZА-Я][а-яa-z-]+$/);
 
     case 'phone':
-      return String(text).match(/^\+?[0-9]{10,15}$/g);
+      return String(text).match(/^\+?[0-9]{9,15}$/g);
 
     case 'message':
       return String(text).length !== 0;
