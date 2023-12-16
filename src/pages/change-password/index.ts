@@ -35,7 +35,7 @@ export class ChangePasswordPage extends Block {
           const form = document.querySelector('form');
           if (form) {
             const data = checkValidation(form);
-            if (data && data.password === data.second_password) {
+            if (data && data.newPassword === data.repeat_newPassword) {
               console.log(data);
             } else {
               alert('Invalid form');

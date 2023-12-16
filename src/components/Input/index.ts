@@ -21,10 +21,10 @@ export class Input extends Block {
               const passwordValue = (
                 document.getElementsByName('password')[0] as HTMLInputElement
               ).value;
-              if (document.getElementsByName('password')[1]) {
+              if (document.getElementsByName('repeat_password')[0]) {
                 const secondPassword = document.getElementsByName(
-                  'password',
-                )[1] as HTMLInputElement;
+                  'repeat_password',
+                )[0] as HTMLInputElement;
 
                 const secondPasswordValue = secondPassword.value;
                 if (
@@ -41,13 +41,13 @@ export class Input extends Block {
                 }
               }
             }
-            if (el.name === 'newPassword') {
+            if (el.name === 'newPassword' || el.name === 'repeat_newPassword') {
               const newPassword1 = document.getElementsByName(
                 'newPassword',
               )[0] as HTMLInputElement;
               const newPassword2 = document.getElementsByName(
-                'newPassword',
-              )[1] as HTMLInputElement;
+                'repeat_newPassword',
+              )[0] as HTMLInputElement;
               if (
                 newPassword1.value.length !== 0
                 && newPassword2.value.length !== 0

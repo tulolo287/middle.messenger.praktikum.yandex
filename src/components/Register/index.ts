@@ -31,9 +31,9 @@ export class Register extends Block {
           e.preventDefault();
           const form = document.querySelector('form');
           if (form) {
-            const data = checkValidation(form);
-            if (data && data.password === data.second_password) {
-              console.log(data);
+            const formData = checkValidation(form);
+            if (formData && formData.password === formData.repeat_password) {
+              console.log(formData);
             } else {
               alert('Invalid form');
             }

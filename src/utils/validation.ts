@@ -7,8 +7,9 @@ export const validate = (type: string, text: string) => {
           /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
         );
     case 'password':
-    case 'second_password':
+    case 'repeat_password':
     case 'newPassword':
+    case 'repeat_newPassword':
     case 'oldPassword':
       return String(text).match(
         /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,40}$/,
@@ -35,9 +36,11 @@ export const validate = (type: string, text: string) => {
 };
 
 export const checkValidation = (form: HTMLFormElement) => {
-  const data = Object.fromEntries(Array(new FormData(form)).entries());
+  const formData = new FormData(form);
+  const formDataObj: Record<string, FormDataEntryValue> = {};
+  formData.forEach((value, key) => (formDataObj[key] = value));
   let validation = false;
-  Object.entries(data).every((item) => {
+  Object.entries(formDataObj).forEach((item) => {
     if (item[1].toString().length === 0) {
       validation = false;
       return;
@@ -48,5 +51,5 @@ export const checkValidation = (form: HTMLFormElement) => {
       validation = false;
     }
   });
-  return validation ? data : null;
+  return validation ? formDataObj : null;
 };

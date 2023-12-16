@@ -3,7 +3,7 @@
 - [Дизайн проекта](https://www.figma.com/file/FPyAW8jihuiXlV6zWTJ87t/chat-messenger?type=design&t=jDGxwHilHoeAmoeC-6)
 - [Деплой проекта](https://sparkly-mermaid-917361.netlify.app/)
 
-## В проекте использовались технологии:
+## В проекте используются технологии:
 
 - Typescript
 - Сборщик проекта Vite

@@ -6,6 +6,8 @@ enum METHODS {
   DELETE = 'DELETE',
 }
 
+type HTTPMethod = (url: string, options?: Record<string, any>) => Promise<unknown>
+
 function queryStringify(data: Record<string, number>) {
   if (typeof data !== 'object') {
     throw new Error('Data must be object');
@@ -18,13 +20,13 @@ function queryStringify(data: Record<string, number>) {
 }
 
 export class HTTPTransport {
-  get = (url: string, options: Record<string, any> = {}) => this.request(url, { ...options, method: METHODS.GET }, options.timeout);
+  get: HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.GET }, options.timeout);
 
-  post = (url: string, options: Record<string, any> = {}) => this.request(url, { ...options, method: METHODS.POST }, options.timeout);
+  post: HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.POST }, options.timeout);
 
-  put = (url: string, options: Record<string, any> = {}) => this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
+  put: HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
 
-  delete = (url: string, options: Record<string, any> = {}) => this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
+  delete: HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
 
   private request = (
     url: string,

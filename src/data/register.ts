@@ -50,9 +50,9 @@ export const registerInputs = [
   {
     label: { for: 'password', text: 'Пароль (ещё раз)' },
     type: 'password',
-    name: 'password',
+    name: 'repeat_password',
     required: true,
     placeholder: 'password',
-    errorText: 'Введите корректный пароль',
+    errorText: 'Пароли не совпадают',
   },
 ];

@@ -19,14 +19,7 @@
   --backgroundColor: #7275af;
   --foregroundColor: #343546;
   --selectColor: #fff;
-}
-
-input {
-  height: 30px;
-  border-radius: 30px;
-  padding-left: 10px;
-  border: none;
-  width: 100%;
+  --error: #c40000;
 }
 
 ul {
@@ -188,6 +181,11 @@ button:focus-visible {
 
 .input {
   margin-top: 5px;
+  height: 30px;
+  border-radius: 30px;
+  padding-left: 10px;
+  border: none;
+  width: 100%;
 }
 
 .input-label {
@@ -199,7 +197,7 @@ button:focus-visible {
   display: none;
   color: white;
   position: absolute;
-  background-color: #c40000;
+  background-color: var(--error);
   border-radius: 10rem;
   padding: 3px;
   padding-left: 7px;

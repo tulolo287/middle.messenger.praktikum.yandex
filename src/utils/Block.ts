@@ -74,15 +74,15 @@ class Block<P extends Record<string, any> = any> {
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
 
-  _createResources() {
-
+  _removeEvents() {
+    const { events = {} } = this.props as P & { events: Record<string, () => void> };
+    Object.keys(events).forEach((eventName) => {
+      this._element?.removeEventListener(eventName, events[eventName]);
+    });
   }
 
   private _init() {
-    this._createResources();
-
     this.init();
-
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
@@ -133,15 +133,12 @@ class Block<P extends Record<string, any> = any> {
 
   private _render() {
     const fragment = this.render();
-
+    this._removeEvents();
     const newElement = fragment.firstElementChild as HTMLElement;
-
     if (this._element) {
       this._element.replaceWith(newElement);
     }
-
     this._element = newElement;
-
     this._addEvents();
   }
 

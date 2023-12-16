@@ -18,9 +18,9 @@ export const changePasswordInputs = [
   {
     label: { for: 'newPassword', text: 'Повторите новый пароль' },
     type: 'password',
-    name: 'newPassword',
+    name: 'repeat_newPassword',
     required: true,
     placeholder: 'new password',
-    errorText: 'Введите корректный пароль',
+    errorText: 'Пароли не совпадают',
   },
 ];
