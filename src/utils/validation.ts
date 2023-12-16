@@ -17,17 +17,16 @@ export const validate = (type: string, text: string) => {
 
     case 'login':
       return String(text).match(
-        /^(?=.*[A-Za-z0-9]$)[A-Za-z][A-Za-z\d.-]{2,20}$/,
+        /^(?=.*[A-Za-z0-9-_-]$)[A-Za-z][A-Za-z\d.-_-]{3,20}$/,
       );
 
     case 'first_name':
-      return String(text).match(/^\b[A-ZА-Я][а-яa-z]+$/);
-
+    case 'display_name':
     case 'second_name':
-      return String(text).match(/^\b[A-ZА-Я][а-яa-z]+$/);
+      return String(text).match(/^\b[A-ZА-Я][а-яa-z-]+$/);
 
     case 'phone':
-      return String(text).match(/^\+?[0-9]{9,15}$/g);
+      return String(text).match(/^\+?[0-9]{10,15}$/g);
 
     case 'message':
       return String(text).length !== 0;
@@ -38,7 +37,7 @@ export const validate = (type: string, text: string) => {
 export const checkValidation = (form: HTMLFormElement) => {
   const formData = new FormData(form);
   const formDataObj: Record<string, FormDataEntryValue> = {};
-  formData.forEach((value, key) => (formDataObj[key] = value));
+  formData.forEach((value, key) => { formDataObj[key] = value; });
   let validation = false;
   Object.entries(formDataObj).forEach((item) => {
     if (item[1].toString().length === 0) {
@@ -51,5 +50,9 @@ export const checkValidation = (form: HTMLFormElement) => {
       validation = false;
     }
   });
-  return validation ? formDataObj : null;
+  if (validation) {
+    return formDataObj;
+  } else {
+    return null;
+  }
 };

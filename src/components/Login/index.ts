@@ -32,7 +32,7 @@ export class Login extends Block {
           e.preventDefault();
           const form = document.querySelector('form');
           if (form) {
-            const formData = checkValidation(form); 
+            const formData = checkValidation(form);
             if (formData) {
               console.log(formData);
             } else {
