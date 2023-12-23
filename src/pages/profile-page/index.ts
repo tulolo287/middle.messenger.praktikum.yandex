@@ -1,13 +1,14 @@
 import { Link } from '../../components/Link';
 import { PageLinks } from '../../components/PageLinks';
 import data from '../../data';
+import { pages } from '../../data/pages';
 import { IProfile } from '../../typings/data';
 import Block from '../../utils/Block';
 import template from './profile.hbs';
 
 interface ProfilePageProps {
   title: string;
-  profile?: IProfile
+  profile?: IProfile;
 }
 
 export class ProfilePage extends Block<ProfilePageProps> {
@@ -32,7 +33,7 @@ export class ProfilePage extends Block<ProfilePageProps> {
       url: 'home',
     });
     this.props.profile = data.profile;
-    this.children.Login = new PageLinks({ pages: data.pages });
+    this.children.Login = new PageLinks({ pages });
   }
 
   render() {
