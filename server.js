@@ -1,4 +1,3 @@
-//const express = require('express');
 import express from 'express';
 import reload from 'reload';
 import cors from 'cors';
