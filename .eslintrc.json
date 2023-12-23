@@ -26,6 +26,7 @@
     "no-undef": "off",
     "no-unused-vars": "off",
     "semi": 2,
+    "spaced-comment": 1,
     "no-trailing-spaces": 2,
     "no-multiple-empty-lines": 2,
     "keyword-spacing": 2,

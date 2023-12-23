@@ -11,11 +11,9 @@ export class Menu extends Block {
     this.props.events = {
       click: (e: MouseEvent) => {
         e.preventDefault();
-        console.log(e.target)
         this.props.show = !this.props.show;
-        //this.setProps(this.props.show = true)
-      }
-    }
+      },
+    };
   }
 
   render() {
