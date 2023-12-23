@@ -1,37 +1,5 @@
 export default {
   username: 'ME',
-  pages: [
-    {
-      text: '404 page',
-      url: '404',
-      class: 'page-link',
-    },
-    {
-      text: '500 page',
-      url: '500',
-      class: 'page-link',
-    },
-    {
-      text: 'Chat page',
-      url: 'chat',
-      class: 'page-link',
-    },
-    {
-      text: 'Login page',
-      url: 'login',
-      class: 'page-link',
-    },
-    {
-      text: 'Register page',
-      url: 'register',
-      class: 'page-link',
-    },
-    {
-      text: 'Profile page',
-      url: 'profile',
-      class: 'page-link',
-    },
-  ],
   profile: {
     email: 'pochta@yandex.ru',
     login: 'ivanivanov',
@@ -40,56 +8,4 @@ export default {
     nic: 'Иван',
     phone: '+7 (909) 967 30 30',
   },
-  profiles: [
-    {
-      id: 1,
-      username: 'Alex',
-      active: true,
-      color: '#0a2472',
-      text: 'Круто!',
-      img_src: 'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
-    },
-    {
-      id: 2,
-      username: 'Carol',
-      active: false,
-      color: 'red',
-      text: 'Можно или сегодня или завтра вечером.',
-      img_src: 'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
-    },
-    {
-      id: 3,
-      username: 'Olga',
-      active: false,
-      color: 'green',
-      text: 'Друзья, у меня для вас...',
-      img_src: 'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
-    },
-  ],
-  dialogs: [
-    {
-      id: 1,
-      username: 'Alex',
-      color: '#0a2472',
-      class: 'received',
-      text: 'Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой.',
-      img_src: 'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
-    },
-    {
-      id: 1,
-      username: 'Alex',
-      color: '#0a2472',
-      class: 'received',
-      text: 'Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.',
-      img_src: 'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
-    },
-    {
-      id: 5,
-      username: 'Me',
-      color: '#0a2472',
-      class: 'sent',
-      text: 'Круто!',
-      img_src: 'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
-    },
-  ],
 };

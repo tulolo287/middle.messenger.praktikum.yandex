@@ -3,7 +3,8 @@ import { Button } from '../../components/Button';
 import { Chats } from '../../components/Chats';
 import { Dialogs } from '../../components/Dialogs';
 import { InputLabel } from '../../components/InputLabel';
-import data from '../../data';
+import { Menu } from '../../components/Menu';
+import { dialogs } from '../../data/dialogs';
 import { messageInputs } from '../../data/message';
 import { IInputLabel } from '../../typings/data';
 import Block from '../../utils/Block';
@@ -25,8 +26,9 @@ export class ChatPage extends Block {
     this.children.MessageInput = this.props.messageInputs.map(
       (input: IInputLabel) => new InputLabel({ ...input }),
     );
+    this.children.Menu = new Menu({});
     this.children.Chats = new Chats({});
-    this.children.Dialogs = new Dialogs({ dialogs: data.dialogs });
+    this.children.Dialogs = new Dialogs({ dialogs });
     this.children.Send = new Button({
       type: 'submit',
       text: 'Отправить >',

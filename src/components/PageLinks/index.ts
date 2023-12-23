@@ -1,4 +1,4 @@
-import data from '../../data';
+import { pages } from '../../data/pages';
 import Block from '../../utils/Block';
 import { Link } from '../Link';
 import template from './page-links.hbs';
@@ -14,7 +14,7 @@ export class PageLinks extends Block {
   }
 
   init() {
-    this.props.pages = data.pages;
+    this.props.pages = pages;
     this.children.Links = this.props.pages.map(
       (page: IPageLinks) => new Link({
         ...page,

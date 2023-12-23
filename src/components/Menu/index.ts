@@ -6,6 +6,18 @@ export class Menu extends Block {
     super(props);
   }
 
+  protected init(): void {
+    this.props.show = false;
+    this.props.events = {
+      click: (e: MouseEvent) => {
+        e.preventDefault();
+        console.log(e.target)
+        this.props.show = !this.props.show;
+        //this.setProps(this.props.show = true)
+      }
+    }
+  }
+
   render() {
     return this.compile(template, this.props);
   }

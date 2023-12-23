@@ -1,12 +1,12 @@
-import { HomePage } from '../pages/home';
-import { Page404 } from '../pages/404';
-import { Page500 } from '../pages/500';
-import { ChatPage } from '../pages/chat';
-import { LoginPage } from '../pages/login';
-import { RegisterPage } from '../pages/register';
-import { ProfilePage } from '../pages/profile';
-import { ChangePasswordPage } from '../pages/change-password';
-import { ChangeProfilePage } from '../pages/change-profile';
+import { HomePage } from '../pages/home-page';
+import { Page404 } from '../pages/404-page';
+import { Page500 } from '../pages/500-page';
+import { ChatPage } from '../pages/chat-page';
+import { LoginPage } from '../pages/login-page';
+import { RegisterPage } from '../pages/register-page';
+import { ProfilePage } from '../pages/profile-page';
+import { ChangePasswordPage } from '../pages/change-password-page';
+import { ChangeProfilePage } from '../pages/change-profile-page';
 
 const ROUTES = {
   home: HomePage,

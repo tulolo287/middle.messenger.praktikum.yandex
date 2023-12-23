@@ -1,4 +1,4 @@
-import data from '../../data';
+import { dialogs } from '../../data/dialogs';
 import { TDialog } from '../../typings/data';
 import Block from '../../utils/Block';
 import { DialogItem } from '../DialogItem';
@@ -13,7 +13,7 @@ export class Dialogs extends Block {
   }
 
   init() {
-    this.props.dialogs = data.dialogs;
+    this.props.dialogs = dialogs;
     this.children.Dialogs = this.props.dialogs.map(
       (dialog: TDialog) => new DialogItem({ ...dialog }),
     );

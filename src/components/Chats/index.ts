@@ -1,4 +1,4 @@
-import data from '../../data';
+import { profiles } from '../../data/profiles';
 import Block from '../../utils/Block';
 import { ChatItem } from '../ChatItem';
 import template from './chats.hbs';
@@ -9,9 +9,9 @@ export class Chats extends Block {
   }
 
   init() {
-    this.children.ChatItem = new ChatItem({
-      profiles: data.profiles,
-    });
+    this.children.ChatItems = profiles.map((profile) => new ChatItem({
+      profile,
+    }));
   }
 
   render() {

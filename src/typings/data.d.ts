@@ -10,15 +10,20 @@ export interface IProfile {
   surname: string;
   nic: string;
   phone: string;
+  avatar: {}
 }
 
-export interface IProfiles {
+export interface IProfileChat {
   id: number;
   username: string;
   active: boolean;
   color: string;
   text: string;
-  img_src: string;
+  avatar: {
+    src: string;
+    url: string;
+    alt: string;
+  }
 }
 
 export type TDialog = Omit<IProfiles, 'active'>;

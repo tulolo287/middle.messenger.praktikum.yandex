@@ -9,7 +9,8 @@
     "start": "vite build && nodemon ./server.js",
     "preview": "vite preview",
     "lintcss": "stylelint '**/*.{css,sass,scss}' --fix",
-    "eslint": "eslint --fix --ext .ts --ignore-path .gitignore ."
+    "eslint": "eslint --fix --ext .ts --ignore-path .gitignore .",
+    "all": "eslint --fix --ext .ts --ignore-path .gitignore . && stylelint '**/*.{css,sass,scss}' --fix"
   },
   "engines": {
     "node": ">=12"

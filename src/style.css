@@ -1,9 +1,10 @@
-@import url('./pages/chat/chat.css');
-@import url('./pages/login/login.css');
-@import url('./pages/register/register.css');
-@import url('./pages/profile/profile.css');
-@import url('./pages/404/404.css');
-@import url('./pages/500/500.css');
+@import url('./pages/chat-page/chat.css');
+@import url('./pages/login-page/login.css');
+@import url('./pages/register-page/register.css');
+@import url('./pages/profile-page/profile.css');
+@import url('./pages/404-page/404.css');
+@import url('./pages/500-page/500.css');
+@import url('./components/Menu/menu.css');
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -203,3 +204,4 @@ button:focus-visible {
   padding-left: 7px;
   padding-right: 7px;
 }
+

@@ -38,23 +38,14 @@ body {
 }
 
 .sidebar-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0 40px;
 }
 
 .sidebar-search input {
-  width: 100%;
-}
-
-.menu {
-  display: flex;
-  justify-content: space-around;
-  cursor: pointer;
-  flex-direction: column;
-  height: 50px;
-}
-
-.menu circle:hover {
-  color: var(--selectColor);
+  width: 80%;
 }
 
 .bage {
@@ -91,12 +82,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
   border: 3px solid var(--foregroundColor);
   border-radius: 50px;
   margin-bottom: 30px;
   list-style: none;
-  padding: 10px;
   translate: 3s ease-in-out;
   color: var(--foregroundColor);
   overflow: hidden;
@@ -119,7 +108,8 @@ body {
 }
 
 .chat-item__info__img {
-  height: 100%;
+  object-fit: cover;
+  width: 70px;
 }
 
 .chat-item__info__name {
@@ -127,11 +117,12 @@ body {
   flex-direction: column;
   margin-left: 10px;
   justify-content: space-around;
+  flex-grow: 1;
+  overflow: hidden;
 }
 
 .chat-item__info__time {
   margin-right: 10px;
-  height: 70px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

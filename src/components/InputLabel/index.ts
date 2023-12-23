@@ -1,7 +1,7 @@
 import { IInputLabel } from '../../typings/data';
 import Block from '../../utils/Block';
 import { Input } from '../Input';
-import template from './input.hbs';
+import template from './input-label.hbs';
 
 export class InputLabel extends Block {
   constructor(props: IInputLabel) {
