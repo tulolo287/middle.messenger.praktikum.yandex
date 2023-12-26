@@ -1,4 +1,5 @@
 import Block from '../../utils/Block';
+import { Router, getRouter } from '../../utils/Router';
 import { render } from '../../utils/render';
 import template from './link.hbs';
 
@@ -17,7 +18,7 @@ export class Link extends Block {
     this.props.events = {
       click: (e: Event) => {
         e.preventDefault();
-        render(this.props.url);
+        getRouter().go(this.props.url)
       },
     };
   }

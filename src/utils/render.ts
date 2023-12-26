@@ -8,7 +8,7 @@ import { ProfilePage } from '../pages/profile-page';
 import { ChangePasswordPage } from '../pages/change-password-page';
 import { ChangeProfilePage } from '../pages/change-profile-page';
 
-const ROUTES = {
+/* const ROUTES = {
   home: HomePage,
   404: Page404,
   500: Page500,
@@ -18,9 +18,9 @@ const ROUTES = {
   profile: ProfilePage,
   changePassword: ChangePasswordPage,
   changeProfile: ChangeProfilePage,
-};
+}; */
 
-export function render(name: keyof typeof ROUTES, title: string = 'No title') {
+/* export function render(name: keyof typeof ROUTES, title: string = 'No title') {
   const root = document.querySelector('#app')!;
   root.innerHTML = '';
 
@@ -29,4 +29,12 @@ export function render(name: keyof typeof ROUTES, title: string = 'No title') {
   root.append(page.getContent()!);
 
   page.dispatchComponentDidMount();
+} */
+
+export function render(query: string, block: any) {
+  const root = document.querySelector(query);
+  if(root) {
+    root.replaceChildren(block.getContent());
+  }
+  return root;
 }
