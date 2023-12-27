@@ -18,6 +18,7 @@ export class Link extends Block {
     this.props.events = {
       click: (e: Event) => {
         e.preventDefault();
+        
         getRouter().go(this.props.url)
       },
     };

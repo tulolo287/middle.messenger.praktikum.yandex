@@ -18,7 +18,7 @@ export class Register extends Block {
     this.children.Link = new Link({
       class: 'homeLink',
       text: 'Войти',
-      url: 'login',
+      url: '/',
     });
     this.children.Inputs = this.props.registerInputs.map(
       (input: IInputLabel) => new InputLabel({ ...input }),

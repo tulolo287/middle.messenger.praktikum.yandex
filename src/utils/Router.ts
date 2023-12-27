@@ -2,12 +2,15 @@ import { Page404 } from '../pages/404-page';
 import { Page500 } from '../pages/500-page';
 import { ChatPage } from '../pages/chat-page';
 import { HomePage } from '../pages/home-page';
+import { LoginPage } from '../pages/login-page';
+import { ProfilePage } from '../pages/profile-page';
+import { RegisterPage } from '../pages/register-page';
 import { Route } from './Route';
 
 export class Router {
   routes: Route[] = [];
   history: History = window.history;
-  _currentRoute: Route | null = null;
+  _currentRoute: Route | undefined = undefined;
   _rootQuery: string | null = '';
   static __instance: Router;
 
@@ -17,14 +20,13 @@ export class Router {
     }
     this.routes = [];
     this.history = window.history;
-    this._currentRoute = null;
+    this._currentRoute = undefined;
     this._rootQuery = rootQuery;
 
     Router.__instance = this;
   }
 
   start() {
-    //debugger
     window.onpopstate = (event) => {
       this._onRoute((event.currentTarget as Window).location.pathname);
     };
@@ -40,12 +42,9 @@ export class Router {
   _onRoute(pathname: string) {
     const route = this.getRoute(pathname);
 
-    if (this._currentRoute) {
-      // this._currentRoute.leave();
-    }
-
     this._currentRoute = route;
-    route?.render(route, pathname);
+
+    route?.render();
   }
 
   go(pathname: string) {
@@ -68,6 +67,13 @@ export class Router {
 
 export function getRouter() {
   const router = new Router('#app');
-  router.use('/', HomePage).use('404', Page404).use('500', Page500).use('chat', ChatPage).start();
+  router
+    .use('/', LoginPage)
+    .use('/404', Page404)
+    .use('/500', Page500)
+    .use('/messenger', ChatPage)
+    .use('/sign-up', RegisterPage)
+    .use('/settings', ProfilePage)
+    .start();
   return router;
 }

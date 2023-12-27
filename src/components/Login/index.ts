@@ -19,7 +19,7 @@ export class Login extends Block {
     this.children.Link = new Link({
       class: 'homeLink',
       text: 'Нет аккаунта?',
-      url: 'register',
+      url: '/sign-up',
     });
     this.children.Inputs = this.props.loginInputs.map(
       (input: IInputLabel) => new InputLabel({ ...input }),
