@@ -85,6 +85,7 @@ class BaseUsersController extends Block {
           if (user.first_name) {
             return { ...user, title: user.first_name };
           }
+          return;
         });
       return new SelectLabel({
         errorText: 'Not empty',

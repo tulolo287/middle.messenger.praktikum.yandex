@@ -43,7 +43,6 @@ window.addEventListener(
         Router.go(ROUTES.CHAT);
       }
     } catch (e: any) {
-      // alert(e);
       console.log(e);
       Router.start();
 

@@ -11,11 +11,6 @@ type Options = {
   data?: any;
 };
 
-type HTTPMethod = (
-  path: string,
-  options?: Record<string, any>,
-) => Promise<Response>;
-
 export default class HTTPTransport {
   static API_URL = 'https://ya-praktikum.tech/api/v2';
 
