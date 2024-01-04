@@ -65,7 +65,5 @@ class ChatsController {
 
 const controller = new ChatsController();
 
-// @ts-ignore
-window.chatsController = controller;
 
 export default controller;
