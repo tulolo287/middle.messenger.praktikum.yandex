@@ -48,7 +48,7 @@ class BaseChatController extends Block {
         },
       },
       text: 'Add chat',
-      type: 'button',
+      type: 'submit',
     });
     this.children.DeleteChatButton = new Button({
       events: {
