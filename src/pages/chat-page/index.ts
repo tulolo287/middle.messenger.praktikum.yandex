@@ -52,7 +52,7 @@ export class BaseChatPage extends Block<ChatPageProps> {
 
     this.props.messageInputs = messageInputs;
     this.children.MessageInput = this.props.messageInputs.map(
-      (input) => new InputLabel({ ...input })
+      (input) => new InputLabel({ ...input }),
     );
     this.children.Menu = new Menu({});
 
@@ -77,7 +77,7 @@ export class BaseChatPage extends Block<ChatPageProps> {
               form.reset();
               MessagesController.sendMessage(
                 store.getState().selectedChat!,
-                formData.message as string
+                formData.message as string,
               );
             } else {
               alert('Invalid form');
@@ -90,7 +90,7 @@ export class BaseChatPage extends Block<ChatPageProps> {
 
   protected componentDidUpdate(
     oldProps: ChatPageProps,
-    newProps: ChatPageProps
+    newProps: ChatPageProps,
   ): boolean {
     this.children.Avatar = this.createAvatar(newProps);
     return true;
@@ -101,8 +101,8 @@ export class BaseChatPage extends Block<ChatPageProps> {
       alt: 'фото-профиля',
       url: '/settings',
       src:
-        `https://ya-praktikum.tech/api/v2/resources${this.props.profile?.avatar}` ||
-        'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
+        `https://ya-praktikum.tech/api/v2/resources${this.props.profile?.avatar}`
+        || 'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
     });
   }
 
@@ -114,7 +114,6 @@ export class BaseChatPage extends Block<ChatPageProps> {
 const withState = (state: IState) => ({
   profile: state.user,
   avatar: state.avatar,
-})
+});
 
-export const ChatPage = withStore(withState)(BaseChatPage as typeof Block)
-
+export const ChatPage = withStore(withState)(BaseChatPage as typeof Block);
