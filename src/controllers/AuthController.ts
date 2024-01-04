@@ -5,6 +5,7 @@ import store from '../utils/Store';
 import Router from '../utils/Router';
 import { setProfileInputs } from '../utils/helpers';
 import MessagesController from './MessagesController';
+import { User } from '../typings/data';
 
 export class AuthController {
   private readonly api: AuthAPI;
@@ -29,7 +30,7 @@ export class AuthController {
     }
   }
 
-  async signup(data: SignupData) {
+  async signup(data: Record<string, FormDataEntryValue>) {
     try {
       await this.api.signup(data);
 
@@ -43,9 +44,9 @@ export class AuthController {
   async fetchUser() {
     try {
       const user = await this.api.read();
-      if (user) {
+      if (user as User) {
         store.set('user', user);
-        const profileInputs = setProfileInputs(user);
+        const profileInputs = setProfileInputs(user as User);
         store.set('profileInputs', profileInputs);
       } else {
         throw new Error('User not found');

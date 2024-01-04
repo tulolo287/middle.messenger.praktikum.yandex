@@ -23,6 +23,7 @@ export interface User {
   password: string;
   phone: string;
   avatar: string;
+  title?: string | undefined;
 }
 
 export interface IProfileChat {

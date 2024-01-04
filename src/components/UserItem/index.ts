@@ -3,7 +3,15 @@ import './user-item.css';
 import template from './user-item.hbs';
 
 interface UserItemProps {
-  title: string;
+  id: number;
+  first_name: string;
+  second_name: string;
+  login: string;
+  email: string;
+  password: string;
+  phone: string;
+  avatar: string;
+  title?: string | undefined;
   events?: { click: (e: Event) => void };
 }
 export class UserItem extends Block {

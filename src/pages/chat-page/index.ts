@@ -17,7 +17,7 @@ import './chat.css';
 import template from './chat.hbs';
 
 interface ChatPageProps {
-  titles: string;
+  title: string;
 }
 export class BaseChatPage extends Block {
   constructor(props: ChatPageProps) {
@@ -84,7 +84,10 @@ export class BaseChatPage extends Block {
     });
   }
 
-  protected componentDidUpdate(oldProps: any, newProps: any): boolean {
+  protected componentDidUpdate(
+    oldProps: ChatPageProps,
+    newProps: ChatPageProps,
+  ): boolean {
     this.children.Avatar = this.createAvatar(newProps);
     return true;
   }

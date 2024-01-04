@@ -7,6 +7,7 @@ import { UsersController } from '../UsersController';
 import { UserItem } from '../UserItem';
 import './users.css';
 import template from './users.hbs';
+import { User } from '../../typings/data';
 
 interface IAvatarProps {
   class?: string;
@@ -65,13 +66,16 @@ export class BaseUsers extends Block {
     });
   }
 
-  protected componentDidUpdate(oldProps: any, newProps: any): boolean {
+  protected componentDidUpdate(
+    oldProps: IAvatarProps,
+    newProps: IAvatarProps,
+  ): boolean {
     this.children.Users = this.getUsers(newProps);
     return true;
   }
 
-  private getUsers(props: any) {
-    const users = this.props.chatUsers;
+  private getUsers(props: IAvatarProps) {
+    const users: User[] = this.props.chatUsers;
     if (users) {
       return users.map((user) => new UserItem({ ...user }));
     } else {

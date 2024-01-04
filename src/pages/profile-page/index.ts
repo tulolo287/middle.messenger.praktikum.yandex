@@ -53,6 +53,7 @@ export class BaseProfilePage extends Block<ProfilePageProps> {
       type: 'button',
       events: {
         click: (e) => {
+          e.preventDefault();
           AuthController.logout();
         },
       },
@@ -65,7 +66,10 @@ export class BaseProfilePage extends Block<ProfilePageProps> {
     this.children.Login = new PageLinks({ pages });
   }
 
-  protected componentDidUpdate(oldProps: any, newProps: any): boolean {
+  protected componentDidUpdate(
+    oldProps: ProfilePageProps,
+    newProps: ProfilePageProps,
+  ): boolean {
     this.children.Avatar = this.createAvatar(newProps);
     return true;
   }

@@ -1,16 +1,6 @@
 {
-  "extends": [
-    "airbnb",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking"
-  ],
+  "extends": ["airbnb"],
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "tsconfig.json",
-    "tsconfigRootDir": "."
-  },
   "plugins": ["@typescript-eslint"],
   "env": {
     "browser": true,

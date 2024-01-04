@@ -1,4 +1,5 @@
 import ChatsController from '../../controllers/ChatsController';
+import { User } from '../../typings/data';
 import Block from '../../utils/Block';
 import store, { withStore } from '../../utils/Store';
 import { Button } from '../Button';
@@ -62,16 +63,19 @@ class BaseUsersController extends Block {
     });
   }
 
-  protected componentDidUpdate(oldProps: any, newProps: any): boolean {
+  protected componentDidUpdate(
+    oldProps: UsersControllerProps,
+    newProps: UsersControllerProps,
+  ): boolean {
     this.children.SelectUser = this.createSelect(newProps);
     return true;
   }
 
-  private createSelect(props: any) {
-    let users = this.props.chatUsers;
+  private createSelect(props: UsersControllerProps) {
+    const users: User[] = this.props.chatUsers;
     const currentUser = this.props.user;
     if (users) {
-      users = users
+      const usersSelect = users
         .filter((user) => user.id !== currentUser.id)
         .map((user) => {
           if (user.first_name) {
@@ -84,7 +88,7 @@ class BaseUsersController extends Block {
         required: true,
         type: 'text',
         value: '',
-        options: users,
+        options: usersSelect,
         label: { for: 'delete_user', text: 'Select user' },
         name: 'delete_user',
       });

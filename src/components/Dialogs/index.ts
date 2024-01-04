@@ -1,5 +1,4 @@
-import { dialogs } from '../../data/dialogs';
-import { IDialog, IDialogs, TDialog } from '../../typings/data';
+import { IDialog } from '../../typings/data';
 import Block from '../../utils/Block';
 import { withStore } from '../../utils/Store';
 import { DialogItem } from '../DialogItem';

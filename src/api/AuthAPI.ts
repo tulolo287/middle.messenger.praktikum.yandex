@@ -34,11 +34,11 @@ export class AuthAPI extends BaseAPI {
     return this.http.post('/signin', data);
   }
 
-  signup(data: SignupData) {
+  signup(data: Record<string, FormDataEntryValue>) {
     return this.http.post('/signup', data);
   }
 
-  read(): Promise<User> {
+  read(): Promise<unknown> {
     return this.http.get('/user');
   }
 

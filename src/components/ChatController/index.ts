@@ -60,12 +60,15 @@ class BaseChatController extends Block {
     });
   }
 
-  protected componentDidUpdate(oldProps: any, newProps: any): boolean {
+  protected componentDidUpdate(
+    oldProps: ChatControllerProps,
+    newProps: ChatControllerProps,
+  ): boolean {
     this.children.SelectChat = this.createSelect(newProps);
     return true;
   }
 
-  private createSelect(props: any) {
+  private createSelect(props: ChatControllerProps) {
     if (this.props.chats) {
       return new SelectLabel({
         errorText: 'Not empty',

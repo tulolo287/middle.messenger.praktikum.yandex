@@ -19,7 +19,10 @@ class ChatsBase extends Block<ChatsProps> {
     this.children.ChatItems = this.createChats(this.props);
   }
 
-  protected componentDidUpdate(oldProps: any, newProps: any): boolean {
+  protected componentDidUpdate(
+    oldProps: ChatsProps,
+    newProps: ChatsProps,
+  ): boolean {
     this.children.ChatItems = this.createChats(newProps);
     return true;
   }
