@@ -35,7 +35,7 @@ export class BaseProfilePage extends Block {
       },
     });
     this.props.show = false;
-    this.children.Avatar = this.createAvatar(this.props);
+    this.children.Avatar = this.createAvatar();
 
     this.children.LinkChangeProfile = new Link({
       class: 'homeLink',
@@ -66,15 +66,12 @@ export class BaseProfilePage extends Block {
     this.children.Login = new PageLinks({ pages });
   }
 
-  protected componentDidUpdate(
-    oldProps: ProfilePageProps,
-    newProps: ProfilePageProps,
-  ): boolean {
-    this.children.Avatar = this.createAvatar(newProps);
+  protected componentDidUpdate(): boolean {
+    this.children.Avatar = this.createAvatar();
     return true;
   }
 
-  private createAvatar(props: ProfilePageProps) {
+  private createAvatar() {
     return new Avatar({
       alt: 'фото-профиля',
       class: 'avatar__change',

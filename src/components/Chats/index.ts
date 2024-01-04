@@ -16,18 +16,15 @@ class ChatsBase extends Block<ChatsProps> {
   }
 
   init() {
-    this.children.ChatItems = this.createChats(this.props);
+    this.children.ChatItems = this.createChats();
   }
 
-  protected componentDidUpdate(
-    oldProps: ChatsProps,
-    newProps: ChatsProps,
-  ): boolean {
-    this.children.ChatItems = this.createChats(newProps);
+  protected componentDidUpdate(): boolean {
+    this.children.ChatItems = this.createChats();
     return true;
   }
 
-  private createChats(props: ChatsProps) {
+  private createChats() {
     if (this.props.chats) {
       return this.props.chats.map(
         (chat) => new ChatItem({
@@ -35,6 +32,7 @@ class ChatsBase extends Block<ChatsProps> {
           active: chat.id === store.getState().selectedChat,
           events: {
             click: (e: Event) => {
+              e.preventDefault();
               ChatsController.selectChat(chat.id);
               ChatsController.getChatUsers(chat.id);
             },

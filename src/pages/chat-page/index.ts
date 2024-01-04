@@ -48,7 +48,7 @@ export class BaseChatPage extends Block<ChatPageProps> {
         },
       },
     });
-    this.children.Avatar = this.createAvatar(this.props);
+    this.children.Avatar = this.createAvatar();
 
     this.props.messageInputs = messageInputs;
     this.children.MessageInput = this.props.messageInputs.map(
@@ -88,15 +88,12 @@ export class BaseChatPage extends Block<ChatPageProps> {
     });
   }
 
-  protected componentDidUpdate(
-    oldProps: ChatPageProps,
-    newProps: ChatPageProps,
-  ): boolean {
-    this.children.Avatar = this.createAvatar(newProps);
+  protected componentDidUpdate(): boolean {
+    this.children.Avatar = this.createAvatar();
     return true;
   }
 
-  private createAvatar(props: ChatPageProps) {
+  private createAvatar() {
     return new Avatar({
       alt: 'фото-профиля',
       url: '/settings',

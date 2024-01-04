@@ -19,7 +19,6 @@ export class BaseDialogs extends Block<DialogsProps> {
   }
 
   protected componentDidUpdate(
-    oldProps: DialogsProps,
     newProps: DialogsProps,
   ): boolean {
     this.children.Dialogs = this.createMessages(newProps);

@@ -5,19 +5,19 @@ export class UserAPI extends BaseAPI {
     super('/user');
   }
 
-  public create?(data: unknown): Promise<unknown> {
+  public create?(): Promise<unknown> {
     throw new Error('Method not implemented.');
   }
 
-  public read?(identifier?: string | number | undefined): Promise<unknown> {
+  public read?(): Promise<unknown> {
     throw new Error('Method not implemented.');
   }
 
-  public update?(identifier: string | number, data: unknown): Promise<unknown> {
+  public update?(): Promise<unknown> {
     throw new Error('Method not implemented.');
   }
 
-  public delete?(identifier: string | number): Promise<unknown> {
+  public delete?(): Promise<unknown> {
     throw new Error('Method not implemented.');
   }
 

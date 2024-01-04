@@ -29,7 +29,7 @@ class BaseChatController extends Block {
       label: { for: 'login', text: 'Chat name' },
       name: 'login',
     });
-    this.children.SelectChat = this.createSelect(this.props);
+    this.children.SelectChat = this.createSelect();
     this.children.CancelButton = new Button({
       events: {
         click: () => {
@@ -64,15 +64,12 @@ class BaseChatController extends Block {
     });
   }
 
-  protected componentDidUpdate(
-    oldProps: ChatControllerProps,
-    newProps: ChatControllerProps,
-  ): boolean {
-    this.children.SelectChat = this.createSelect(newProps);
+  protected componentDidUpdate(): boolean {
+    this.children.SelectChat = this.createSelect();
     return true;
   }
 
-  private createSelect(props: ChatControllerProps) {
+  private createSelect() {
     if (this.props.chats) {
       return new SelectLabel({
         errorText: 'Not empty',

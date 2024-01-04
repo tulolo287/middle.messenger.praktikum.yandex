@@ -31,7 +31,7 @@ class BaseUsersController extends Block {
       label: { for: 'user_id', text: 'User id' },
       name: 'user_id',
     });
-    this.children.SelectUser = this.createSelect(this.props);
+    this.children.SelectUser = this.createSelect();
     this.children.CancelButton = new Button({
       events: {
         click: () => {
@@ -67,15 +67,12 @@ class BaseUsersController extends Block {
     });
   }
 
-  protected componentDidUpdate(
-    oldProps: UsersControllerProps,
-    newProps: UsersControllerProps,
-  ): boolean {
-    this.children.SelectUser = this.createSelect(newProps);
+  protected componentDidUpdate(): boolean {
+    this.children.SelectUser = this.createSelect();
     return true;
   }
 
-  private createSelect(props: UsersControllerProps) {
+  private createSelect() {
     const users: User[] = this.props.chatUsers;
     const currentUser = this.props.user;
     if (users) {

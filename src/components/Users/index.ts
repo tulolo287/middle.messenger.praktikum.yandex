@@ -51,7 +51,7 @@ export class BaseUsers extends Block<IAvatarProps> {
       },
     });
 
-    this.children.Users = this.getUsers(this.props);
+    this.children.Users = this.getUsers();
 
     this.children.AddUser = new Button({
       events: {
@@ -69,15 +69,12 @@ export class BaseUsers extends Block<IAvatarProps> {
     });
   }
 
-  protected componentDidUpdate(
-    oldProps: IAvatarProps,
-    newProps: IAvatarProps,
-  ): boolean {
-    this.children.Users = this.getUsers(newProps);
+  protected componentDidUpdate(): boolean {
+    this.children.Users = this.getUsers();
     return true;
   }
 
-  private getUsers(props: IAvatarProps) {
+  private getUsers() {
     const users: User[] | undefined = this.props.chatUsers;
     if (users) {
       return users.map((user) => new UserItem({ ...user }));
