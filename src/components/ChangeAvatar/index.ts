@@ -1,6 +1,7 @@
 import Block from '../../utils/Block';
 import { withStore } from '../../utils/Store';
 import { Button } from '../Button';
+import { Input } from '../Input';
 import { InputLabel } from '../InputLabel';
 import './change-avatar.css';
 import template from './change-avatar.hbs';
@@ -43,7 +44,8 @@ class BaseChangeAvatar extends Block {
           const formData = new FormData();
           formData.append('avatar', avatar!.files![0]);
           this.props.cb(formData);
-          this.children.ChangeAvatarInput.children.Input._element.value = '';
+          const el = (((this.children.ChangeAvatarInput as this).children.Input as Block<Input>).element as HTMLInputElement);
+          el.value = '';
         },
       },
       text: 'Change Avatar',

@@ -3,7 +3,9 @@ import { User } from '../../typings/data';
 import Block from '../../utils/Block';
 import store, { withStore } from '../../utils/Store';
 import { Button } from '../Button';
+import { Input } from '../Input';
 import { InputLabel } from '../InputLabel';
+import { Select } from '../Select';
 import { SelectLabel } from '../SelectLabel';
 import './users-controller.css';
 import template from './users-controller.hbs';
@@ -42,8 +44,9 @@ class BaseUsersController extends Block {
     this.children.AddUserButton = new Button({
       events: {
         click: () => {
-          this.props.cb(this.children.AddUser.children.Input._element.value);
-          this.children.AddUser.children.Input._element.value = '';
+          const el = (((this.children.AddUser as this).children.Input as Block<Input>).element as HTMLInputElement);
+          this.props.cb(el.value);
+          el.value = '';
         },
       },
       text: 'Add user',
@@ -52,9 +55,10 @@ class BaseUsersController extends Block {
     this.children.DeleteUserButton = new Button({
       events: {
         click: () => {
+          const el = (((this.children.SelectChat as this).children.Select as Block<Select>).element as HTMLInputElement);
           ChatsController.deleteChatUsers(
             store.getState().selectedChat,
-            this.children.SelectUser.children.Select._element.value,
+            Number(el.value),
           );
         },
       },

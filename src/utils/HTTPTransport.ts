@@ -14,7 +14,7 @@ type Options = {
 type HTTPMethod = (
   path: string,
   options?: Record<string, any>,
-) => Promise<unknown>;
+) => Promise<Response>;
 
 export default class HTTPTransport {
   static API_URL = 'https://ya-praktikum.tech/api/v2';
@@ -25,27 +25,37 @@ export default class HTTPTransport {
     this.endpoint = `${HTTPTransport.API_URL}${endpoint}`;
   }
 
-  public get: HTTPMethod = (path = '/') => this.request<Response>(this.endpoint + path);
+  public get<Response>(path = '/'): Promise<Response> {
+    return this.request<Response>(this.endpoint + path);
+  }
 
-  public post: HTTPMethod = (path: string, data?: unknown) => this.request<Response>(this.endpoint + path, {
-    method: Method.Post,
-    data,
-  });
+  public post<Response = void>(path: string, data?: unknown): Promise<Response> {
+    return this.request<Response>(this.endpoint + path, {
+      method: Method.Post,
+      data,
+    });
+  }
 
-  public put: HTTPMethod = (path: string, data: unknown) => this.request<Response>(this.endpoint + path, {
-    method: Method.Put,
-    data,
-  });
+  public put<Response = void>(path: string, data: unknown): Promise<Response> {
+    return this.request<Response>(this.endpoint + path, {
+      method: Method.Put,
+      data,
+    });
+  }
 
-  public patch: HTTPMethod = (path: string, data: unknown) => this.request<Response>(this.endpoint + path, {
-    method: Method.Patch,
-    data,
-  });
+  public patch<Response = void>(path: string, data: unknown): Promise<Response> {
+    return this.request<Response>(this.endpoint + path, {
+      method: Method.Patch,
+      data,
+    });
+  }
 
-  public delete: HTTPMethod = (path: string, data?: unknown) => this.request<Response>(this.endpoint + path, {
-    method: Method.Delete,
-    data,
-  });
+  public delete<Response>(path: string, data?: unknown): Promise<Response> {
+    return this.request<Response>(this.endpoint + path, {
+      method: Method.Delete,
+      data,
+    });
+  }
 
   private request<Response>(
     url: string,

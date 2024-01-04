@@ -83,6 +83,7 @@ export interface ChatInfo {
 
 export interface IDialog {
   chat_id: number;
+  class?: string;
   time: string;
   type: string;
   user_id: number;

@@ -61,4 +61,4 @@ const withSelectedChatDialogs = withStore((state) => {
   };
 });
 
-export const Dialogs = withSelectedChatDialogs(BaseDialogs);
+export const Dialogs = withSelectedChatDialogs(BaseDialogs as typeof Block);

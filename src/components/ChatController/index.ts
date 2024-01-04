@@ -2,7 +2,9 @@ import ChatsController from '../../controllers/ChatsController';
 import Block from '../../utils/Block';
 import { withStore } from '../../utils/Store';
 import { Button } from '../Button';
+import { Input } from '../Input';
 import { InputLabel } from '../InputLabel';
+import { Select } from '../Select';
 import { SelectLabel } from '../SelectLabel';
 import './chat-controller.css';
 import template from './chat-controller.hbs';
@@ -40,8 +42,9 @@ class BaseChatController extends Block {
     this.children.AddChatButton = new Button({
       events: {
         click: () => {
-          this.props.cb(this.children.AddChat.children.Input._element.value);
-          this.children.AddChat.children.Input._element.value = '';
+          const el = (((this.children.AddChat as this).children.Input as Block<Input>).element as HTMLInputElement);
+          this.props.cb(el.value);
+          el.value = '';
         },
       },
       text: 'Add chat',
@@ -50,8 +53,9 @@ class BaseChatController extends Block {
     this.children.DeleteChatButton = new Button({
       events: {
         click: () => {
+          const el = (((this.children.SelectChat as this).children.Select as Block<Select>).element as HTMLInputElement);
           ChatsController.delete(
-            this.children.SelectChat.children.Select._element.value,
+            Number(el.value),
           );
         },
       },
@@ -92,4 +96,4 @@ class BaseChatController extends Block {
 
 const withChats = withStore((state) => ({ chats: [...(state.chats || [])] }));
 
-export const ChatController = withChats(BaseChatController);
+export const ChatController = withChats(BaseChatController as typeof Block);
