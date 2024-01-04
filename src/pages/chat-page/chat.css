@@ -130,17 +130,15 @@ body {
 }
 
 .received {
-  justify-self: left;
-  align-self: start;
+  place-self: start left;
   color: var(--foregroundColor);
   background-color: var(--backgroundColor);
   border: 3px solid var(--selectColor);
 }
 
 .sent {
-  justify-self: right;
+  place-self: end right;
   align-content: right;
-  align-self: end;
   color: var(--foregroundColor);
   background-color: var(--backgroundColor);
   border: 3px solid var(--foregroundColor);

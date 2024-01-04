@@ -32,8 +32,8 @@ export class BaseChatPage extends Block<ChatPageProps> {
     this.children.Users = new Users({});
     this.children.ChatController = new ChatController({
       cb: (chatName: string) => {
-        if(chatName === "") {
-          alert("Please enter chat name");
+        if (chatName === '') {
+          alert('Please enter chat name');
         }
         ChatsController.create(chatName);
       },
