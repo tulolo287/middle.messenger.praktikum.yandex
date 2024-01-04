@@ -12,7 +12,11 @@ export class Page500 extends Block {
   }
 
   protected init(): void {
-    this.children.Link = new Link({ class: 'homeLink', text: '\u2190 Назад к чатам', url: '/' });
+    this.children.Link = new Link({
+      class: 'homeLink',
+      text: '\u2190 Назад к чатам',
+      url: '/',
+    });
   }
 
   render() {

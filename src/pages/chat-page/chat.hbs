@@ -3,13 +3,14 @@
     <section class="sidebar">
       <div class="sidebar-search">
         <input class="input" type="search" name="search" placeholder="Search" />
-        {{{Menu}}}
+        {{{AddChat}}}
       </div>
-        {{{Chats}}}
+      {{{Chats}}}
     </section>
     <section class="dialogs">
       <div class="chat__profile">
-      {{{Avatar}}}
+        {{{Users}}}
+        {{{Avatar}}}
       </div>
       {{{Dialogs}}}
       <form class="dialogs__control__send">
@@ -18,4 +19,5 @@
       </form>
     </section>
   </div>
+  {{#if show}} {{{ChatController}}} {{/if}}
 </main>

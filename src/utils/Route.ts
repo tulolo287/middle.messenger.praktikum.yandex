@@ -9,8 +9,11 @@ interface IRoute {
 
 export class Route implements IRoute {
   _pathname: string;
+
   _blockClass: any;
+
   _props: any;
+
   _block: any;
 
   constructor(pathname: string, view: any, props: any) {
@@ -25,7 +28,6 @@ export class Route implements IRoute {
       this._block = new this._blockClass();
     }
     render(this._props.rootQuery, this._block);
-    return;
   }
 
   leave() {

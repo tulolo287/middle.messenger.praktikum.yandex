@@ -1,18 +1,15 @@
-import { Page404 } from '../pages/404-page';
-import { Page500 } from '../pages/500-page';
-import { ChatPage } from '../pages/chat-page';
-import { HomePage } from '../pages/home-page';
-import { LoginPage } from '../pages/login-page';
-import { ProfilePage } from '../pages/profile-page';
-import { RegisterPage } from '../pages/register-page';
 import { Route } from './Route';
 
 export class Router {
-  routes: Route[] = [];
-  history: History = window.history;
-  _currentRoute: Route | undefined = undefined;
-  _rootQuery: string | null = '';
   static __instance: Router;
+
+  routes: Route[] = [];
+
+  history: History = window.history;
+
+  _currentRoute: Route | undefined = undefined;
+
+  _rootQuery: string | null = '';
 
   constructor(rootQuery: string | null) {
     if (Router.__instance) {
@@ -65,15 +62,4 @@ export class Router {
   }
 }
 
-export function getRouter() {
-  const router = new Router('#app');
-  router
-    .use('/', LoginPage)
-    .use('/404', Page404)
-    .use('/500', Page500)
-    .use('/messenger', ChatPage)
-    .use('/sign-up', RegisterPage)
-    .use('/settings', ProfilePage)
-    .start();
-  return router;
-}
+export default new Router('#app');

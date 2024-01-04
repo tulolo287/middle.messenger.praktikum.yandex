@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "lintcss": "stylelint '**/*.{css,sass,scss}' --fix",
     "eslint": "eslint --fix --ext .ts --ignore-path .gitignore .",
-    "all": "eslint --fix --ext .ts --ignore-path .gitignore . && stylelint '**/*.{css,sass,scss}' --fix"
+    "all": "eslint --fix --ext .ts --ignore-path .gitignore . && stylelint '**/*.{css,sass,scss}' --fix",
+    "tsc": "tsc --noEmit"
   },
   "engines": {
     "node": ">=12"

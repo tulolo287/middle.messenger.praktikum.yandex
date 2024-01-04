@@ -2,6 +2,7 @@ import { Button } from '../../components/Button';
 import { InputLabel } from '../../components/InputLabel';
 import { Link } from '../../components/Link';
 import { changePasswordInputs } from '../../data/change-password';
+import { ROUTES } from '../../data/consts';
 import { IInputLabel } from '../../typings/data';
 import Block from '../../utils/Block';
 import { checkValidation } from '../../utils/validation';
@@ -24,7 +25,7 @@ export class ChangePasswordPage extends Block {
     this.children.Link = new Link({
       class: 'homeLink',
       text: '\u2190 Назад',
-      url: 'profile',
+      url: ROUTES.PROFILE,
     });
     this.children.Save = new Button({
       type: 'submit',

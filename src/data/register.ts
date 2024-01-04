@@ -32,6 +32,14 @@ export const registerInputs = [
     errorText: 'Введите корректную фамилию',
   },
   {
+    label: { for: 'display_name', text: 'Nic' },
+    type: 'text',
+    name: 'display_name',
+    required: true,
+    placeholder: 'nic',
+    errorText: 'Введите корректную Nic',
+  },
+  {
     label: { for: 'phone', text: 'Телефон' },
     type: 'tel',
     name: 'phone',

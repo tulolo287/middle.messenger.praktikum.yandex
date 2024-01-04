@@ -1,0 +1,11 @@
+.avatar {
+  display: flex;
+}
+
+.avatar > a {
+  margin: 0 auto;
+}
+
+.avatar__change {
+  height: 300px;
+}

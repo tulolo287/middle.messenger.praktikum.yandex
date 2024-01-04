@@ -28,10 +28,8 @@ class Block<P extends Record<string, any> = any> {
   constructor(propsWithChildren: P) {
     const eventBus = new EventBus();
 
-    
     const { props, children } = this._getChildrenAndProps(propsWithChildren);
-    
-    
+
     this.children = children;
     this.props = this._makePropsProxy(props);
 
@@ -42,7 +40,10 @@ class Block<P extends Record<string, any> = any> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  _getChildrenAndProps(childrenAndProps: P): { props: P, children: Record<string, Block | Block[]> } {
+  _getChildrenAndProps(childrenAndProps: P): {
+    props: P;
+    children: Record<string, Block | Block[]>;
+  } {
     const props: Record<string, unknown> = {};
     const children: Record<string, Block | Block[]> = {};
 
@@ -81,7 +82,9 @@ class Block<P extends Record<string, any> = any> {
   }
 
   _removeEvents() {
-    const { events = {} } = this.props as P & { events: Record<string, () => void> };
+    const { events = {} } = this.props as P & {
+      events: Record<string, () => void>;
+    };
     Object.keys(events).forEach((eventName) => {
       this._element?.removeEventListener(eventName, events[eventName]);
     });
@@ -105,7 +108,9 @@ class Block<P extends Record<string, any> = any> {
 
     Object.values(this.children).forEach((child) => {
       if (Array.isArray(child)) {
-        child.forEach((ch) => { ch.dispatchComponentDidMount(); });
+        child.forEach((ch) => {
+          ch.dispatchComponentDidMount();
+        });
       } else {
         child.dispatchComponentDidMount();
       }
@@ -153,7 +158,9 @@ class Block<P extends Record<string, any> = any> {
 
     Object.entries(this.children).forEach(([name, component]) => {
       if (Array.isArray(component)) {
-        contextAndStubs[name] = component.map((child) => `<div data-id="${child.id}"></div>`);
+        contextAndStubs[name] = component.map(
+          (child) => `<div data-id="${child.id}"></div>`,
+        );
       } else {
         contextAndStubs[name] = `<div data-id="${component.id}"></div>`;
       }

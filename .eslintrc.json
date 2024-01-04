@@ -1,6 +1,16 @@
 {
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
   "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "tsconfigRootDir": "."
+  },
   "plugins": ["@typescript-eslint"],
   "env": {
     "browser": true,
@@ -9,7 +19,7 @@
   },
   "rules": {
     "max-len": [2, 800],
-    "@typescript-eslint/no-unused-vars": "off" ,
+    "@typescript-eslint/no-unused-vars": "off",
     "linebreak-style": 0,
     "import/extensions": "off",
     "import/no-unresolved": "off",
@@ -36,6 +46,12 @@
     "no-useless-constructor": "off",
     "no-else-return": "off",
     "no-shadow": "off",
+    "no-constructor-return": "off",
+    "max-classes-per-file": "off",
+    "guard-for-in": "off",
+    "no-restricted-syntax": "off",
+    "no-continue": "off",
+    "no-prototype-builtins": "off",
     "@typescript-eslint/no-shadow": "warn"
   }
 }

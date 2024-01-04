@@ -1,3 +1,4 @@
+import AuthController from '../../controllers/AuthController';
 import { IInputLabel } from '../../typings/data';
 import Block from '../../utils/Block';
 import { checkValidation } from '../../utils/validation';
@@ -34,6 +35,7 @@ export class Register extends Block {
             const formData = checkValidation(form);
             if (formData && formData.password === formData.repeat_password) {
               console.log(formData);
+              AuthController.signup(formData);
             } else {
               alert('Invalid form');
             }

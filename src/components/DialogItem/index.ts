@@ -1,10 +1,10 @@
-import { TDialog } from '../../typings/data';
+import { IDialog } from '../../typings/data';
 import Block from '../../utils/Block';
 import { Menu } from '../Menu';
 import template from './chat-dialog.hbs';
 
 export class DialogItem extends Block {
-  constructor(props: TDialog) {
+  constructor(props: IDialog) {
     super(props);
   }
 

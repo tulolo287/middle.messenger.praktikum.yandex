@@ -1,3 +1,4 @@
+import AuthController from '../../controllers/AuthController';
 import { IInputLabel } from '../../typings/data';
 import Block from '../../utils/Block';
 import { checkValidation } from '../../utils/validation';
@@ -12,6 +13,7 @@ interface ILoginProps {
 
 export class Login extends Block {
   constructor(props: ILoginProps) {
+    // AuthController.fetchUser();
     super(props);
   }
 
@@ -35,6 +37,7 @@ export class Login extends Block {
             const formData = checkValidation(form);
             if (formData) {
               console.log(formData);
+              AuthController.signin(formData);
             } else {
               alert('Invalid form');
             }

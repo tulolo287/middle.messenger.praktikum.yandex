@@ -4,13 +4,25 @@ export interface IPage {
 }
 
 export interface IProfile {
-  email: string;
+  id: number;
+  first_name: string;
+  second_name: string;
   login: string;
-  name: string;
-  surname: string;
-  nic: string;
+  email: string;
+  password: string;
   phone: string;
-  avatar: {}
+  avatar: string;
+}
+
+export interface User {
+  id: number;
+  first_name: string;
+  second_name: string;
+  login: string;
+  email: string;
+  password: string;
+  phone: string;
+  avatar: string;
 }
 
 export interface IProfileChat {
@@ -23,10 +35,10 @@ export interface IProfileChat {
     src: string;
     url: string;
     alt: string;
-  }
+  };
 }
 
-export type TDialog = Omit<IProfiles, 'active'>;
+// export type TDialog = Omit<IProfiles, 'active'>;
 
 export interface IInputLabel {
   label: { for: string; text: string };
@@ -35,4 +47,46 @@ export interface IInputLabel {
   required: boolean;
   placeholder: string;
   errorText: string;
+  value?: any;
+  accept?: string;
+}
+
+export interface ISelectLabel {
+  label: { for: string; text: string };
+  type: string;
+  name: string;
+  required: boolean;
+  placeholder: string;
+  errorText: string;
+  value?: any;
+  options?: any;
+}
+
+export interface ChatInfo {
+  id: number;
+  title: string;
+  avatar: string;
+  unread_count: number;
+  last_message: {
+    user: User;
+    time: string;
+    content: string;
+  };
+}
+
+export interface IDialog {
+  chat_id: number;
+  time: string;
+  type: string;
+  user_id: number;
+  content: string;
+  file?: {
+    id: number;
+    user_id: number;
+    path: string;
+    filename: string;
+    content_type: string;
+    content_size: number;
+    upload_date: string;
+  };
 }

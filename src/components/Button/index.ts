@@ -5,7 +5,7 @@ interface IButton {
   class?: string;
   type: string;
   text: string;
-  events: { click: (e: Event) => void; }
+  events: { click: (e: Event) => void };
 }
 
 export class Button extends Block {

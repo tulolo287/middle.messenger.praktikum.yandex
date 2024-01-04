@@ -1,5 +1,9 @@
 <ul class="chat__list">
-  {{#each ChatItems}}
-    {{{this}}}
-  {{/each}}
+  {{#if isLoaded}}
+    {{#each ChatItems}}
+      {{{this}}}
+    {{/each}}
+  {{else}}
+    Loading...
+  {{/if}}
 </ul>

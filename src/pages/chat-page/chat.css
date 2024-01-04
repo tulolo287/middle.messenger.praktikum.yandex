@@ -13,6 +13,8 @@ body {
   height: 50px;
   text-align: right;
   margin-right: 40px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .chat__profile img {
@@ -31,6 +33,7 @@ body {
   display: grid;
   overflow: scroll;
   height: calc(100vh - 200px);
+  align-items: end;
 }
 
 .sidebar {
@@ -39,9 +42,11 @@ body {
 
 .sidebar-search {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
+  gap: 20px;
 }
 
 .sidebar-search input {
@@ -78,62 +83,6 @@ body {
   padding: 40px;
 }
 
-.chat-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 3px solid var(--foregroundColor);
-  border-radius: 50px;
-  margin-bottom: 30px;
-  list-style: none;
-  translate: 3s ease-in-out;
-  color: var(--foregroundColor);
-  overflow: hidden;
-}
-
-.chat-item:hover {
-  border: 3px solid var(--selectColor);
-  cursor: pointer;
-}
-
-.chat-item__active {
-  background-color: var(--selectColor);
-  width: 500px;
-}
-
-.chat-item__info {
-  height: 70px;
-  display: flex;
-  width: 80%;
-}
-
-.chat-item__info__img {
-  object-fit: cover;
-  width: 70px;
-}
-
-.chat-item__info__name {
-  display: flex;
-  flex-direction: column;
-  margin-left: 10px;
-  justify-content: space-around;
-  flex-grow: 1;
-  overflow: hidden;
-}
-
-.chat-item__info__time {
-  margin-right: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.chat-item p,
-h3 {
-  margin: 0;
-}
-
 .chat-dialog {
   height: 400px;
   width: 500px;
@@ -168,12 +117,12 @@ h3 {
 
 .sent,
 .received {
-  width: 500px;
   background-color: var(--selectColor);
   border-radius: 60px;
   margin-bottom: 40px;
   padding: 30px;
-  min-width: 20rem;
+  width: 50%;
+  height: fit-content;
 }
 
 .received {

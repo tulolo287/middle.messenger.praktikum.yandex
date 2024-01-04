@@ -1,6 +1,5 @@
 import Block from '../../utils/Block';
-import { Router, getRouter } from '../../utils/Router';
-import { render } from '../../utils/render';
+import Router from '../../utils/Router';
 import template from './link.hbs';
 
 interface ILinkProps {
@@ -18,8 +17,8 @@ export class Link extends Block {
     this.props.events = {
       click: (e: Event) => {
         e.preventDefault();
-        
-        getRouter().go(this.props.url)
+
+        Router.go(this.props.url);
       },
     };
   }

@@ -1,12 +1,14 @@
 import Block from '../../utils/Block';
-import { render } from '../../utils/render';
+import Router from '../../utils/Router';
+import './avatar.css';
 import template from './avatar.hbs';
 
 interface IAvatarProps {
   class?: string;
   alt: string;
-  url: string;
+  url?: string;
   src: string;
+  cb?: () => void;
 }
 
 export class Avatar extends Block {
@@ -15,10 +17,15 @@ export class Avatar extends Block {
   }
 
   protected init(): void {
+    this.props.show = false;
     this.props.events = {
       click: (e: Event) => {
         e.preventDefault();
-        render(this.props.url);
+        if (this.props.url) {
+          Router.go(this.props.url);
+        } else {
+          this.props.cb();
+        }
       },
     };
   }

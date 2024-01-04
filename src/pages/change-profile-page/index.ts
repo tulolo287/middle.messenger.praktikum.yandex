@@ -1,9 +1,10 @@
 import { Button } from '../../components/Button';
 import { InputLabel } from '../../components/InputLabel';
 import { Link } from '../../components/Link';
-import { changeProfileInputs } from '../../data/change-profile';
-import { IInputLabel } from '../../typings/data';
+import UserController from '../../controllers/UserController';
+import { ROUTES } from '../../data/consts';
 import Block from '../../utils/Block';
+import { withStore } from '../../utils/Store';
 import { checkValidation } from '../../utils/validation';
 import template from './change-profile.hbs';
 
@@ -11,20 +12,23 @@ interface ChangeProfilePageProps {
   title: string;
 }
 
-export class ChangeProfilePage extends Block {
+export class ChangeProfilePageBase extends Block {
   constructor(props: ChangeProfilePageProps) {
     super(props);
   }
 
   init() {
-    this.props.changeProfileInputs = changeProfileInputs;
-    this.children.changeProfileInputs = this.props.changeProfileInputs.map(
-      (input: IInputLabel) => new InputLabel({ ...input }),
-    );
+    if (this.props.profileInputs) {
+      const profile = this.props.profileInputs;
+      this.children.ChangeProfileInputs = profile.map(
+        (item) => new InputLabel({ ...item }),
+      );
+    }
+
     this.children.Link = new Link({
       class: 'homeLink',
       text: '\u2190 Назад',
-      url: 'profile',
+      url: ROUTES.PROFILE,
     });
     this.children.Save = new Button({
       type: 'submit',
@@ -33,10 +37,12 @@ export class ChangeProfilePage extends Block {
         click: (e) => {
           e.preventDefault();
           const form = document.querySelector('form');
+
           if (form) {
-            const data = checkValidation(form);
-            if (data && data.password === data.second_password) {
-              console.log(data);
+            const formData = checkValidation(form);
+            if (formData) {
+              console.log(formData);
+              UserController.changeProfile(formData);
             } else {
               alert('Invalid form');
             }
@@ -50,3 +56,10 @@ export class ChangeProfilePage extends Block {
     return this.compile(template, this.props);
   }
 }
+
+const withProfile = withStore((state) => ({
+  profile: state.user,
+  profileInputs: state.profileInputs || [],
+}));
+
+export const ChangeProfilePage = withProfile(ChangeProfilePageBase);
