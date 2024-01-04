@@ -30,17 +30,16 @@ class ChatsBase extends Block<ChatsProps> {
   private createChats(props: ChatsProps) {
     if (this.props.chats) {
       return this.props.chats.map(
-        (chat) =>
-          new ChatItem({
-            ...chat,
-            active: chat.id === store.getState().selectedChat,
-            events: {
-              click: (e: Event) => {
-                ChatsController.selectChat(chat.id);
-                ChatsController.getChatUsers(chat.id);
-              },
+        (chat) => new ChatItem({
+          ...chat,
+          active: chat.id === store.getState().selectedChat,
+          events: {
+            click: (e: Event) => {
+              ChatsController.selectChat(chat.id);
+              ChatsController.getChatUsers(chat.id);
             },
-          }),
+          },
+        }),
       );
     } else {
       return [];

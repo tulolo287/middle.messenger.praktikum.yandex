@@ -28,12 +28,11 @@ export class Input extends Block {
 
                 const secondPasswordValue = secondPassword.value;
                 if (
-                  passwordValue.length !== 0 &&
-                  secondPasswordValue.length !== 0 &&
-                  secondPassword.nextElementSibling
+                  passwordValue.length !== 0
+                  && secondPasswordValue.length !== 0
+                  && secondPassword.nextElementSibling
                 ) {
-                  sibling =
-                    secondPassword.nextElementSibling as HTMLInputElement;
+                  sibling = secondPassword.nextElementSibling as HTMLInputElement;
                   if (secondPasswordValue === passwordValue) {
                     sibling.style.display = 'none';
                   } else {
@@ -50,8 +49,8 @@ export class Input extends Block {
                 'repeat_newPassword',
               )[0] as HTMLInputElement;
               if (
-                newPassword1.value.length !== 0 &&
-                newPassword2.value.length !== 0
+                newPassword1.value.length !== 0
+                && newPassword2.value.length !== 0
               ) {
                 sibling = newPassword2.nextElementSibling as HTMLInputElement;
                 if (newPassword1.value === newPassword2.value) {

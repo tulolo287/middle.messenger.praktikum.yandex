@@ -88,9 +88,7 @@ class MessagesController {
   }
 
   private subscribe(transport: WSTransport, id: number) {
-    transport.on(WSTransportEvents.Message, (message) =>
-      this.onMessage(id, message),
-    );
+    transport.on(WSTransportEvents.Message, (message) => this.onMessage(id, message));
     transport.on(WSTransportEvents.Close, () => this.onClose(id));
   }
 }

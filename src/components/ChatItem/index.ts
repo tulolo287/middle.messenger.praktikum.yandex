@@ -19,8 +19,7 @@ export class ChatItem extends Block {
       const date = new Date(this.props.last_message.time);
       this.props.time = `${date.getHours()}:${date.getMinutes()}`;
     }
-    this.props.unread_count =
-      this.props.unread_count === 0 ? null : this.props.unread_count;
+    this.props.unread_count = this.props.unread_count === 0 ? null : this.props.unread_count;
   }
 
   render() {
