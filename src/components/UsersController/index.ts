@@ -107,4 +107,4 @@ const withChats = withStore((state) => ({
   user: state.user,
 }));
 
-export const UsersController = withChats(BaseUsersController);
+export const UsersController = withChats(BaseUsersController as typeof Block);

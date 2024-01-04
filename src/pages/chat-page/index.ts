@@ -9,17 +9,21 @@ import { Users } from '../../components/Users';
 import ChatsController from '../../controllers/ChatsController';
 import MessagesController from '../../controllers/MessagesController';
 import { messageInputs } from '../../data/message';
-import { IInputLabel } from '../../typings/data';
+import { IInputLabel, User } from '../../typings/data';
 import Block from '../../utils/Block';
-import store, { withStore } from '../../utils/Store';
+import store, { IState, withStore } from '../../utils/Store';
 import { checkValidation } from '../../utils/validation';
 import './chat.css';
 import template from './chat.hbs';
 
 interface ChatPageProps {
   title: string;
+  show: boolean;
+  messageInputs: IInputLabel[];
+  profile: User;
+  avatar: string;
 }
-export class BaseChatPage extends Block {
+export class BaseChatPage extends Block<ChatPageProps> {
   constructor(props: ChatPageProps) {
     super(props);
   }
@@ -48,7 +52,7 @@ export class BaseChatPage extends Block {
 
     this.props.messageInputs = messageInputs;
     this.children.MessageInput = this.props.messageInputs.map(
-      (input: IInputLabel) => new InputLabel({ ...input }),
+      (input) => new InputLabel({ ...input })
     );
     this.children.Menu = new Menu({});
 
@@ -73,7 +77,7 @@ export class BaseChatPage extends Block {
               form.reset();
               MessagesController.sendMessage(
                 store.getState().selectedChat!,
-                formData.message as string,
+                formData.message as string
               );
             } else {
               alert('Invalid form');
@@ -86,7 +90,7 @@ export class BaseChatPage extends Block {
 
   protected componentDidUpdate(
     oldProps: ChatPageProps,
-    newProps: ChatPageProps,
+    newProps: ChatPageProps
   ): boolean {
     this.children.Avatar = this.createAvatar(newProps);
     return true;
@@ -97,8 +101,8 @@ export class BaseChatPage extends Block {
       alt: 'фото-профиля',
       url: '/settings',
       src:
-        `https://ya-praktikum.tech/api/v2/resources${this.props.profile?.avatar}`
-        || 'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
+        `https://ya-praktikum.tech/api/v2/resources${this.props.profile?.avatar}` ||
+        'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
     });
   }
 
@@ -107,8 +111,10 @@ export class BaseChatPage extends Block {
   }
 }
 
-const withUser = withStore((state) => ({
+const withState = (state: IState) => ({
   profile: state.user,
   avatar: state.avatar,
-}));
-export const ChatPage = withUser(BaseChatPage);
+})
+
+export const ChatPage = withStore(withState)(BaseChatPage as typeof Block)
+

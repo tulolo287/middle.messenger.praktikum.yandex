@@ -3,6 +3,7 @@ import { InputLabel } from '../../components/InputLabel';
 import { Link } from '../../components/Link';
 import UserController from '../../controllers/UserController';
 import { ROUTES } from '../../data/consts';
+import { IInputLabel } from '../../typings/data';
 import Block from '../../utils/Block';
 import { withStore } from '../../utils/Store';
 import { checkValidation } from '../../utils/validation';
@@ -10,9 +11,10 @@ import template from './change-profile.hbs';
 
 interface ChangeProfilePageProps {
   title: string;
+  profileInputs: IInputLabel[];
 }
 
-export class ChangeProfilePageBase extends Block {
+export class ChangeProfilePageBase extends Block<ChangeProfilePageProps> {
   constructor(props: ChangeProfilePageProps) {
     super(props);
   }
@@ -62,4 +64,4 @@ const withProfile = withStore((state) => ({
   profileInputs: state.profileInputs || [],
 }));
 
-export const ChangeProfilePage = withProfile(ChangeProfilePageBase);
+export const ChangeProfilePage = withProfile(ChangeProfilePageBase as typeof Block);

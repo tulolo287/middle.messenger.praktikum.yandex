@@ -10,7 +10,7 @@ export enum StoreEvents {
   Updated = 'updated',
 }
 
-interface State {
+export interface IState {
   chatUsers: User[];
   user: User;
   chats: ChatInfo[];
@@ -36,7 +36,7 @@ export class Store extends EventBus {
 
 const store = new Store();
 
-export function withStore<SP>(mapStateToProps: (state: State) => SP) {
+export function withStore<SP>(mapStateToProps: (state: IState) => SP) {
   return function wrap<P>(Component: typeof Block<SP & P>) {
     return class WithStore extends Component {
       constructor(props: Omit<P, keyof SP>) {

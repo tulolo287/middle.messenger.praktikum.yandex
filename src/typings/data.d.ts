@@ -39,10 +39,16 @@ export interface IProfileChat {
   };
 }
 
-// export type TDialog = Omit<IProfiles, 'active'>;
+export interface IInput {
+  type: string;
+  name: string;
+  required: boolean;
+  placeholder: string;
+  errorText: string;
+}
 
 export interface IInputLabel {
-  label: { for: string; text: string };
+  label?: { for: string; text: string };
   type: string;
   name: string;
   required: boolean;

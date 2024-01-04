@@ -1,11 +1,10 @@
-import API, { AuthAPI, SignupData } from '../api/AuthAPI';
+import API, { AuthAPI } from '../api/AuthAPI';
 import { ROUTES } from '../data/consts';
-import store from '../utils/Store';
-// import store from '../utils/Store';
+import { User } from '../typings/data';
 import Router from '../utils/Router';
+import store from '../utils/Store';
 import { setProfileInputs } from '../utils/helpers';
 import MessagesController from './MessagesController';
-import { User } from '../typings/data';
 
 export class AuthController {
   private readonly api: AuthAPI;
@@ -20,8 +19,6 @@ export class AuthController {
 
       await this.fetchUser();
       Router.go(ROUTES.CHAT);
-
-      // Router.go('/profile');
     } catch (e: any) {
       if (e.reason === 'Login or password is incorrect') {
         alert('Wrong username or password');

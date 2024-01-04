@@ -1,6 +1,5 @@
-import ChatsController from '../../controllers/ChatsController';
 import Block from '../../utils/Block';
-import store, { withStore } from '../../utils/Store';
+import { withStore } from '../../utils/Store';
 import { Button } from '../Button';
 import { InputLabel } from '../InputLabel';
 import './change-avatar.css';
@@ -40,28 +39,14 @@ class BaseChangeAvatar extends Block {
       events: {
         click: (e: Event) => {
           e.preventDefault();
-          const avatar = document.getElementById('avatar');
+          const avatar = document.getElementById('avatar') as HTMLInputElement;
           const formData = new FormData();
-
-          formData.append('avatar', avatar.files[0]);
-          console.log(formData);
+          formData.append('avatar', avatar!.files![0]);
           this.props.cb(formData);
           this.children.ChangeAvatarInput.children.Input._element.value = '';
         },
       },
       text: 'Change Avatar',
-      type: 'submit',
-    });
-    this.children.DeleteUserButton = new Button({
-      events: {
-        click: () => {
-          ChatsController.deleteChatUsers(
-            store.getState().selectedChat,
-            this.children.SelectUser.children.Select._element.value,
-          );
-        },
-      },
-      text: 'Delete user',
       type: 'submit',
     });
   }
@@ -75,4 +60,4 @@ const withChats = withStore((state) => ({
   user: state.user,
 }));
 
-export const ChangeAvatar = withChats(BaseChangeAvatar);
+export const ChangeAvatar = withChats(BaseChangeAvatar as typeof Block);

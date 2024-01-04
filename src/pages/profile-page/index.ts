@@ -19,7 +19,7 @@ interface ProfilePageProps {
   avatar?: string;
 }
 
-export class BaseProfilePage extends Block<ProfilePageProps> {
+export class BaseProfilePage extends Block {
   constructor(props: ProfilePageProps) {
     super(props);
   }
@@ -95,4 +95,5 @@ const withUser = withStore((state) => ({
   profile: state.user,
   avatar: state.avatar,
 }));
-export const ProfilePage = withUser(BaseProfilePage);
+
+export const ProfilePage = withUser(BaseProfilePage as typeof Block);

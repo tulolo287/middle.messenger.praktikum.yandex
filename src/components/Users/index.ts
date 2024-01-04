@@ -14,9 +14,12 @@ interface IAvatarProps {
   alt: string;
   url?: string;
   src: string;
+  chatUsers?: User[];
+  selectedChat: number;
+  show: boolean;
 }
 
-export class BaseUsers extends Block {
+export class BaseUsers extends Block<IAvatarProps> {
   constructor(props: IAvatarProps) {
     super(props);
   }
@@ -33,7 +36,7 @@ export class BaseUsers extends Block {
           alert("Mustn't be empty");
           return;
         }
-        if (this.props.chatUsers.find((user) => user.id.toString() === value)) {
+        if (this.props.chatUsers?.find((user) => user.id.toString() === value)) {
           alert('User already exists');
           return;
         }
@@ -75,7 +78,7 @@ export class BaseUsers extends Block {
   }
 
   private getUsers(props: IAvatarProps) {
-    const users: User[] = this.props.chatUsers;
+    const users: User[] | undefined = this.props.chatUsers;
     if (users) {
       return users.map((user) => new UserItem({ ...user }));
     } else {
@@ -92,4 +95,4 @@ const withChatUsers = withStore((state) => ({
   chatUsers: [...(state.chatUsers || [])],
   selectedChat: state.selectedChat,
 }));
-export const Users = withChatUsers(BaseUsers);
+export const Users = withChatUsers(BaseUsers as typeof Block);
