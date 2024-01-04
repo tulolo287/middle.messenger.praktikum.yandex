@@ -79,8 +79,8 @@ export class BaseProfilePage extends Block<ProfilePageProps> {
       alt: 'фото-профиля',
       class: 'avatar__change',
       src:
-        `https://ya-praktikum.tech/api/v2/resources${this.props.profile?.avatar}`
-        || 'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
+        `https://ya-praktikum.tech/api/v2/resources${this.props.profile?.avatar}` ||
+        'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
       cb: () => {
         this.props.show = true;
       },

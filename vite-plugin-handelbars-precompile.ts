@@ -10,8 +10,8 @@ export default function vitePluginHandlebarsPrecompile(): PluginOption {
           code: `
                         import Handlebars from 'handlebars';
                         export default Handlebars.template(${Handlebars.precompile(
-    code,
-  )});    
+                          code,
+                        )});    
                     `,
         };
       }

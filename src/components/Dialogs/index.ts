@@ -30,10 +30,11 @@ export class BaseDialogs extends Block<DialogsProps> {
   private createMessages(props: DialogsProps) {
     if (props.dialogs) {
       return props.dialogs.map(
-        (data) => new DialogItem({
-          ...data,
-          class: props.userId === data.user_id ? 'sent' : 'received',
-        }),
+        (data) =>
+          new DialogItem({
+            ...data,
+            class: props.userId === data.user_id ? 'sent' : 'received',
+          }),
       );
     } else return [];
   }

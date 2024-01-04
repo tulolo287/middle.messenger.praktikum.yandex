@@ -36,7 +36,6 @@ export class Store extends EventBus {
 
 const store = new Store();
 
-
 export function withStore<SP>(mapStateToProps: (state: State) => SP) {
   return function wrap<P>(Component: typeof Block<SP & P>) {
     return class WithStore extends Component {

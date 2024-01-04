@@ -65,5 +65,4 @@ class ChatsController {
 
 const controller = new ChatsController();
 
-
 export default controller;

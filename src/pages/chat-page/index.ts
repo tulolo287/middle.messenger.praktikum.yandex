@@ -97,8 +97,8 @@ export class BaseChatPage extends Block {
       alt: 'фото-профиля',
       url: '/settings',
       src:
-        `https://ya-praktikum.tech/api/v2/resources${this.props.profile?.avatar}`
-        || 'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
+        `https://ya-praktikum.tech/api/v2/resources${this.props.profile?.avatar}` ||
+        'https://cdn-icons-png.flaticon.com/512/3541/3541871.png',
     });
   }
 

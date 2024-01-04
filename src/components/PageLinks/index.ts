@@ -16,9 +16,10 @@ export class PageLinks extends Block {
   init() {
     this.props.pages = pages;
     this.children.Links = this.props.pages.map(
-      (page: IPageLinks) => new Link({
-        ...page,
-      }),
+      (page: IPageLinks) =>
+        new Link({
+          ...page,
+        }),
     );
   }
 
