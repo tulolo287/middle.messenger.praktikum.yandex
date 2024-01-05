@@ -1,6 +1,6 @@
 import ChatsController from '../../controllers/ChatsController';
 import Block from '../../utils/Block';
-import store, { withStore } from '../../utils/Store';
+import { withStore } from '../../utils/Store';
 import { Button } from '../Button';
 import { Input } from '../Input';
 import { InputLabel } from '../InputLabel';
@@ -48,7 +48,7 @@ class BaseChatController extends Block {
           if (el.value === '') {
             alert('Please enter chat name');
             return;
-          } 
+          }
           ChatsController.create(el.value);
           el.value = '';
         },
@@ -61,8 +61,8 @@ class BaseChatController extends Block {
         click: (e) => {
           e.preventDefault();
           const avatarEl = document.getElementById('chat_avatar') as HTMLInputElement;
-          if(!avatarEl?.files![0]) {
-            alert('Please select image')
+          if (!avatarEl?.files![0]) {
+            alert('Please select image');
             return;
           }
           const avatarData = new FormData();
