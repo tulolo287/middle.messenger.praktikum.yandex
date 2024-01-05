@@ -1,6 +1,7 @@
 .avatar {
   display: flex;
   height: inherit;
+  text-align: right;
 }
 
 .avatar > a {
