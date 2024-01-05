@@ -6,13 +6,12 @@ body {
   width: 100vw;
   display: flex;
   justify-content: space-around;
-  padding-top: 40px;
+  padding: 50px;
+  max-width: 1920px;
 }
 
 .chat__profile {
   height: 60px;
-  text-align: right;
-  margin-right: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
