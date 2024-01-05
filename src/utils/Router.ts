@@ -53,7 +53,10 @@ export class Router {
     this._onRoute(pathname);
   }
 
-  back() {
+  back(step: number = 1) {
+    if (step) {
+      this.history.go(step);
+    }
     this.history.back();
   }
 

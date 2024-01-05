@@ -3,7 +3,7 @@ import Router from '../../utils/Router';
 import template from './link.hbs';
 
 interface ILinkProps {
-  url: string;
+  url?: string;
   text: string;
   class?: string;
 }
@@ -17,7 +17,11 @@ export class Link extends Block {
     this.props.events = {
       click: (e: Event) => {
         e.preventDefault();
-        Router.go(this.props.url);
+        if (this.props.url) {
+          Router.go(this.props.url);
+        } else {
+          Router.back(-2);
+        }
       },
     };
   }
