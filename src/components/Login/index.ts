@@ -13,7 +13,6 @@ interface ILoginProps {
 
 export class Login extends Block {
   constructor(props: ILoginProps) {
-    // AuthController.fetchUser();
     super(props);
   }
 

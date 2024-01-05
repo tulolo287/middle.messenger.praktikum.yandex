@@ -39,6 +39,10 @@ export class Router {
   _onRoute(pathname: string) {
     const route = this.getRoute(pathname);
 
+    if (!route) {
+      return;
+    }
+
     this._currentRoute = route;
 
     route?.render();

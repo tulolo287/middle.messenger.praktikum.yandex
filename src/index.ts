@@ -24,32 +24,42 @@ window.addEventListener(
       .use(ROUTES.CHANGE_PASSWORD, ChangePasswordPage);
 
     let isProtectedRoute = true;
+    let notFound = false;
 
-    switch (window.location.pathname) {
+    const route = window.location.pathname;
+    switch (route) {
       case ROUTES.LOGIN:
       case ROUTES.REGISTER:
         isProtectedRoute = false;
         break;
-      default:
+      case ROUTES.CHAT:
+      case ROUTES.PROFILE:
         isProtectedRoute = true;
+        break;
+      default:
+        notFound = true;
     }
 
     try {
       await AuthController.fetchUser();
-
       Router.start();
-
       if (!isProtectedRoute) {
         Router.go(ROUTES.CHAT);
+      } else if (notFound) {
+        Router.go(ROUTES[404]);
+      } else {
+        Router.go(route);
       }
     } catch (e: any) {
       console.log(e);
       Router.start();
-
-      if (isProtectedRoute) {
-        Router.go(ROUTES.LOGIN);
+      if (notFound) {
+        Router.go(ROUTES[404]);
+        return;
+      }
+      if (!isProtectedRoute) {
+        Router.go(route);
       }
     }
-    Router.start();
   },
 );

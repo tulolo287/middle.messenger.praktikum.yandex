@@ -39,18 +39,11 @@ export class AuthController {
   }
 
   async fetchUser() {
-    try {
-      const user = await this.api.read();
-      if (user as User) {
-        store.set('user', user);
-        const profileInputs = setProfileInputs(user as User);
-        store.set('profileInputs', profileInputs);
-      } else {
-        throw new Error('User not found');
-      }
-    } catch (e: any) {
-      console.error(e.message);
-      Router.go(ROUTES.LOGIN);
+    const user = await this.api.read();
+    if (user as User) {
+      store.set('user', user);
+      const profileInputs = setProfileInputs(user as User);
+      store.set('profileInputs', profileInputs);
     }
   }
 
