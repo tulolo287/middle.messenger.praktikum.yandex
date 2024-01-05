@@ -11,14 +11,12 @@ class ChatsController {
 
   async create(title: string) {
     await this.api.create(title);
-
     this.fetchChats();
   }
 
   async fetchChats() {
     try {
       const chats = await this.api.read();
-
       chats.map(async (chat) => {
         const token = await this.getToken(chat.id);
         await MessagesController.connect(chat.id, token);
@@ -45,7 +43,11 @@ class ChatsController {
 
   async delete(id: number) {
     await this.api.delete(id);
+    this.fetchChats();
+  }
 
+  async changeAvatar(avatar: FormData) {
+    await this.api.addAvatar(avatar);
     this.fetchChats();
   }
 

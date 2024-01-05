@@ -1,6 +1,6 @@
 import ChatsController from '../../controllers/ChatsController';
 import Block from '../../utils/Block';
-import { withStore } from '../../utils/Store';
+import store, { withStore } from '../../utils/Store';
 import { Button } from '../Button';
 import { Input } from '../Input';
 import { InputLabel } from '../InputLabel';
@@ -29,6 +29,7 @@ class BaseChatController extends Block {
       label: { for: 'login', text: 'Chat name' },
       name: 'login',
     });
+
     this.children.SelectChat = this.createSelect();
     this.children.CancelButton = new Button({
       events: {
@@ -41,14 +42,38 @@ class BaseChatController extends Block {
     });
     this.children.AddChatButton = new Button({
       events: {
-        click: () => {
+        click: (e) => {
+          e.preventDefault();
           const el = (((this.children.AddChat as this).children.Input as Block<Input>).element as HTMLInputElement);
-          this.props.cb(el.value);
+          if (el.value === '') {
+            alert('Please enter chat name');
+            return;
+          } 
+          ChatsController.create(el.value);
           el.value = '';
         },
       },
       text: 'Add chat',
       type: 'submit',
+    });
+    this.children.UpdateChatAvatarButton = new Button({
+      events: {
+        click: (e) => {
+          e.preventDefault();
+          const avatarEl = document.getElementById('chat_avatar') as HTMLInputElement;
+          if(!avatarEl?.files![0]) {
+            alert('Please select image')
+            return;
+          }
+          const avatarData = new FormData();
+          avatarData.append('avatar', avatarEl?.files![0]);
+          const el = (((this.children.SelectChat as this).children.Select as Block<Select>).element as HTMLInputElement);
+          avatarData.append('chatId', el.value);
+          ChatsController.changeAvatar(avatarData);
+        },
+      },
+      text: 'Update chat avatar',
+      type: 'button',
     });
     this.children.DeleteChatButton = new Button({
       events: {

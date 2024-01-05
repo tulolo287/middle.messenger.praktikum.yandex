@@ -49,7 +49,8 @@ export class AuthController {
         throw new Error('User not found');
       }
     } catch (e: any) {
-      throw new Error(e.message);
+      console.error(e.message);
+      Router.go(ROUTES.LOGIN);
     }
   }
 

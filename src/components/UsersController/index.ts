@@ -57,7 +57,7 @@ class BaseUsersController extends Block {
         click: () => {
           const el = (((this.children.SelectChat as this).children.Select as Block<Select>).element as HTMLInputElement);
           ChatsController.deleteChatUsers(
-            store.getState().selectedChat,
+            store.getState().selectedChat!,
             Number(el.value),
           );
         },

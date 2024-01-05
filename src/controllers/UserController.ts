@@ -13,7 +13,7 @@ export class UserController {
       await this.api.changeProfile(profile);
       AuthController.fetchUser();
     } catch (e: any) {
-      throw new Error(e.message);
+      console.error(e.message);
     }
   }
 
@@ -22,7 +22,7 @@ export class UserController {
       await this.api.updateAvatar(avatar);
       AuthController.fetchUser();
     } catch (e: any) {
-      throw new Error(e.message);
+      console.error(e.message);
     }
   }
 }

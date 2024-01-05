@@ -21,7 +21,7 @@ export interface IState {
 }
 
 export class Store extends EventBus {
-  private state: any = {};
+  private state = {} as IState;
 
   public set(keypath: string, data: unknown) {
     set(this.state, keypath, data);
@@ -36,10 +36,10 @@ export class Store extends EventBus {
 
 const store = new Store();
 
-export function withStore(mapStateToProps: (state: IState) => any) {
-  return function wrap(Component: typeof Block<Record<string, any>>) {
+export function withStore(mapStateToProps: (state: IState) => Record<string, any>) {
+  return function wrap<P>(Component: typeof Block<Record<string, P>>) {
     return class WithStore extends Component {
-      constructor(props: any) {
+      constructor(props: Record<string, P>) {
         let previousState = mapStateToProps(store.getState());
 
         super({ ...(props), ...previousState });

@@ -1,4 +1,5 @@
  <li class={{#if active}} "chat-item__active" {{else}} "chat-item" {{/if}}>
+  {{#if avatar}} <img class="chat-item__image" src={{avatar}} alt="chat avatar"/> {{/if}}
     <div class="chat-item__info__name">    
       <h3>{{title}}</h3>
       {{#if last_message}}

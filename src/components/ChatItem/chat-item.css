@@ -9,8 +9,12 @@
   translate: 3s ease-in-out;
   color: var(--foregroundColor);
   overflow: hidden;
+  padding: 10px;
 }
 
+.chat-item__image {
+  height: 50px;
+}
 .chat-item:hover {
   border: 3px solid var(--selectColor);
   cursor: pointer;
@@ -27,6 +31,7 @@
   translate: 3s ease-in-out;
   color: var(--foregroundColor);
   overflow: hidden;
+  padding: 10px;
 }
 
 .chat-item__info {

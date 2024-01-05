@@ -14,6 +14,7 @@ export class ChatItem extends Block {
   }
 
   protected init(): void {
+    this.props.avatar = this.props.avatar ? `https://ya-praktikum.tech/api/v2/resources${this.props.avatar}` : null;
     this.children.Menu = new Menu({});
     if (this.props.last_message) {
       const date = new Date(this.props.last_message.time);

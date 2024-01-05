@@ -1,22 +1,16 @@
+import Block from './Block';
 import { render } from './render';
 
-interface IRoute {
-  _pathname: string;
-  _blockClass: any;
-  _props: any;
-  _block: any;
-}
-
-export class Route implements IRoute {
+export class Route {
   _pathname: string;
 
-  _blockClass: any;
+  _blockClass: typeof Block;
 
-  _props: any;
+  _props: Record<string, any>;
 
-  _block: any;
+  _block: Block | null;
 
-  constructor(pathname: string, view: any, props: any) {
+  constructor(pathname: string, view: typeof Block, props: Record<string, any>) {
     this._pathname = pathname;
     this._blockClass = view;
     this._props = props;
@@ -25,7 +19,7 @@ export class Route implements IRoute {
 
   render() {
     if (!this._block) {
-      this._block = new this._blockClass();
+      this._block = new this._blockClass(this._props);
     }
     render(this._props.rootQuery, this._block);
   }
