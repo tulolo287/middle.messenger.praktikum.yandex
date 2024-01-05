@@ -10,11 +10,12 @@ body {
 }
 
 .chat__profile {
-  height: 50px;
+  height: 60px;
   text-align: right;
   margin-right: 40px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .chat__profile img {
