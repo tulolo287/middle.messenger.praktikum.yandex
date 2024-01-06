@@ -15,16 +15,12 @@ class ChatsController {
   }
 
   async fetchChats() {
-    try {
-      const chats = await this.api.read();
-      chats.map(async (chat) => {
-        const token = await this.getToken(chat.id);
-        await MessagesController.connect(chat.id, token);
-      });
-      store.set('chats', chats);
-    } catch (e) {
-      console.log(e);
-    }
+    const chats = await this.api.read();
+    chats.map(async (chat) => {
+      const token = await this.getToken(chat.id);
+      await MessagesController.connect(chat.id, token);
+    });
+    store.set('chats', chats);
   }
 
   async addUserToChat(id: number, userId: number) {

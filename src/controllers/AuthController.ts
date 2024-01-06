@@ -1,6 +1,5 @@
 import API, { AuthAPI } from '../api/AuthAPI';
 import { ROUTES } from '../data/consts';
-import { User } from '../typings/data';
 import Router from '../utils/Router';
 import store from '../utils/Store';
 import { setProfileInputs } from '../utils/helpers';
@@ -16,21 +15,20 @@ export class AuthController {
   async signin(data: Record<string, FormDataEntryValue>) {
     try {
       await this.api.signin(data);
-
       await this.fetchUser();
+
+      Router.start();
       Router.go(ROUTES.CHAT);
     } catch (e: any) {
       if (e.reason === 'Login or password is incorrect') {
         alert('Wrong username or password');
       }
-      console.error(e);
     }
   }
 
   async signup(data: Record<string, FormDataEntryValue>) {
     try {
       await this.api.signup(data);
-
       await this.fetchUser();
       Router.go(ROUTES.CHAT);
     } catch (e: any) {
@@ -40,11 +38,9 @@ export class AuthController {
 
   async fetchUser() {
     const user = await this.api.read();
-    if (user as User) {
-      store.set('user', user);
-      const profileInputs = setProfileInputs(user as User);
-      store.set('profileInputs', profileInputs);
-    }
+    store.set('user', user);
+    const profileInputs = setProfileInputs(user);
+    store.set('profileInputs', profileInputs);
   }
 
   async logout() {

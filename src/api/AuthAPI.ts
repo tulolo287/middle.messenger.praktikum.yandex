@@ -38,7 +38,7 @@ export class AuthAPI extends BaseAPI {
     return this.http.post('/signup', data);
   }
 
-  read(): Promise<unknown> {
+  read(): Promise<User> {
     return this.http.get('/user');
   }
 

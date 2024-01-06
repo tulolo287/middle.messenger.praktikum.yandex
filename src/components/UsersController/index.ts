@@ -82,14 +82,9 @@ class BaseUsersController extends Block {
     if (users) {
       const usersSelect = users
         .filter((user) => user.id !== currentUser.id)
-        .map((user) => {
-          if (user.first_name) {
-            return { ...user, title: user.first_name };
-          }
-          return null;
-        });
+        .map((user) => ({ ...user, title: user.first_name ? user.first_name : 'No name user' }));
       return new SelectLabel({
-        placeholder: 'select user',
+        placeholder: 'select-user',
         required: true,
         type: 'text',
         value: '',

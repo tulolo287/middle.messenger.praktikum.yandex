@@ -49,7 +49,7 @@ const withSelectedChatDialogs = withStore((state) => {
     return {
       dialogs: [],
       selectedChat: undefined,
-      userId: state.user.id,
+      userId: state.user?.id,
     };
   }
 

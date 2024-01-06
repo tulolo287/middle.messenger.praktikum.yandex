@@ -35,7 +35,6 @@ export class Login extends Block {
           if (form) {
             const formData = checkValidation(form);
             if (formData) {
-              console.log(formData);
               AuthController.signin(formData);
             } else {
               alert('Неверно заполненная форма');

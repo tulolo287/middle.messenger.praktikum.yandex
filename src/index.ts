@@ -17,8 +17,8 @@ window.addEventListener(
     Router.use(ROUTES.LOGIN, LoginPage)
       .use(ROUTES[404], Page404)
       .use(ROUTES[500], Page500)
-      .use(ROUTES.CHAT, ChatPage)
       .use(ROUTES.REGISTER, RegisterPage)
+      .use(ROUTES.CHAT, ChatPage)
       .use(ROUTES.PROFILE, ProfilePage)
       .use(ROUTES.CHANGE_PROFILE, ChangeProfilePage)
       .use(ROUTES.CHANGE_PASSWORD, ChangePasswordPage);
@@ -42,6 +42,7 @@ window.addEventListener(
 
     try {
       await AuthController.fetchUser();
+
       Router.start();
       if (!isProtectedRoute) {
         Router.go(ROUTES.CHAT);
@@ -52,9 +53,14 @@ window.addEventListener(
       }
     } catch (e: any) {
       console.log(e);
+
       Router.start();
       if (notFound) {
         Router.go(ROUTES[404]);
+        return;
+      }
+      if (isProtectedRoute) {
+        Router.go(ROUTES.LOGIN);
         return;
       }
       if (!isProtectedRoute) {
