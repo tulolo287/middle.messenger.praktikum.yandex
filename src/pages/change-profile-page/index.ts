@@ -46,7 +46,7 @@ export class ChangeProfilePageBase extends Block<ChangeProfilePageProps> {
               console.log(formData);
               UserController.changeProfile(formData);
             } else {
-              alert('Invalid form');
+              alert('Неверно заполненная форма');
             }
           }
         },
@@ -64,4 +64,6 @@ const withProfile = withStore((state) => ({
   profileInputs: state.profileInputs || [],
 }));
 
-export const ChangeProfilePage = withProfile(ChangeProfilePageBase as typeof Block);
+export const ChangeProfilePage = withProfile(
+  ChangeProfilePageBase as typeof Block,
+);

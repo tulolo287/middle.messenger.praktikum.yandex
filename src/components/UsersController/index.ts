@@ -23,12 +23,12 @@ class BaseUsersController extends Block {
   protected init(): void {
     this.props.show = false;
     this.children.AddUser = new InputLabel({
-      errorText: 'Not empty, only 7-9 numbers',
+      errorText: 'Идентификатор пользователя цифрами',
       placeholder: 'user-id',
       required: true,
       type: 'number',
       value: '',
-      label: { for: 'user_id', text: 'User id' },
+      label: { for: 'user_id', text: 'Идентификатор пользователя' },
       name: 'user_id',
     });
     this.children.SelectUser = this.createSelect();
@@ -38,32 +38,36 @@ class BaseUsersController extends Block {
           this.props.close();
         },
       },
-      text: 'Cancel',
+      text: 'Отмена',
       type: 'button',
     });
     this.children.AddUserButton = new Button({
       events: {
         click: () => {
-          const el = (((this.children.AddUser as this).children.Input as Block<Input>).element as HTMLInputElement);
+          const el = (
+            (this.children.AddUser as this).children.Input as Block<Input>
+          ).element as HTMLInputElement;
           this.props.cb(el.value);
           el.value = '';
         },
       },
-      text: 'Add user',
+      text: 'Добавить пользователя',
       type: 'submit',
     });
     this.children.DeleteUserButton = new Button({
       events: {
         click: () => {
-          const el = (((this.children.SelectChat as this).children.Select as Block<Select>).element as HTMLInputElement);
+          const el = (
+            (this.children.SelectUser as this).children.Select as Block<Select>
+          ).element as HTMLInputElement;
           ChatsController.deleteChatUsers(
             store.getState().selectedChat!,
             Number(el.value),
           );
         },
       },
-      text: 'Delete user',
-      type: 'submit',
+      text: 'Удалить пользователя',
+      type: 'button',
     });
   }
 
@@ -85,13 +89,12 @@ class BaseUsersController extends Block {
           return null;
         });
       return new SelectLabel({
-        errorText: 'Not empty',
         placeholder: 'select user',
         required: true,
         type: 'text',
         value: '',
         options: usersSelect,
-        label: { for: 'delete_user', text: 'Select user' },
+        label: { for: 'delete_user', text: 'Выберите пользователя' },
         name: 'delete_user',
       });
     } else {

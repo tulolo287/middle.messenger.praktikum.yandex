@@ -18,11 +18,11 @@ class BaseChangeAvatar extends Block {
   protected init(): void {
     this.props.show = false;
     this.children.ChangeAvatarInput = new InputLabel({
-      errorText: 'Choose Avatar',
+      errorText: 'Выберите изображение',
       placeholder: 'avatar',
       required: true,
       type: 'file',
-      label: { for: 'avatar', text: 'Avatar file' },
+      label: { for: 'avatar', text: 'Выберите изображение' },
       name: 'avatar',
       accept: 'image/*',
     });
@@ -33,7 +33,7 @@ class BaseChangeAvatar extends Block {
           this.props.close();
         },
       },
-      text: 'Cancel',
+      text: 'Отмена',
       type: 'button',
     });
     this.children.ChangeAvatarButton = new Button({
@@ -44,11 +44,14 @@ class BaseChangeAvatar extends Block {
           const formData = new FormData();
           formData.append('avatar', avatar!.files![0]);
           this.props.cb(formData);
-          const el = (((this.children.ChangeAvatarInput as this).children.Input as Block<Input>).element as HTMLInputElement);
+          const el = (
+            (this.children.ChangeAvatarInput as this).children
+              .Input as Block<Input>
+          ).element as HTMLInputElement;
           el.value = '';
         },
       },
-      text: 'Change Avatar',
+      text: 'Сменить аватар пользователя',
       type: 'submit',
     });
   }

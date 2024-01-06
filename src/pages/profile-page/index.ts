@@ -30,7 +30,6 @@ export class BaseProfilePage extends Block {
         this.props.show = false;
       },
       cb: (value: any) => {
-        console.log(value);
         UserController.changeAvatar(value);
       },
     });

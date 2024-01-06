@@ -38,7 +38,7 @@ export class Login extends Block {
               console.log(formData);
               AuthController.signin(formData);
             } else {
-              alert('Invalid form');
+              alert('Неверно заполненная форма');
             }
           }
         },

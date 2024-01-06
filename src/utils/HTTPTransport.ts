@@ -24,22 +24,22 @@ export default class HTTPTransport {
 
   public get: HTTPMethod = (url = '/') => this.request(this.endpoint + url);
 
-  public post: HTTPMethod = (url: string, data?: unknown) => this.request(this.endpoint + url, {
+  public post: HTTPMethod = (url, data) => this.request(this.endpoint + url, {
     method: Method.Post,
     data,
   });
 
-  public put: HTTPMethod = (url: string, data: unknown) => this.request(this.endpoint + url, {
+  public put: HTTPMethod = (url, data) => this.request(this.endpoint + url, {
     method: Method.Put,
     data,
   });
 
-  public patch: HTTPMethod = (url: string, data: unknown) => this.request(this.endpoint + url, {
+  public patch: HTTPMethod = (url, data) => this.request(this.endpoint + url, {
     method: Method.Patch,
     data,
   });
 
-  public delete: HTTPMethod = (url: string, data?: unknown) => this.request(this.endpoint + url, {
+  public delete: HTTPMethod = (url, data) => this.request(this.endpoint + url, {
     method: Method.Delete,
     data,
   });

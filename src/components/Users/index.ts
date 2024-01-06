@@ -1,13 +1,13 @@
 import ChatsController from '../../controllers/ChatsController';
+import { User } from '../../typings/data';
 import Block from '../../utils/Block';
 import store, { withStore } from '../../utils/Store';
 import { checkValidation } from '../../utils/validation';
 import { Button } from '../Button';
-import { UsersController } from '../UsersController';
 import { UserItem } from '../UserItem';
+import { UsersController } from '../UsersController';
 import './users.css';
 import template from './users.hbs';
-import { User } from '../../typings/data';
 
 interface IAvatarProps {
   class?: string;
@@ -33,11 +33,11 @@ export class BaseUsers extends Block<IAvatarProps> {
       cb: (value: any) => {
         const form = document.querySelector('form');
         if (value === '') {
-          alert("Mustn't be empty");
+          alert('Пожалуйста введите идентификатор пользователя');
           return;
         }
         if (this.props.chatUsers?.find((user) => user.id.toString() === value)) {
-          alert('User already exists');
+          alert('Пользователь уже существует');
           return;
         }
         if (form && value) {
@@ -45,7 +45,7 @@ export class BaseUsers extends Block<IAvatarProps> {
           if (formData) {
             ChatsController.addUserToChat(this.props.selectedChat, value);
           } else {
-            alert('Invalid form');
+            alert('Неверно заполненная форма');
           }
         }
       },
@@ -60,11 +60,11 @@ export class BaseUsers extends Block<IAvatarProps> {
           if (store.getState().selectedChat) {
             this.props.show = !this.props.show;
           } else {
-            alert('Please select chat');
+            alert('Пожалуйста выберите чат');
           }
         },
       },
-      text: 'Users Controller',
+      text: 'Управление пользователями',
       type: 'button',
     });
   }

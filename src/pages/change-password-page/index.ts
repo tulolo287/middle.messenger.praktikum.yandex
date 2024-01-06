@@ -39,7 +39,7 @@ export class ChangePasswordPage extends Block {
             if (data && data.newPassword === data.repeat_newPassword) {
               console.log(data);
             } else {
-              alert('Invalid form');
+              alert('Неверно заполненная форма');
             }
           }
         },

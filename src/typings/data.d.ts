@@ -64,7 +64,7 @@ export interface ISelectLabel {
   name: string;
   required: boolean;
   placeholder: string;
-  errorText: string;
+  errorText?: string;
   value?: any;
   options?: any;
 }

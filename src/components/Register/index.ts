@@ -37,7 +37,7 @@ export class Register extends Block {
               console.log(formData);
               AuthController.signup(formData);
             } else {
-              alert('Invalid form');
+              alert('Неверно заполненная форма');
             }
           }
         },

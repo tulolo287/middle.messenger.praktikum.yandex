@@ -27,8 +27,8 @@ class ChatsController {
     }
   }
 
-  addUserToChat(id: number, userId: number) {
-    this.api.addUsers(id, [userId]);
+  async addUserToChat(id: number, userId: number) {
+    await this.api.addUsers(id, [userId]);
     this.getChatUsers(id);
   }
 

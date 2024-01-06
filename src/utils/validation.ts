@@ -29,7 +29,7 @@ export const validate = (type: string, text: string) => {
       return String(text).match(/^\+?[0-9]{9,15}$/g);
 
     case 'user_id':
-      return String(text).match(/^[0-9]{7,9}$/g);
+      return String(text).match(/^[0-9]/g);
 
     case 'message':
       return String(text).length !== 0;

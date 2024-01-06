@@ -37,7 +37,7 @@ export class BaseChatPage extends Block<ChatPageProps> {
     });
     this.props.show = false;
     this.children.AddChat = new Button({
-      text: 'Chat Controller',
+      text: 'Управление чатами',
       type: 'button',
       events: {
         click: () => {
@@ -77,7 +77,7 @@ export class BaseChatPage extends Block<ChatPageProps> {
                 formData.message as string,
               );
             } else {
-              alert('Invalid form');
+              alert('Неверно заполненная форма');
             }
           }
         },

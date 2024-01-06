@@ -21,12 +21,12 @@ class BaseChatController extends Block {
   protected init(): void {
     this.props.show = false;
     this.children.AddChat = new InputLabel({
-      errorText: 'Not empty',
+      errorText: 'Название должно начинаться с букв',
       placeholder: 'chat name',
       required: true,
       type: 'text',
       value: '',
-      label: { for: 'login', text: 'Chat name' },
+      label: { for: 'login', text: 'Название чата' },
       name: 'login',
     });
 
@@ -37,54 +37,60 @@ class BaseChatController extends Block {
           this.props.close();
         },
       },
-      text: 'Cancel',
+      text: 'Отмена',
       type: 'button',
     });
     this.children.AddChatButton = new Button({
       events: {
         click: (e) => {
           e.preventDefault();
-          const el = (((this.children.AddChat as this).children.Input as Block<Input>).element as HTMLInputElement);
+          const el = (
+            (this.children.AddChat as this).children.Input as Block<Input>
+          ).element as HTMLInputElement;
           if (el.value === '') {
-            alert('Please enter chat name');
+            alert('Пожалуйста введите название чата');
             return;
           }
           ChatsController.create(el.value);
           el.value = '';
         },
       },
-      text: 'Add chat',
+      text: 'Добавить чат',
       type: 'submit',
     });
     this.children.UpdateChatAvatarButton = new Button({
       events: {
         click: (e) => {
           e.preventDefault();
-          const avatarEl = document.getElementById('chat_avatar') as HTMLInputElement;
+          const avatarEl = document.getElementById(
+            'chat_avatar',
+          ) as HTMLInputElement;
           if (!avatarEl?.files![0]) {
-            alert('Please select image');
+            alert('Пожалуйста выберите изображение');
             return;
           }
           const avatarData = new FormData();
           avatarData.append('avatar', avatarEl?.files![0]);
-          const el = (((this.children.SelectChat as this).children.Select as Block<Select>).element as HTMLInputElement);
+          const el = (
+            (this.children.SelectChat as this).children.Select as Block<Select>
+          ).element as HTMLInputElement;
           avatarData.append('chatId', el.value);
           ChatsController.changeAvatar(avatarData);
         },
       },
-      text: 'Update chat avatar',
+      text: 'Сменить аватар чата',
       type: 'button',
     });
     this.children.DeleteChatButton = new Button({
       events: {
         click: () => {
-          const el = (((this.children.SelectChat as this).children.Select as Block<Select>).element as HTMLInputElement);
-          ChatsController.delete(
-            Number(el.value),
-          );
+          const el = (
+            (this.children.SelectChat as this).children.Select as Block<Select>
+          ).element as HTMLInputElement;
+          ChatsController.delete(Number(el.value));
         },
       },
-      text: 'Delete chat',
+      text: 'Удалить чат',
       type: 'button',
     });
   }
@@ -97,13 +103,12 @@ class BaseChatController extends Block {
   private createSelect() {
     if (this.props.chats) {
       return new SelectLabel({
-        errorText: 'Not empty',
-        placeholder: 'select chat',
+        placeholder: 'Выберите чат',
         required: true,
         type: 'text',
         value: '',
         options: this.props.chats,
-        label: { for: 'delete_chat', text: 'Select chat' },
+        label: { for: 'delete_chat', text: 'Выберите чат' },
         name: 'delete_chat',
       });
     } else {
