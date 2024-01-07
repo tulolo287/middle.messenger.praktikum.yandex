@@ -28,28 +28,36 @@ export const validate = (type: string, text: string) => {
     case 'phone':
       return String(text).match(/^\+?[0-9]{9,15}$/g);
 
+    case 'user_id':
+      return String(text).match(/^[0-9]/g);
+
     case 'message':
       return String(text).length !== 0;
-    default: return null;
+    default:
+      return true;
   }
 };
 
 export const checkValidation = (form: HTMLFormElement) => {
   const formData = new FormData(form);
   const formDataObj: Record<string, FormDataEntryValue> = {};
-  formData.forEach((value, key) => { formDataObj[key] = value; });
+  formData.forEach((value, key) => {
+    formDataObj[key] = value;
+  });
+
   let validation = false;
-  Object.entries(formDataObj).forEach((item) => {
-    if (item[1].toString().length === 0) {
+  for (const item in formDataObj) {
+    if (formDataObj[item].toString().length === 0) {
       validation = false;
-      return;
+      break;
     }
-    if (validate(item[0], item[1].toString())) {
+    if (validate(item, formDataObj[item].toString())) {
       validation = true;
     } else {
       validation = false;
+      break;
     }
-  });
+  }
   if (validation) {
     return formDataObj;
   } else {

@@ -1,32 +1,32 @@
 export const pages = [
   {
     text: '404 page',
-    url: '404',
+    url: '/404',
     class: 'page-link',
   },
   {
     text: '500 page',
-    url: '500',
+    url: '/500',
     class: 'page-link',
   },
   {
     text: 'Chat page',
-    url: 'chat',
+    url: '/messenger',
     class: 'page-link',
   },
   {
     text: 'Login page',
-    url: 'login',
+    url: '/',
     class: 'page-link',
   },
   {
     text: 'Register page',
-    url: 'register',
+    url: '/sign-up',
     class: 'page-link',
   },
   {
     text: 'Profile page',
-    url: 'profile',
+    url: '/settings',
     class: 'page-link',
   },
 ];

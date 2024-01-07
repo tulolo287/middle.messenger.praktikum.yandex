@@ -1,0 +1,69 @@
+.chat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 3px solid var(--foregroundColor);
+  border-radius: 50px;
+  margin-bottom: 30px;
+  list-style: none;
+  translate: 3s ease-in-out;
+  color: var(--foregroundColor);
+  overflow: hidden;
+  padding: 10px;
+}
+
+.chat-item__image {
+  height: 50px;
+}
+
+.chat-item:hover {
+  border: 3px solid var(--selectColor);
+  cursor: pointer;
+}
+
+.chat-item__active {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 3px solid var(--selectColor);
+  border-radius: 50px;
+  margin-bottom: 30px;
+  list-style: none;
+  translate: 3s ease-in-out;
+  color: var(--foregroundColor);
+  overflow: hidden;
+  padding: 10px;
+}
+
+.chat-item__info {
+  height: 70px;
+  display: flex;
+  width: 80%;
+}
+
+.chat-item__info__img {
+  object-fit: cover;
+  width: 70px;
+}
+
+.chat-item__info__name {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  justify-content: space-around;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.chat-item__info__time {
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-item p,
+h3 {
+  margin: 0;
+}

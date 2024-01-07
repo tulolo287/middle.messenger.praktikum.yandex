@@ -1,0 +1,9 @@
+.users {
+  display: flex;
+  justify-content: space-between;
+}
+
+.users__icons {
+  display: flex;
+  margin: 0;
+}

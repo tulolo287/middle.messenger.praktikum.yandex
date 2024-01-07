@@ -1,0 +1,14 @@
+.users-controller {
+  background-color: var(--backgroundColor);
+  height: 500px;
+  position: absolute;
+  top: 30%;
+  width: 500px;
+  z-index: 1000;
+  padding: 40px;
+  gap: 20px;
+  border-radius: 50px;
+  border: 2px solid;
+  display: flex;
+  flex-direction: column;
+}

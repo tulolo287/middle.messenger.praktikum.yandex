@@ -23,10 +23,6 @@
   --error: #c40000;
 }
 
-ul {
-  padding: 0;
-}
-
 li {
   list-style: none;
 }
@@ -120,21 +116,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: var(--selectColor);
-  }
-
-  a:hover {
-    color: var(--selectColor);
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
 .main {
   width: 100vw;
   height: 100vh;
@@ -204,4 +185,3 @@ button:focus-visible {
   padding-left: 7px;
   padding-right: 7px;
 }
-

@@ -1,3 +1,4 @@
+import AuthController from '../../controllers/AuthController';
 import { IInputLabel } from '../../typings/data';
 import Block from '../../utils/Block';
 import { checkValidation } from '../../utils/validation';
@@ -18,7 +19,7 @@ export class Register extends Block {
     this.children.Link = new Link({
       class: 'homeLink',
       text: 'Войти',
-      url: 'login',
+      url: '/',
     });
     this.children.Inputs = this.props.registerInputs.map(
       (input: IInputLabel) => new InputLabel({ ...input }),
@@ -34,8 +35,9 @@ export class Register extends Block {
             const formData = checkValidation(form);
             if (formData && formData.password === formData.repeat_password) {
               console.log(formData);
+              AuthController.signup(formData);
             } else {
-              alert('Invalid form');
+              alert('Неверно заполненная форма');
             }
           }
         },

@@ -1,3 +1,4 @@
+import AuthController from '../../controllers/AuthController';
 import { IInputLabel } from '../../typings/data';
 import Block from '../../utils/Block';
 import { checkValidation } from '../../utils/validation';
@@ -19,7 +20,7 @@ export class Login extends Block {
     this.children.Link = new Link({
       class: 'homeLink',
       text: 'Нет аккаунта?',
-      url: 'register',
+      url: '/sign-up',
     });
     this.children.Inputs = this.props.loginInputs.map(
       (input: IInputLabel) => new InputLabel({ ...input }),
@@ -34,9 +35,9 @@ export class Login extends Block {
           if (form) {
             const formData = checkValidation(form);
             if (formData) {
-              console.log(formData);
+              AuthController.signin(formData);
             } else {
-              alert('Invalid form');
+              alert('Неверно заполненная форма');
             }
           }
         },

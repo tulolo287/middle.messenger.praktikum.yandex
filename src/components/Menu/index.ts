@@ -1,5 +1,6 @@
 import Block from '../../utils/Block';
 import template from './menu.hbs';
+import './menu.css';
 
 export class Menu extends Block {
   constructor(props: Record<string, string>) {

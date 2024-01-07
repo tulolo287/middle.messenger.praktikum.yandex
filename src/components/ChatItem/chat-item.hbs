@@ -1,12 +1,16 @@
- <li class="chat-item" {{#if profile.active}}style="border: 3px solid var(--selectColor);"{{/if}} >
-  {{{Avatar}}}
+ <li class={{#if active}} "chat-item__active" {{else}} "chat-item" {{/if}}>
+  {{#if avatar}} <img class="chat-item__image" src={{avatar}} alt="chat avatar"/> {{/if}}
     <div class="chat-item__info__name">    
-      <h3>{{profile.username}}</h3>
-      <p>{{profile.text}}</p>
+      <h3>{{title}}</h3>
+      {{#if last_message}}
+      <span>{{last_message.user.first_name}}: {{last_message.content}}</span>
     </div> 
   <div class="chat-item__info__time">
-      <span class="bage">2</span>
-      <span>12:00</span>
+    {{#if unread_count }}
+      <span class="bage">{{unread_count}}</span>
+    {{/if}}
+      <span>{{time}}</span>
   </div>
+  {{/if}}
   </li>
 

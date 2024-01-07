@@ -1,14 +1,6 @@
 <main>
   <section class="profile">
-    <svg
-      width="130"
-      height="130"
-      viewBox="0 0 130 130"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle cx="65" cy="65" r="65" fill="#EFEFEF" />
-    </svg>
+    {{{Avatar}}}
     <h1 class="profile-name">{{profile.name}}</h1>
 
     <table class="profile-info">
@@ -23,15 +15,15 @@
         </tr>
         <tr>
           <td>Имя</td>
-          <td class="t-end">{{profile.name}}</td>
+          <td class="t-end">{{profile.first_name}}</td>
         </tr>
         <tr>
           <td>Фамилия</td>
-          <td class="t-end">{{profile.surname}}</td>
+          <td class="t-end">{{profile.second_name}}</td>
         </tr>
         <tr>
           <td>Имя в чате</td>
-          <td class="t-end">{{profile.nic}}</td>
+          <td class="t-end">{{profile.login}}</td>
         </tr>
         <tr>
           <td>Телефон</td>
@@ -42,7 +34,11 @@
     <div class="change-profile">
       {{{LinkChangeProfile}}}
       {{{LinkChangePassword}}}
+      {{{Link}}}
       {{{LinkExit}}}
     </div>
   </section>
+  {{#if show}}
+    {{{ChangeAvatar}}}
+  {{/if}}
 </main>

@@ -12,6 +12,7 @@
 
 .menu:hover {
   color: var(--selectColor);
+  background-color: red;
 }
 
 .menu-dialog {
