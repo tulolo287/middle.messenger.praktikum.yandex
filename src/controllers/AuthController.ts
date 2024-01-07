@@ -3,6 +3,7 @@ import { ROUTES } from '../data/consts';
 import Router from '../utils/Router';
 import store from '../utils/Store';
 import { setProfileInputs } from '../utils/helpers';
+import ChatsController from './ChatsController';
 import MessagesController from './MessagesController';
 
 export class AuthController {
@@ -16,7 +17,7 @@ export class AuthController {
     try {
       await this.api.signin(data);
       await this.fetchUser();
-
+      await ChatsController.fetchChats();
       Router.start();
       Router.go(ROUTES.CHAT);
     } catch (e: any) {
@@ -47,6 +48,7 @@ export class AuthController {
     try {
       MessagesController.closeAll();
       await this.api.logout();
+      store.clearStore();
       Router.go(ROUTES.LOGIN);
     } catch (e: any) {
       console.error(e.message);
