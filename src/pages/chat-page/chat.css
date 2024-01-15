@@ -6,15 +6,11 @@ body {
   width: 100vw;
   display: flex;
   justify-content: space-around;
-  padding: 40px;
-  max-width: 1920px;
 }
 
 .chat__profile {
-  height: 60px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .chat__profile img {
@@ -25,11 +21,11 @@ body {
 .dialogs {
   width: 70%;
   justify-content: space-between;
+  margin-left: 50px;
 }
 
 .dialogs__item {
-  padding-top: 40px;
-  padding-right: 40px;
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
   overflow: scroll;
@@ -50,7 +46,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
   gap: 20px;
 }
 
@@ -83,8 +78,8 @@ body {
 
 .chat__list {
   overflow-y: auto;
-  padding: 0;
-  padding: 40px;
+  height: calc(100vh - 300px);
+  padding-right: 5px;
 }
 
 .chat-dialog {
@@ -151,7 +146,6 @@ body {
 .dialogs__control__send {
   display: flex;
   justify-content: end;
-  padding-right: 40px;
 }
 
 .dialogs__control__send input {

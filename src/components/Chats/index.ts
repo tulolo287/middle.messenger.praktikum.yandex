@@ -25,7 +25,6 @@ class ChatsBase extends Block<ChatsProps> {
   }
 
   private createChats() {
-    if (this.props.chats) {
       return this.props.chats.map(
         (chat) => new ChatItem({
           ...chat,
@@ -39,9 +38,6 @@ class ChatsBase extends Block<ChatsProps> {
           },
         }),
       );
-    } else {
-      return [];
-    }
   }
 
   render() {

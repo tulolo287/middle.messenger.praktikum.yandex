@@ -42,7 +42,9 @@ export class Router {
     if (!route) {
       return;
     }
-
+    if (this._currentRoute && this._currentRoute !== route) {
+      this._currentRoute.leave();
+    }
     this._currentRoute = route;
 
     route?.render();

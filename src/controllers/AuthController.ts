@@ -17,8 +17,7 @@ export class AuthController {
     try {
       await this.api.signin(data);
       await this.fetchUser();
-      await ChatsController.fetchChats();
-      Router.start();
+
       Router.go(ROUTES.CHAT);
     } catch (e: any) {
       if (e.reason === 'Login or password is incorrect') {
