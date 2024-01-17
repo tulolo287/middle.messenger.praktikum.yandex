@@ -40,8 +40,6 @@ export class Store extends EventBus {
 
 const store = new Store();
 
-window.store = store;
-
 export function withStore(mapStateToProps: (state: IState) => Record<string, any>) {
   return function wrap<P>(Component: typeof Block<Record<string, P>>) {
     return class WithStore extends Component {

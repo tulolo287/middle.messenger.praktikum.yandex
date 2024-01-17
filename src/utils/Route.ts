@@ -25,7 +25,7 @@ export class Route {
   }
 
   leave() {
-  this._block = null;
+    this._block = null;
   }
 
   match(pathname: string) {

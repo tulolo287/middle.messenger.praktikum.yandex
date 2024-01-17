@@ -25,19 +25,19 @@ class ChatsBase extends Block<ChatsProps> {
   }
 
   private createChats() {
-      return this.props.chats.map(
-        (chat) => new ChatItem({
-          ...chat,
-          active: chat.id === store.getState().selectedChat,
-          events: {
-            click: (e: Event) => {
-              e.preventDefault();
-              ChatsController.selectChat(chat.id);
-              ChatsController.getChatUsers(chat.id);
-            },
+    return this.props.chats.map(
+      (chat) => new ChatItem({
+        ...chat,
+        active: chat.id === store.getState().selectedChat,
+        events: {
+          click: (e: Event) => {
+            e.preventDefault();
+            ChatsController.selectChat(chat.id);
+            ChatsController.getChatUsers(chat.id);
           },
-        }),
-      );
+        },
+      }),
+    );
   }
 
   render() {
