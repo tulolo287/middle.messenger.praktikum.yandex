@@ -14,7 +14,6 @@
     "all": "eslint --fix --ext .ts --ignore-path .gitignore . && stylelint '**/*.{css,sass,scss}' --fix",
     "test": "./node_modules/.bin/mocha"
   },
-
   "husky": {
     "hooks": {
       "pre-commit": "npm-run-all --parallel lint:*",
