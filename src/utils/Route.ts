@@ -1,27 +1,26 @@
-import Block from './Block';
-import { render } from './render';
+import { LoginPage } from '../pages/login-page/index.ts';
+import Block from './Block.ts';
+import { render } from './render.ts';
+
+export interface BlockConstructable<P extends Record<string, any> = any> {
+  new(props: P): Block<P>;
+}
 
 export class Route {
-  _pathname: string;
 
-  _blockClass: typeof Block;
+  private _block: Block | null = null;
 
-  _props: Record<string, any>;
+  constructor(private pathname: string, private readonly blockClass: BlockConstructable, private readonly rootQuery: string) {
 
-  _block: Block | null;
 
-  constructor(pathname: string, view: typeof Block, props: Record<string, any>) {
-    this._pathname = pathname;
-    this._blockClass = view;
-    this._props = props;
-    this._block = null;
   }
 
   render() {
     if (!this._block) {
-      this._block = new this._blockClass(this._props);
+      this._block = new this.blockClass({});
+      render(this.rootQuery, this._block);
+      return
     }
-    render(this._props.rootQuery, this._block);
   }
 
   leave() {
@@ -29,6 +28,7 @@ export class Route {
   }
 
   match(pathname: string) {
-    return pathname === this._pathname;
+    return pathname === this.pathname;
   }
 }
+

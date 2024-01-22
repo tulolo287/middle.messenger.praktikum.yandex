@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { EventBus } from './EventBus';
+import { EventBus } from './EventBus.ts';
 
 class Block<P extends Record<string, any> = any> {
   static EVENTS = {
@@ -140,6 +140,10 @@ class Block<P extends Record<string, any> = any> {
 
   get element() {
     return this._element;
+  }
+
+  getProps() {
+    return this.props;
   }
 
   private _render() {
