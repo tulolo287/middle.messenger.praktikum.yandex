@@ -43,7 +43,7 @@ window.addEventListener(
     try {
       await AuthController.fetchUser();
 
-     // Router.start();
+      // Router.start();
       if (!isProtectedRoute) {
         Router.go(ROUTES.CHAT);
       } else if (notFound) {
@@ -54,7 +54,7 @@ window.addEventListener(
     } catch (e: any) {
       console.log(e);
 
-      //Router.start();
+      // Router.start();
       if (notFound) {
         Router.go(ROUTES[404]);
         return;

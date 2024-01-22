@@ -7,11 +7,9 @@ export interface BlockConstructable<P extends Record<string, any> = any> {
 }
 
 export class Route {
-
   private _block: Block | null = null;
 
   constructor(private pathname: string, private readonly blockClass: BlockConstructable, private readonly rootQuery: string) {
-
 
   }
 
@@ -19,7 +17,6 @@ export class Route {
     if (!this._block) {
       this._block = new this.blockClass({});
       render(this.rootQuery, this._block);
-      return
     }
   }
 
@@ -31,4 +28,3 @@ export class Route {
     return pathname === this.pathname;
   }
 }
-

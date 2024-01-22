@@ -6,11 +6,13 @@ export interface BlockConstructable<P extends Record<string, any> = any> {
   new(props: P): Block<P>;
 }
 
-
 export class Router {
   private static __instance?: Router;
+
   private routes: Route[] = [];
+
   private currentRoute: Route | null = null;
+
   private history = window.history;
 
   constructor(private readonly rootQuery: string) {
@@ -28,7 +30,7 @@ export class Router {
       const target = event.currentTarget as Window;
 
       this._onRoute(target.location.pathname);
-    }
+    };
 
     this._onRoute(window.location.pathname);
   }
@@ -40,8 +42,7 @@ export class Router {
     return this;
   }
 
-   private _onRoute(pathname: string) {
-    
+  private _onRoute(pathname: string) {
     const route = this.getRoute(pathname);
 
     if (!route) {
@@ -62,7 +63,6 @@ export class Router {
   }
 
   back(step: number | undefined = undefined) {
-      
     if (step) {
       this.history.go(step);
     }
@@ -70,7 +70,7 @@ export class Router {
   }
 
   forward() {
-    debugger
+    debugger;
     this.history.forward();
   }
 

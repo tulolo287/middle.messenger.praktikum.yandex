@@ -1,19 +1,18 @@
-import Router, { BlockConstructable } from './Router.ts'
 import { expect } from 'chai';
 import sinon from 'sinon';
+import Router, { BlockConstructable } from './Router.ts';
 
 describe('Router', () => {
-
   global.window.history.back = () => {
     if (typeof window.onpopstate === 'function') {
-      window.onpopstate({currentTarget: window} as unknown as PopStateEvent);
+      window.onpopstate({ currentTarget: window } as unknown as PopStateEvent);
     }
   };
   global.window.history.forward = () => {
     if (typeof window.onpopstate === 'function') {
-      window.onpopstate({currentTarget: window} as unknown as PopStateEvent);
+      window.onpopstate({ currentTarget: window } as unknown as PopStateEvent);
     }
-  }
+  };
 
   beforeEach(() => {
     Router.reset();
@@ -37,7 +36,7 @@ describe('Router', () => {
       .start();
 
     expect(getContentFake.callCount).to.eq(1);
-  }); 
+  });
 
   describe('Routing', () => {
     it('should route forward', () => {
@@ -45,7 +44,7 @@ describe('Router', () => {
         .use('/', BlockMock)
         .start();
 
-        Router.forward();
+      Router.forward();
 
       expect(getContentFake.callCount).to.eq(1);
     });
@@ -55,7 +54,7 @@ describe('Router', () => {
         .use('/', BlockMock)
         .start();
 
-        Router.back();
+      Router.back();
 
       expect(getContentFake.callCount).to.eq(1);
     });
@@ -65,7 +64,7 @@ describe('Router', () => {
         .use('/messages', BlockMock)
         .start();
 
-        Router.go('/messages');
+      Router.go('/messages');
 
       expect(window.location.href).to.eq('http://localhost:3000/messages');
     });
@@ -74,6 +73,4 @@ describe('Router', () => {
   describe('.back()', () => {
 
   });
- 
-
 });

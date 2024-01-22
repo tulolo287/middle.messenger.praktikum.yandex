@@ -1,7 +1,6 @@
 import sinon, { SinonFakeXMLHttpRequest, SinonFakeXMLHttpRequestStatic } from 'sinon';
-import HTTPTransport from './HTTPTransport.ts';
 import { expect } from 'chai';
-
+import HTTPTransport from './HTTPTransport.ts';
 
 describe('HTTPTransport', () => {
   let xhr: SinonFakeXMLHttpRequestStatic;
@@ -23,7 +22,7 @@ describe('HTTPTransport', () => {
 
   afterEach(() => {
     requests = [];
-  })
+  });
 
   it('.get() should send GET request', () => {
     http.get('/user');
@@ -33,7 +32,7 @@ describe('HTTPTransport', () => {
     expect(request.method).to.eq('Get');
   });
 
-    it('.get() should send POST request', () => {
+  it('.get() should send POST request', () => {
     http.post('/user');
 
     const [request] = requests;
@@ -41,7 +40,7 @@ describe('HTTPTransport', () => {
     expect(request.method).to.eq('Post');
   });
 
-    it('.get() should send DELETE request', () => {
+  it('.get() should send DELETE request', () => {
     http.delete('/user');
 
     const [request] = requests;
@@ -49,7 +48,7 @@ describe('HTTPTransport', () => {
     expect(request.method).to.eq('Delete');
   });
 
-      it('.get() should send PUT request', () => {
+  it('.get() should send PUT request', () => {
     http.put('/user');
 
     const [request] = requests;
@@ -57,12 +56,11 @@ describe('HTTPTransport', () => {
     expect(request.method).to.eq('Put');
   });
 
-      it('.get() should send POST request', () => {
+  it('.get() should send POST request', () => {
     http.post('/user');
 
     const [request] = requests;
 
     expect(request.method).to.eq('Post');
   });
-  
 });

@@ -1,4 +1,3 @@
-
 export enum Method {
   Get = 'Get',
   Post = 'Post',
