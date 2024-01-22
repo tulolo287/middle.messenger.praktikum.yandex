@@ -8,15 +8,15 @@
     "build": "vite build",
     "start": "vite build && nodemon ./server.js",
     "preview": "vite preview",
-    "lint: css": "stylelint '**/*.{css,sass,scss}' --fix",
-    "lint: js": "eslint --fix --ext .ts --ignore-path .gitignore .",
-    "lint: tsc": "tsc --noEmit",
+    "lint:css": "stylelint '**/*.{css,sass,scss}' --fix",
+    "lint:js": "eslint --fix --ext .ts --ignore-path .gitignore .",
+    "lint:tsc": "tsc --noEmit",
     "all": "eslint --fix --ext .ts --ignore-path .gitignore . && stylelint '**/*.{css,sass,scss}' --fix",
     "test": "./node_modules/.bin/mocha"
-  },test
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "npm-run-all --parallel lint:*",
+      "pre-commit": "npm run test",
       "pre-push": "npm run test"
     }
   },
