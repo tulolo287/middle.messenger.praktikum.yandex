@@ -16,8 +16,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "skipLibCheck": true,
-    "allowImportingTsExtensions": true,
+    "skipLibCheck": true
   },
   "lib": ["es2019", "dom", "dom.iterable"],
   "include": ["src"]
