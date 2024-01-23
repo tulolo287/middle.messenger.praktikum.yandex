@@ -1,5 +1,4 @@
 export const validate = (type: string, text: string) => {
-  debugger
   switch (type) {
     case 'email':
       return String(text)

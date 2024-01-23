@@ -37,7 +37,6 @@ describe('Router', () => {
   });
 
   describe('Routing', () => {
-
     it('should route forward', () => {
       Router.use('/', BlockMock).start();
 
@@ -62,5 +61,4 @@ describe('Router', () => {
       expect(window.location.href).to.eq('http://localhost:3000/messages');
     });
   });
-
 });

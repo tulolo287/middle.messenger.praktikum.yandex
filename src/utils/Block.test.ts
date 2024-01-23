@@ -7,10 +7,10 @@ describe('Block', () => {
 
   class TestComponent extends Block {}
 
-  it('should init component', function (done) {
+  it('should init component', (done) => {
     const testBlock = new TestComponent({});
 
-    let stub = sinon.stub(testBlock.getEventBus(), 'emit');
+    const stub = sinon.stub(testBlock.getEventBus(), 'emit');
     testBlock.getEventBus().emit('init');
 
     expect(stub.calledWith('init')).to.be.true;
@@ -18,10 +18,10 @@ describe('Block', () => {
     done();
   });
 
-  it('should update component after props changed', function (done) {
+  it('should update component after props changed', (done) => {
     const testBlock = new TestComponent({});
 
-    let stub = sinon.stub(testBlock.getEventBus(), 'emit');
+    const stub = sinon.stub(testBlock.getEventBus(), 'emit');
 
     testBlock.setProps({ test: 'test' });
 

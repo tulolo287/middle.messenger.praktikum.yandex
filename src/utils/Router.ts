@@ -1,5 +1,4 @@
 import Block from './Block.ts';
-import { render } from './render.ts';
 import { Route } from './Route.ts';
 
 export interface BlockConstructable<P extends Record<string, any> = any> {
@@ -70,13 +69,13 @@ export class Router {
   }
 
   forward() {
-    debugger;
     this.history.forward();
   }
 
   public reset() {
     delete Router.__instance;
-    new Router(this.rootQuery);
+    const test = new Router(this.rootQuery);
+    return test;
   }
 
   getRoute(pathname: string) {

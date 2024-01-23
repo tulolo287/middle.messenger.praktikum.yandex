@@ -3,7 +3,6 @@ import sinon from 'sinon';
 import { Button } from './index.ts';
 
 describe('Button', () => {
-
   const testBtn = new Button({
     text: 'Hello', class: 'bla', type: 'button', events: { click: () => { console.log('Hello'); } },
   });
@@ -28,5 +27,4 @@ describe('Button', () => {
 
     expect(spy.calledOnce).to.be.true;
   });
-
 });

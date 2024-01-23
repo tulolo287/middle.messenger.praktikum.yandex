@@ -7,7 +7,8 @@ describe('Link', () => {
   const link = new Link({ url: '/' });
 
   it('should render', () => {
-    new Link({ url: '/' });
+    const test = new Link({ url: '/' });
+    test;
   });
 
   it('element should return span', () => {

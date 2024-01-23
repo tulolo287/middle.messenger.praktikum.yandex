@@ -10,13 +10,13 @@ export class Route {
 
   constructor(
     private pathname: string,
-    private readonly blockClass: BlockConstructable,
-    private readonly rootQuery: string
+    private readonly BlockClass: BlockConstructable,
+    private readonly rootQuery: string,
   ) {}
 
   render() {
     if (!this._block) {
-      this._block = new this.blockClass({});
+      this._block = new this.BlockClass({});
       render(this.rootQuery, this._block);
     }
   }
