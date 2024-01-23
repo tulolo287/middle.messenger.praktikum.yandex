@@ -21,5 +21,4 @@
   },
   "lib": ["es2019", "dom", "dom.iterable"],
   "include": ["src"],
-  "exclude": ["*.test.ts"]
 }
