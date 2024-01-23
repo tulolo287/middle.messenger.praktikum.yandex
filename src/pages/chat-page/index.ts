@@ -106,7 +106,7 @@ export class BaseChatPage extends Block<ChatPageProps> {
 }
 
 const withState = (state: IState) => ({
-  profile: state.user || [],
+  profile: state.user,
   avatar: state.avatar || '',
 });
 

@@ -26,6 +26,18 @@ export interface User {
 }
 
 export class AuthAPI extends BaseAPI {
+  public create?(): Promise<unknown> {
+    throw new Error('Method not implemented.');
+  }
+
+  public update?(): Promise<unknown> {
+    throw new Error('Method not implemented.');
+  }
+
+  public delete?(): Promise<unknown> {
+    throw new Error('Method not implemented.');
+  }
+
   constructor() {
     super('/auth');
   }
@@ -45,12 +57,6 @@ export class AuthAPI extends BaseAPI {
   logout() {
     return this.http.post('/logout');
   }
-
-  create = undefined;
-
-  update = undefined;
-
-  delete = undefined;
 }
 
 export default new AuthAPI();

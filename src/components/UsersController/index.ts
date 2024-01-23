@@ -79,22 +79,18 @@ class BaseUsersController extends Block {
   private createSelect() {
     const users: User[] = this.props.chatUsers;
     const currentUser = this.props.user;
-    if (users) {
-      const usersSelect = users
-        .filter((user) => user.id !== currentUser.id)
-        .map((user) => ({ ...user, title: user.first_name ? user.first_name : 'No name user' }));
-      return new SelectLabel({
-        placeholder: 'select-user',
-        required: true,
-        type: 'text',
-        value: '',
-        options: usersSelect,
-        label: { for: 'delete_user', text: 'Выберите пользователя' },
-        name: 'delete_user',
-      });
-    } else {
-      return [];
-    }
+    const usersSelect = users
+      .filter((user) => user.id !== currentUser.id)
+      .map((user) => ({ ...user, title: user.first_name ? user.first_name : 'No name user' }));
+    return new SelectLabel({
+      placeholder: 'select-user',
+      required: true,
+      type: 'text',
+      value: '',
+      options: usersSelect,
+      label: { for: 'delete_user', text: 'Выберите пользователя' },
+      name: 'delete_user',
+    });
   }
 
   render() {

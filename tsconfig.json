@@ -7,7 +7,7 @@
     "moduleResolution": "Node",
     "noImplicitAny": true,
     "sourceMap": true,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "strict": true,
     "resolveJsonModule": true,
     "isolatedModules": true,

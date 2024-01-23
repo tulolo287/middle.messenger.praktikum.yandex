@@ -101,19 +101,15 @@ class BaseChatController extends Block {
   }
 
   private createSelect() {
-    if (this.props.chats) {
-      return new SelectLabel({
-        placeholder: 'Выберите чат',
-        required: true,
-        type: 'text',
-        value: '',
-        options: this.props.chats,
-        label: { for: 'delete_chat', text: 'Выберите чат' },
-        name: 'delete_chat',
-      });
-    } else {
-      return [];
-    }
+    return new SelectLabel({
+      placeholder: 'Выберите чат',
+      required: true,
+      type: 'text',
+      value: '',
+      options: this.props.chats,
+      label: { for: 'delete_chat', text: 'Выберите чат' },
+      name: 'delete_chat',
+    });
   }
 
   render() {
