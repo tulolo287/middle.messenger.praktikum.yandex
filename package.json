@@ -15,7 +15,6 @@
     "test": "./node_modules/.bin/mocha",
     "prepare": "husky install"
   },
-  "eslintIgnore": ["*.test.ts"],
   "engines": {
     "node": ">=12"
   },
