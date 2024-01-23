@@ -1,17 +1,18 @@
-import { LoginPage } from '../pages/login-page/index.ts';
 import Block from './Block.ts';
 import { render } from './render.ts';
 
 export interface BlockConstructable<P extends Record<string, any> = any> {
-  new(props: P): Block<P>;
+  new (props: P): Block<P>;
 }
 
 export class Route {
   private _block: Block | null = null;
 
-  constructor(private pathname: string, private readonly blockClass: BlockConstructable, private readonly rootQuery: string) {
-
-  }
+  constructor(
+    private pathname: string,
+    private readonly blockClass: BlockConstructable,
+    private readonly rootQuery: string
+  ) {}
 
   render() {
     if (!this._block) {

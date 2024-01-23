@@ -31,18 +31,15 @@ describe('Router', () => {
   });
 
   it('should render a page on start', () => {
-    Router
-      .use('/', BlockMock)
-      .start();
+    Router.use('/', BlockMock).start();
 
     expect(getContentFake.callCount).to.eq(1);
   });
 
   describe('Routing', () => {
+
     it('should route forward', () => {
-      Router
-        .use('/', BlockMock)
-        .start();
+      Router.use('/', BlockMock).start();
 
       Router.forward();
 
@@ -50,9 +47,7 @@ describe('Router', () => {
     });
 
     it('should route back', () => {
-      Router
-        .use('/', BlockMock)
-        .start();
+      Router.use('/', BlockMock).start();
 
       Router.back();
 
@@ -60,9 +55,7 @@ describe('Router', () => {
     });
 
     it('should route and render page', () => {
-      Router
-        .use('/messages', BlockMock)
-        .start();
+      Router.use('/messages', BlockMock).start();
 
       Router.go('/messages');
 
@@ -70,7 +63,4 @@ describe('Router', () => {
     });
   });
 
-  describe('.back()', () => {
-
-  });
 });

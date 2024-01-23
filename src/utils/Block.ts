@@ -40,6 +40,10 @@ class Block<P extends Record<string, any> = any> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
+  getEventBus() {
+    return this.eventBus();
+  }
+
   _getChildrenAndProps(childrenAndProps: P): {
     props: P;
     children: Record<string, Block | Block[]>;
