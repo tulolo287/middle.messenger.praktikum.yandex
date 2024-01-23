@@ -19,7 +19,7 @@
       "pre-commit": "npm run lint",
       "pre-push": "npm run test"
     }
-  },l
+  },""
   "engines": {
     "node": ">=12"
   },
