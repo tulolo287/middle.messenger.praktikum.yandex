@@ -58,7 +58,7 @@ describe('HTTPTransport', () => {
 
   it('.get() should send POST request', () => {
     http.post('/user');
-'EEE'
+
     const [request] = requests;
 
     expect(request.method).to.eq('Post');
