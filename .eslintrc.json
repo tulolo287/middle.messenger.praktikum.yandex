@@ -43,6 +43,6 @@
     "no-continue": "off",
     "no-prototype-builtins": "off",
     "@typescript-eslint/no-shadow": "warn",
-    "no-empty-function": "warn"
+    "no-empty-function": "off"
   }
 }

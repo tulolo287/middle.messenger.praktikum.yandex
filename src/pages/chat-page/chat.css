@@ -11,6 +11,7 @@ body {
 .chat__profile {
   display: flex;
   justify-content: space-between;
+  height: 55px;
 }
 
 .chat__profile img {
