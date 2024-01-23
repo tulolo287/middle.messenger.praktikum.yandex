@@ -1,5 +1,5 @@
-import { registerInputs } from '../data/register';
-import { IInputLabel, User } from '../typings/data';
+import { registerInputs } from '../data/register.ts';
+import { IInputLabel, User } from '../typings/data.ts';
 
 export type Indexed<T = any> = {
   [key in string]: T;

@@ -1,14 +1,14 @@
-import AuthController from './controllers/AuthController';
-import { ROUTES } from './data/consts';
-import { Page404 } from './pages/404-page';
-import { Page500 } from './pages/500-page';
-import { ChangePasswordPage } from './pages/change-password-page';
-import { ChangeProfilePage } from './pages/change-profile-page';
-import { ChatPage } from './pages/chat-page';
-import { LoginPage } from './pages/login-page';
-import { ProfilePage } from './pages/profile-page';
-import { RegisterPage } from './pages/register-page';
-import Router from './utils/Router';
+import AuthController from './controllers/AuthController.ts';
+import { ROUTES } from './data/consts.ts';
+import { Page404 } from './pages/404-page/index.ts';
+import { Page500 } from './pages/500-page/index.ts';
+import { ChangePasswordPage } from './pages/change-password-page/index.ts';
+import { ChangeProfilePage } from './pages/change-profile-page/index.ts';
+import { ChatPage } from './pages/chat-page/index.ts';
+import { LoginPage } from './pages/login-page/index.ts';
+import { ProfilePage } from './pages/profile-page/index.ts';
+import { RegisterPage } from './pages/register-page/index.ts';
+import Router from './utils/Router.ts';
 
 window.addEventListener(
   'DOMContentLoaded',

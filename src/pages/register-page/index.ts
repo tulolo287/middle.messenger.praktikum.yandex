@@ -1,6 +1,6 @@
-import { Register } from '../../components/Register';
-import { registerInputs } from '../../data/register';
-import Block from '../../utils/Block';
+import { Register } from '../../components/Register/index.ts';
+import { registerInputs } from '../../data/register.ts';
+import Block from '../../utils/Block.ts';
 import template from './register.hbs';
 
 interface RegisterPageProps {

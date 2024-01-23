@@ -1,5 +1,5 @@
-import Block from '../../utils/Block';
-import { validate } from '../../utils/validation';
+import Block from '../../utils/Block.ts';
+import { validate } from '../../utils/validation.ts';
 import template from './input.hbs';
 
 export class Input extends Block {

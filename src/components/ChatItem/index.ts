@@ -1,5 +1,5 @@
-import Block from '../../utils/Block';
-import { Menu } from '../Menu';
+import Block from '../../utils/Block.ts';
+import { Menu } from '../Menu/index.ts';
 import './chat-item.css';
 import template from './chat-item.hbs';
 

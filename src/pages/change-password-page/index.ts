@@ -1,11 +1,11 @@
-import { Button } from '../../components/Button';
-import { InputLabel } from '../../components/InputLabel';
-import { Link } from '../../components/Link';
-import { changePasswordInputs } from '../../data/change-password';
-import { ROUTES } from '../../data/consts';
-import { IInputLabel } from '../../typings/data';
-import Block from '../../utils/Block';
-import { checkValidation } from '../../utils/validation';
+import { Button } from '../../components/Button/index.ts';
+import { InputLabel } from '../../components/InputLabel/index.ts';
+import { Link } from '../../components/Link/index.ts';
+import { changePasswordInputs } from '../../data/change-password.ts';
+import { ROUTES } from '../../data/consts.ts';
+import { IInputLabel } from '../../typings/data.ts';
+import Block from '../../utils/Block.ts';
+import { checkValidation } from '../../utils/validation.ts';
 import template from './change-password.hbs';
 
 interface ChangePasswordPageProps {

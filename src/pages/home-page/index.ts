@@ -1,5 +1,5 @@
-import { PageLinks } from '../../components/PageLinks';
-import Block from '../../utils/Block';
+import { PageLinks } from '../../components/PageLinks/index.ts';
+import Block from '../../utils/Block.ts';
 import template from './home.hbs';
 
 interface HomePageProps {

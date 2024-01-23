@@ -1,5 +1,5 @@
-import Block from '../../utils/Block';
-import Router from '../../utils/Router';
+import Block from '../../utils/Block.ts';
+import Router from '../../utils/Router.ts';
 import './avatar.css';
 import template from './avatar.hbs';
 

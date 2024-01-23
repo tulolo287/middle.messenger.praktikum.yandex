@@ -1,12 +1,12 @@
-import ChatsController from '../../controllers/ChatsController';
-import { User } from '../../typings/data';
-import Block from '../../utils/Block';
-import store, { withStore } from '../../utils/Store';
-import { Button } from '../Button';
-import { Input } from '../Input';
-import { InputLabel } from '../InputLabel';
-import { Select } from '../Select';
-import { SelectLabel } from '../SelectLabel';
+import ChatsController from '../../controllers/ChatsController.ts';
+import { User } from '../../typings/data.ts';
+import Block from '../../utils/Block.ts';
+import store, { withStore } from '../../utils/Store.ts';
+import { Button } from '../Button/index.ts';
+import { Input } from '../Input/index.ts';
+import { InputLabel } from '../InputLabel/index.ts';
+import { Select } from '../Select/index.ts';
+import { SelectLabel } from '../SelectLabel/index.ts';
 import './users-controller.css';
 import template from './users-controller.hbs';
 

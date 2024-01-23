@@ -1,5 +1,5 @@
-import API, { UserAPI } from '../api/UserAPI';
-import AuthController from './AuthController';
+import API, { UserAPI } from '../api/UserAPI.ts';
+import AuthController from './AuthController.ts';
 
 export class UserController {
   private readonly api: UserAPI;

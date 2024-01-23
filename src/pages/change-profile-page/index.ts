@@ -1,12 +1,12 @@
-import { Button } from '../../components/Button';
-import { InputLabel } from '../../components/InputLabel';
-import { Link } from '../../components/Link';
-import UserController from '../../controllers/UserController';
-import { ROUTES } from '../../data/consts';
-import { IInputLabel } from '../../typings/data';
-import Block from '../../utils/Block';
-import { withStore } from '../../utils/Store';
-import { checkValidation } from '../../utils/validation';
+import { Button } from '../../components/Button/index.ts';
+import { InputLabel } from '../../components/InputLabel/index.ts';
+import { Link } from '../../components/Link/index.ts';
+import UserController from '../../controllers/UserController.ts';
+import { ROUTES } from '../../data/consts.ts';
+import { IInputLabel } from '../../typings/data.ts';
+import Block from '../../utils/Block.ts';
+import { withStore } from '../../utils/Store.ts';
+import { checkValidation } from '../../utils/validation.ts';
 import template from './change-profile.hbs';
 
 interface ChangeProfilePageProps {
