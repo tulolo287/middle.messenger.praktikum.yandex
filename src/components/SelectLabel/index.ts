@@ -9,7 +9,7 @@ export class SelectLabel extends Block {
   }
 
   init() {
-    this.children.SelectLabel = new Select({ ...this.props });
+    this.children.Select = new Select({ ...this.props });
   }
 
   render() {
