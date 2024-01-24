@@ -1,8 +1,11 @@
 {
-   "extension": ["ts"],
-   "require": "./mochaSetup.js",
-   "spec": "./src/**/*.test.ts",
+   "extension": [".ts"],
+   "spec": " ./src/**/*.test.ts",
+   "require": ["./mochaSetup.js"],
    "node-option": [
-      "loader=node-esm-loader"
-   ]
+       "loader=esm-loader-typescript",
+       "loader=esmock",
+       "loader=node-esm-loader",
+       "loader=esm-loader-css"
+    ]
  }

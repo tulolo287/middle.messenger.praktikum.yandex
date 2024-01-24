@@ -8,13 +8,13 @@ export default function vitePluginHandlebarsPrecompile(): PluginOption {
       if (id.endsWith('.hbs') || id.endsWith('.handlebars')) {
         return {
           code: `
-                        import Handlebars from 'handlebars';
-                        export default Handlebars.template(${Handlebars.precompile(
-    code,
-  )});    
-                    `,
+            import Handlebars from 'handlebars';
+
+            export default Handlebars.template(${Handlebars.precompile(code)});
+          `,
         };
       }
+      return null;
     },
   };
 }
