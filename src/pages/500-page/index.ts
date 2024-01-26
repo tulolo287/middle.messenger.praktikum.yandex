@@ -1,5 +1,5 @@
-import { Link } from '../../components/Link';
-import Block from '../../utils/Block';
+import { Link } from '../../components/Link/index.ts';
+import Block from '../../utils/Block.ts';
 import template from './500.hbs';
 
 interface IPage500Props {

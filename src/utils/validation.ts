@@ -34,7 +34,7 @@ export const validate = (type: string, text: string) => {
     case 'message':
       return String(text).length !== 0;
     default:
-      return true;
+      return false;
   }
 };
 

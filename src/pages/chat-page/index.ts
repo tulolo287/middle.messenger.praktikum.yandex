@@ -1,18 +1,18 @@
-import { Avatar } from '../../components/Avatar';
-import { Button } from '../../components/Button';
-import { ChatController } from '../../components/ChatController';
-import { Chats } from '../../components/Chats';
-import { Dialogs } from '../../components/Dialogs';
-import { InputLabel } from '../../components/InputLabel';
-import { Menu } from '../../components/Menu';
-import { Users } from '../../components/Users';
-import ChatsController from '../../controllers/ChatsController';
-import MessagesController from '../../controllers/MessagesController';
-import { messageInputs } from '../../data/message';
-import { IInputLabel, User } from '../../typings/data';
-import Block from '../../utils/Block';
-import store, { IState, withStore } from '../../utils/Store';
-import { checkValidation } from '../../utils/validation';
+import { Avatar } from '../../components/Avatar/index.ts';
+import { Button } from '../../components/Button/index.ts';
+import { ChatController } from '../../components/ChatController/index.ts';
+import { Chats } from '../../components/Chats/index.ts';
+import { Dialogs } from '../../components/Dialogs/index.ts';
+import { InputLabel } from '../../components/InputLabel/index.ts';
+import { Menu } from '../../components/Menu/index.ts';
+import { Users } from '../../components/Users/index.ts';
+import ChatsController from '../../controllers/ChatsController.ts';
+import MessagesController from '../../controllers/MessagesController.ts';
+import { messageInputs } from '../../data/message.ts';
+import { IInputLabel, User } from '../../typings/data.ts';
+import Block from '../../utils/Block.ts';
+import store, { IState, withStore } from '../../utils/Store.ts';
+import { checkValidation } from '../../utils/validation.ts';
 import './chat.css';
 import template from './chat.hbs';
 
@@ -106,7 +106,7 @@ export class BaseChatPage extends Block<ChatPageProps> {
 }
 
 const withState = (state: IState) => ({
-  profile: state.user || [],
+  profile: state.user,
   avatar: state.avatar || '',
 });
 

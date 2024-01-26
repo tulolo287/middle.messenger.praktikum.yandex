@@ -1,10 +1,10 @@
-import Block from '../../utils/Block';
-import Router from '../../utils/Router';
+import Block from '../../utils/Block.ts';
+import Router from '../../utils/Router.ts';
 import template from './link.hbs';
 
 interface ILinkProps {
   url?: string;
-  text: string;
+  text?: string;
   class?: string;
 }
 

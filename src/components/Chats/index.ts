@@ -1,8 +1,8 @@
-import ChatsController from '../../controllers/ChatsController';
-import { ChatInfo } from '../../typings/data';
-import Block from '../../utils/Block';
-import store, { withStore } from '../../utils/Store';
-import { ChatItem } from '../ChatItem';
+import ChatsController from '../../controllers/ChatsController.ts';
+import { ChatInfo } from '../../typings/data.ts';
+import Block from '../../utils/Block.ts';
+import store, { withStore } from '../../utils/Store.ts';
+import { ChatItem } from '../ChatItem/index.ts';
 import template from './chats.hbs';
 
 interface ChatsProps {
@@ -25,23 +25,19 @@ class ChatsBase extends Block<ChatsProps> {
   }
 
   private createChats() {
-    if (this.props.chats) {
-      return this.props.chats.map(
-        (chat) => new ChatItem({
-          ...chat,
-          active: chat.id === store.getState().selectedChat,
-          events: {
-            click: (e: Event) => {
-              e.preventDefault();
-              ChatsController.selectChat(chat.id);
-              ChatsController.getChatUsers(chat.id);
-            },
+    return this.props.chats.map(
+      (chat) => new ChatItem({
+        ...chat,
+        active: chat.id === store.getState().selectedChat,
+        events: {
+          click: (e: Event) => {
+            e.preventDefault();
+            ChatsController.selectChat(chat.id);
+            ChatsController.getChatUsers(chat.id);
           },
-        }),
-      );
-    } else {
-      return [];
-    }
+        },
+      }),
+    );
   }
 
   render() {

@@ -1,6 +1,6 @@
-import { Login } from '../../components/Login';
-import { loginInputs } from '../../data/login';
-import Block from '../../utils/Block';
+import { Login } from '../../components/Login/index.ts';
+import { loginInputs } from '../../data/login.ts';
+import Block from '../../utils/Block.ts';
 import template from './login.hbs';
 
 interface LoginPageProps {

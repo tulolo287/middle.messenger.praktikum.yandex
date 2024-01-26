@@ -1,14 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES6",
     "useDefineForClassFields": true,
-    "module": "ESNext",
-    "lib": ["ESNext", "DOM"],
+    "module": "ES6",
     "moduleResolution": "Node",
     "noImplicitAny": true,
-    "sourceMap": true,
-    "strictNullChecks": true,
-    "strict": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -16,8 +12,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "skipLibCheck": true
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true
   },
-  "lib": ["es2019", "dom", "dom.iterable"],
-  "include": ["src"]
+  "lib": ["ES2020", "dom", "dom.iterable"]
 }

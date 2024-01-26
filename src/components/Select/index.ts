@@ -1,4 +1,4 @@
-import Block from '../../utils/Block';
+import Block from '../../utils/Block.ts';
 import template from './input.hbs';
 
 export class Select extends Block {

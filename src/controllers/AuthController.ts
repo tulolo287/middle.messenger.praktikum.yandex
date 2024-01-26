@@ -1,10 +1,9 @@
-import API, { AuthAPI } from '../api/AuthAPI';
-import { ROUTES } from '../data/consts';
-import Router from '../utils/Router';
-import store from '../utils/Store';
-import { setProfileInputs } from '../utils/helpers';
-import ChatsController from './ChatsController';
-import MessagesController from './MessagesController';
+import API, { AuthAPI } from '../api/AuthAPI.ts';
+import { ROUTES } from '../data/consts.ts';
+import Router from '../utils/Router.ts';
+import store from '../utils/Store.ts';
+import { setProfileInputs } from '../utils/helpers.ts';
+import MessagesController from './MessagesController.ts';
 
 export class AuthController {
   private readonly api: AuthAPI;
@@ -17,8 +16,7 @@ export class AuthController {
     try {
       await this.api.signin(data);
       await this.fetchUser();
-      await ChatsController.fetchChats();
-      Router.start();
+
       Router.go(ROUTES.CHAT);
     } catch (e: any) {
       if (e.reason === 'Login or password is incorrect') {

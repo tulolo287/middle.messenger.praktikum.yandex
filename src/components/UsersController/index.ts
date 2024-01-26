@@ -1,12 +1,12 @@
-import ChatsController from '../../controllers/ChatsController';
-import { User } from '../../typings/data';
-import Block from '../../utils/Block';
-import store, { withStore } from '../../utils/Store';
-import { Button } from '../Button';
-import { Input } from '../Input';
-import { InputLabel } from '../InputLabel';
-import { Select } from '../Select';
-import { SelectLabel } from '../SelectLabel';
+import ChatsController from '../../controllers/ChatsController.ts';
+import { User } from '../../typings/data.ts';
+import Block from '../../utils/Block.ts';
+import store, { withStore } from '../../utils/Store.ts';
+import { Button } from '../Button/index.ts';
+import { Input } from '../Input/index.ts';
+import { InputLabel } from '../InputLabel/index.ts';
+import { Select } from '../Select/index.ts';
+import { SelectLabel } from '../SelectLabel/index.ts';
 import './users-controller.css';
 import template from './users-controller.hbs';
 
@@ -79,22 +79,18 @@ class BaseUsersController extends Block {
   private createSelect() {
     const users: User[] = this.props.chatUsers;
     const currentUser = this.props.user;
-    if (users) {
-      const usersSelect = users
-        .filter((user) => user.id !== currentUser.id)
-        .map((user) => ({ ...user, title: user.first_name ? user.first_name : 'No name user' }));
-      return new SelectLabel({
-        placeholder: 'select-user',
-        required: true,
-        type: 'text',
-        value: '',
-        options: usersSelect,
-        label: { for: 'delete_user', text: 'Выберите пользователя' },
-        name: 'delete_user',
-      });
-    } else {
-      return [];
-    }
+    const usersSelect = users
+      .filter((user) => user.id !== currentUser.id)
+      .map((user) => ({ ...user, title: user.first_name ? user.first_name : 'No name user' }));
+    return new SelectLabel({
+      placeholder: 'select-user',
+      required: true,
+      type: 'text',
+      value: '',
+      options: usersSelect,
+      label: { for: 'delete_user', text: 'Выберите пользователя' },
+      name: 'delete_user',
+    });
   }
 
   render() {

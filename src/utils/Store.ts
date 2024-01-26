@@ -1,10 +1,10 @@
-import { User } from '../api/AuthAPI';
-import { ChatInfo } from '../api/ChatsAPI';
-import { Message } from '../controllers/MessagesController';
-import { IInputLabel } from '../typings/data';
-import Block from './Block';
-import { EventBus } from './EventBus';
-import { set } from './helpers';
+import { User } from '../api/AuthAPI.ts';
+import { ChatInfo } from '../api/ChatsAPI.ts';
+import { Message } from '../controllers/MessagesController.ts';
+import { IInputLabel } from '../typings/data.ts';
+import Block from './Block.ts';
+import { EventBus } from './EventBus.ts';
+import { set } from './helpers.ts';
 
 export enum StoreEvents {
   Updated = 'updated',

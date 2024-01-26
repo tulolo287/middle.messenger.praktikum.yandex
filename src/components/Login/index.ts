@@ -1,10 +1,10 @@
-import AuthController from '../../controllers/AuthController';
-import { IInputLabel } from '../../typings/data';
-import Block from '../../utils/Block';
-import { checkValidation } from '../../utils/validation';
-import { Button } from '../Button';
-import { InputLabel } from '../InputLabel';
-import { Link } from '../Link';
+import AuthController from '../../controllers/AuthController.ts';
+import { IInputLabel } from '../../typings/data.ts';
+import Block from '../../utils/Block.ts';
+import { checkValidation } from '../../utils/validation.ts';
+import { Button } from '../Button/index.ts';
+import { InputLabel } from '../InputLabel/index.ts';
+import { Link } from '../Link/index.ts';
 import template from './login.hbs';
 
 interface ILoginProps {

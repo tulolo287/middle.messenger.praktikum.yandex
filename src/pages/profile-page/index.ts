@@ -1,15 +1,15 @@
-import { Avatar } from '../../components/Avatar';
-import { Button } from '../../components/Button';
-import { ChangeAvatar } from '../../components/ChangeAvatar';
-import { Link } from '../../components/Link';
-import { PageLinks } from '../../components/PageLinks';
-import AuthController from '../../controllers/AuthController';
-import UserController from '../../controllers/UserController';
-import { ROUTES } from '../../data/consts';
-import { pages } from '../../data/pages';
-import { IProfile } from '../../typings/data';
-import Block from '../../utils/Block';
-import { withStore } from '../../utils/Store';
+import { Avatar } from '../../components/Avatar/index.ts';
+import { Button } from '../../components/Button/index.ts';
+import { ChangeAvatar } from '../../components/ChangeAvatar/index.ts';
+import { Link } from '../../components/Link/index.ts';
+import { PageLinks } from '../../components/PageLinks/index.ts';
+import AuthController from '../../controllers/AuthController.ts';
+import UserController from '../../controllers/UserController.ts';
+import { ROUTES } from '../../data/consts.ts';
+import { pages } from '../../data/pages.ts';
+import { IProfile } from '../../typings/data.ts';
+import Block from '../../utils/Block.ts';
+import { withStore } from '../../utils/Store.ts';
 import template from './profile.hbs';
 
 interface ProfilePageProps {

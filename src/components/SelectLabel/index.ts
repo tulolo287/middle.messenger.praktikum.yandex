@@ -1,6 +1,6 @@
-import { ISelectLabel } from '../../typings/data';
-import Block from '../../utils/Block';
-import { Select } from '../Select';
+import { ISelectLabel } from '../../typings/data.ts';
+import Block from '../../utils/Block.ts';
+import { Select } from '../Select/index.ts';
 import template from './select-label.hbs';
 
 export class SelectLabel extends Block {

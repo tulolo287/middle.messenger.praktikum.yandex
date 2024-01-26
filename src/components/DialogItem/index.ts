@@ -1,6 +1,6 @@
-import { IDialog } from '../../typings/data';
-import Block from '../../utils/Block';
-import { Menu } from '../Menu';
+import { IDialog } from '../../typings/data.ts';
+import Block from '../../utils/Block.ts';
+import { Menu } from '../Menu/index.ts';
 import template from './chat-dialog.hbs';
 
 export class DialogItem extends Block {

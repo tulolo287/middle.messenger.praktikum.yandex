@@ -1,6 +1,6 @@
-import { pages } from '../../data/pages';
-import Block from '../../utils/Block';
-import { Link } from '../Link';
+import { pages } from '../../data/pages.ts';
+import Block from '../../utils/Block.ts';
+import { Link } from '../Link/index.ts';
 import template from './page-links.hbs';
 
 interface IPageLinks {

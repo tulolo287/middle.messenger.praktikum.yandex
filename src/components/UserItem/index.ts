@@ -1,4 +1,4 @@
-import Block from '../../utils/Block';
+import Block from '../../utils/Block.ts';
 import './user-item.css';
 import template from './user-item.hbs';
 

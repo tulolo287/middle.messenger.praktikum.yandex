@@ -1,5 +1,5 @@
-import BaseAPI from './BaseAPI';
-import { User } from './AuthAPI';
+import BaseAPI from './BaseAPI.ts';
+import { User } from './AuthAPI.ts';
 
 export interface ChatInfo {
   id: number;
@@ -14,6 +14,10 @@ export interface ChatInfo {
 }
 
 export class ChatsAPI extends BaseAPI {
+  public update?(): Promise<unknown> {
+    throw new Error('Method not implemented.');
+  }
+
   constructor() {
     super('/chats');
   }
@@ -51,8 +55,6 @@ export class ChatsAPI extends BaseAPI {
 
     return response.token;
   }
-
-  update = undefined;
 }
 
 export default new ChatsAPI();

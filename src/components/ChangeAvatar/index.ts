@@ -1,8 +1,8 @@
-import Block from '../../utils/Block';
-import { withStore } from '../../utils/Store';
-import { Button } from '../Button';
-import { Input } from '../Input';
-import { InputLabel } from '../InputLabel';
+import Block from '../../utils/Block.ts';
+import { withStore } from '../../utils/Store.ts';
+import { Button } from '../Button/index.ts';
+import { Input } from '../Input/index.ts';
+import { InputLabel } from '../InputLabel/index.ts';
 import './change-avatar.css';
 import template from './change-avatar.hbs';
 

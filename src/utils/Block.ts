@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { EventBus } from './EventBus';
+import { EventBus } from './EventBus.ts';
 
 class Block<P extends Record<string, any> = any> {
   static EVENTS = {
@@ -40,6 +40,10 @@ class Block<P extends Record<string, any> = any> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
+  getEventBus() {
+    return this.eventBus();
+  }
+
   _getChildrenAndProps(childrenAndProps: P): {
     props: P;
     children: Record<string, Block | Block[]>;
@@ -52,7 +56,7 @@ class Block<P extends Record<string, any> = any> {
     }
 
     Object.entries(childrenAndProps).forEach(([key, value]) => {
-      if (Array.isArray(value) && value.every((v) => v instanceof Block)) {
+      if (Array.isArray(value) && value.length > 0 && value.every((v) => v instanceof Block)) {
         children[key] = value;
       } else if (value instanceof Block) {
         children[key] = value;
@@ -140,6 +144,10 @@ class Block<P extends Record<string, any> = any> {
 
   get element() {
     return this._element;
+  }
+
+  getProps() {
+    return this.props;
   }
 
   private _render() {

@@ -1,4 +1,4 @@
-import Block from '../../utils/Block';
+import Block from '../../utils/Block.ts';
 import './overlay-bg.css';
 import template from './overlayBG.hbs';
 

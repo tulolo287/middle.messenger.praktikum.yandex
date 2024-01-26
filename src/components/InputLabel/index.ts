@@ -1,6 +1,7 @@
-import { IInputLabel } from '../../typings/data';
-import Block from '../../utils/Block';
-import { Input } from '../Input';
+import { IInputLabel } from '../../typings/data.ts';
+import Block from '../../utils/Block.ts';
+import { Input } from '../Input/index.ts';
+
 import template from './input-label.hbs';
 
 export class InputLabel extends Block {

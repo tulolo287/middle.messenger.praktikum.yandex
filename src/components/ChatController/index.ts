@@ -1,11 +1,11 @@
-import ChatsController from '../../controllers/ChatsController';
-import Block from '../../utils/Block';
-import { withStore } from '../../utils/Store';
-import { Button } from '../Button';
-import { Input } from '../Input';
-import { InputLabel } from '../InputLabel';
-import { Select } from '../Select';
-import { SelectLabel } from '../SelectLabel';
+import ChatsController from '../../controllers/ChatsController.ts';
+import Block from '../../utils/Block.ts';
+import { withStore } from '../../utils/Store.ts';
+import { Button } from '../Button/index.ts';
+import { Input } from '../Input/index.ts';
+import { InputLabel } from '../InputLabel/index.ts';
+import { Select } from '../Select/index.ts';
+import { SelectLabel } from '../SelectLabel/index.ts';
 import './chat-controller.css';
 import template from './chat-controller.hbs';
 
@@ -101,19 +101,15 @@ class BaseChatController extends Block {
   }
 
   private createSelect() {
-    if (this.props.chats) {
-      return new SelectLabel({
-        placeholder: 'Выберите чат',
-        required: true,
-        type: 'text',
-        value: '',
-        options: this.props.chats,
-        label: { for: 'delete_chat', text: 'Выберите чат' },
-        name: 'delete_chat',
-      });
-    } else {
-      return [];
-    }
+    return new SelectLabel({
+      placeholder: 'Выберите чат',
+      required: true,
+      type: 'text',
+      value: '',
+      options: this.props.chats,
+      label: { for: 'delete_chat', text: 'Выберите чат' },
+      name: 'delete_chat',
+    });
   }
 
   render() {

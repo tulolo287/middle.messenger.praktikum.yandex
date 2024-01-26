@@ -1,7 +1,7 @@
-import { IDialog } from '../../typings/data';
-import Block from '../../utils/Block';
-import { withStore } from '../../utils/Store';
-import { DialogItem } from '../DialogItem';
+import { IDialog } from '../../typings/data.ts';
+import Block from '../../utils/Block.ts';
+import { withStore } from '../../utils/Store.ts';
+import { DialogItem } from '../DialogItem/index.ts';
 import template from './dialogs.hbs';
 
 interface DialogsProps {
@@ -49,7 +49,7 @@ const withSelectedChatDialogs = withStore((state) => {
     return {
       dialogs: [],
       selectedChat: undefined,
-      userId: state.user ? state.user.id : undefined,
+      userId: state.user?.id,
     };
   }
 

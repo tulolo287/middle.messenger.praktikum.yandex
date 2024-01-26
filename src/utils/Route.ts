@@ -1,36 +1,31 @@
-import Block from './Block';
-import { render } from './render';
+import Block from './Block.ts';
+import { render } from './render.ts';
+
+export interface BlockConstructable<P extends Record<string, any> = any> {
+  new (props: P): Block<P>;
+}
 
 export class Route {
-  _pathname: string;
+  private _block: Block | null = null;
 
-  _blockClass: typeof Block;
-
-  _props: Record<string, any>;
-
-  _block: Block | null;
-
-  constructor(pathname: string, view: typeof Block, props: Record<string, any>) {
-    this._pathname = pathname;
-    this._blockClass = view;
-    this._props = props;
-    this._block = null;
-  }
+  constructor(
+    private pathname: string,
+    private readonly BlockClass: BlockConstructable,
+    private readonly rootQuery: string,
+  ) {}
 
   render() {
     if (!this._block) {
-      this._block = new this._blockClass(this._props);
+      this._block = new this.BlockClass({});
+      render(this.rootQuery, this._block);
     }
-    render(this._props.rootQuery, this._block);
   }
 
   leave() {
-    if (this._block) {
-      this._block.hide();
-    }
+    this._block = null;
   }
 
   match(pathname: string) {
-    return pathname === this._pathname;
+    return pathname === this.pathname;
   }
 }
